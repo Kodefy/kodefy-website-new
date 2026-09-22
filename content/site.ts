@@ -39,6 +39,13 @@ type HomeContent = {
     projectName: string;
   };
   trust: { label: string; logosLabel: string };
+  expectations: {
+    labels: string[];
+    title: string;
+    body: string;
+    primary: string;
+    secondary: string;
+  };
   metrics: { value: string; label: string }[];
   servicesIntro: { eyebrow: string; title: string; body: string };
   services: { number: string; title: string; body: string; price: string }[];
@@ -104,6 +111,14 @@ export const homeContent: Record<Locale, HomeContent> = {
     trust: {
       label: "Trusted by businesses across industries.",
       logosLabel: "Selected client brands",
+    },
+    expectations: {
+      labels: ["Professional Websites", "SEO Foundations", "Analytics Setup"],
+      title: "What you can expect",
+      body:
+        "Kodefy helps businesses look more professional online, become easier to find in search, and understand the actions that matter. Every project starts with business needs, a focused scope, and work that is easy to understand.",
+      primary: "Discuss your project",
+      secondary: "See our work",
     },
     metrics: [
       { value: "2020", label: "Established" },
@@ -274,6 +289,14 @@ export const homeContent: Record<Locale, HomeContent> = {
     trust: {
       label: "Dipercaya oleh bisnis dari berbagai industri.",
       logosLabel: "Pilihan brand klien",
+    },
+    expectations: {
+      labels: ["Website Profesional", "Fondasi SEO", "Setup Analitik"],
+      title: "Yang bisa Anda harapkan",
+      body:
+        "Kodefy membantu bisnis memiliki website yang terlihat profesional, lebih mudah ditemukan di Google, dan dapat diukur dengan jelas. Setiap pekerjaan dimulai dari kebutuhan bisnis, scope yang terarah, dan hasil yang mudah dipahami.",
+      primary: "Diskusikan proyek Anda",
+      secondary: "Lihat karya kami",
     },
     metrics: [
       { value: "2020", label: "Mulai beroperasi" },

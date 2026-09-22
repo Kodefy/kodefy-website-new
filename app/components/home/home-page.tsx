@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import { ClientLogos } from "@/app/components/home/components/client-logos";
+import { Expectations } from "@/app/components/home/components/expectations";
 import { Hero } from "@/app/components/home/components/hero";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
@@ -45,20 +46,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
         <ClientLogos locale={locale} />
 
-        <section className="bg-[#d7ff52] text-[#101014]">
-          <div className="mx-auto grid max-w-[1440px] sm:grid-cols-3">
-            {content.metrics.map((metric, index) => (
-              <div
-                key={metric.label}
-                className="border-b border-black/15 px-5 py-9 last:border-b-0 sm:border-r sm:border-b-0 sm:last:border-r-0 sm:px-8 lg:px-12 lg:py-12"
-              >
-                <p className="text-5xl font-semibold tracking-[-0.055em] lg:text-7xl">{metric.value}</p>
-                <p className="mt-2 text-sm font-semibold text-black/58">{metric.label}</p>
-                <span className="sr-only">{index + 1}</span>
-              </div>
-            ))}
-          </div>
-        </section>
+        <Expectations locale={locale} />
 
         <section id="services" className="scroll-mt-24 bg-[#101014] text-white">
           <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
