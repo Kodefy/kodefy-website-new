@@ -1,24 +1,28 @@
 "use client";
 
-import { useEffect, useRef, useState, type PointerEvent } from "react";
+import { useEffect, useRef, useState, type ComponentPropsWithoutRef, type PointerEvent } from "react";
 import Image from "next/image";
 
-import { SheetClose } from "@/components/ui/sheet";
+import { cn } from "@/lib/utils";
 
-type DriftPreviewProps = {
-  href: string;
+type DriftPreviewProps = ComponentPropsWithoutRef<"a"> & {
   imageSrc: string;
-  index: number;
-  isMenuOpen: boolean;
-  label: string;
+  imageAlt?: string;
+  previewHeight?: number;
+  previewWidth?: number;
 };
 
 export function DriftPreview({
-  href,
+  children,
+  className,
   imageSrc,
-  index,
-  isMenuOpen,
-  label,
+  imageAlt = "",
+  onPointerEnter,
+  onPointerLeave,
+  onPointerMove,
+  previewHeight = 320,
+  previewWidth = 256,
+  ...props
 }: DriftPreviewProps) {
   const previewRef = useRef<HTMLSpanElement>(null);
   const animationFrameRef = useRef<number | null>(null);
@@ -36,7 +40,7 @@ export function DriftPreview({
 
     if (!preview) return;
 
-    preview.style.transform = `translate3d(${x - 128}px, ${y - 160}px, 0) rotate(${rotation}deg)`;
+    preview.style.transform = `translate3d(${x - previewWidth / 2}px, ${y - previewHeight / 2}px, 0) rotate(${rotation}deg)`;
   }
 
   function animatePreview() {
@@ -100,7 +104,7 @@ export function DriftPreview({
     }, 80);
   }
 
-  function showPreview(event: PointerEvent<HTMLElement>) {
+  function showPreview(event: PointerEvent<HTMLAnchorElement>) {
     if (event.pointerType === "touch") return;
 
     movePreview(event);
@@ -112,19 +116,6 @@ export function DriftPreview({
   }
 
   useEffect(() => {
-    if (!isMenuOpen) {
-      setHasEntered(false);
-      return;
-    }
-
-    let animationFrame = requestAnimationFrame(() => {
-      animationFrame = requestAnimationFrame(() => setHasEntered(true));
-    });
-
-    return () => cancelAnimationFrame(animationFrame);
-  }, [isMenuOpen]);
-
-  useEffect(() => {
     return () => {
       if (animationFrameRef.current !== null) cancelAnimationFrame(animationFrameRef.current);
       if (resetTiltTimeoutRef.current) clearTimeout(resetTiltTimeoutRef.current);
@@ -132,13 +123,21 @@ export function DriftPreview({
   }, []);
 
   return (
-    <SheetClose
-      nativeButton={false}
-      render={<a href={href} />}
-      onPointerEnter={showPreview}
-      onPointerMove={movePreview}
-      onPointerLeave={hidePreview}
-      className="group relative z-10 flex items-start gap-2 text-5xl leading-none font-extralight tracking-tight text-white transition-colors duration-200 group-hover/menu:text-white/60 hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:text-6xl lg:text-8xl xl:text-9xl"
+    <a
+      {...props}
+      onPointerEnter={(event) => {
+        showPreview(event);
+        onPointerEnter?.(event);
+      }}
+      onPointerMove={(event) => {
+        movePreview(event);
+        onPointerMove?.(event);
+      }}
+      onPointerLeave={(event) => {
+        hidePreview();
+        onPointerLeave?.(event);
+      }}
+      className={cn("relative", className)}
     >
       <span
         ref={previewRef}
@@ -147,35 +146,22 @@ export function DriftPreview({
         style={{ transform: "translate3d(-9999px, -9999px, 0)" }}
       >
         <span
-          className={`relative block h-80 w-64 overflow-hidden transition-[opacity,scale] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[opacity,scale] motion-reduce:transition-none ${
+          className={`relative block overflow-hidden transition-[opacity,scale] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[opacity,scale] motion-reduce:transition-none ${
             isPreviewVisible ? "scale-100 opacity-100" : "scale-75 opacity-0"
           }`}
+          style={{ height: previewHeight, width: previewWidth }}
         >
           <span
             className={`relative block h-full w-full transition-[scale] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[scale] motion-reduce:transition-none ${
               isPreviewVisible ? "scale-100" : "scale-[1.333333]"
             }`}
           >
-            <Image src={imageSrc} alt="" fill sizes="256px" className="object-cover" />
+            <Image src={imageSrc} alt={imageAlt} fill sizes={`${previewWidth}px`} className="object-cover" />
           </span>
         </span>
       </span>
 
-      <span
-        className={`flex items-start gap-2 transition-[opacity,translate] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
-          isMenuOpen
-            ? hasEntered
-              ? "translate-y-0 opacity-100"
-              : "translate-y-4 opacity-0"
-            : "translate-y-0 opacity-100"
-        }`}
-        style={{ transitionDelay: isMenuOpen ? `${(index - 1) * 100}ms` : "0ms" }}
-      >
-        <span>{label}</span>
-        <span className="mt-1 text-base font-medium tracking-normal text-white/35">
-          {String(index).padStart(2, "0")}
-        </span>
-      </span>
-    </SheetClose>
+      {children}
+    </a>
   );
 }

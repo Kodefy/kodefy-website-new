@@ -20,6 +20,7 @@ import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
 export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }) {
   const [open, setOpen] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
+  const [hasMenuEntered, setHasMenuEntered] = useState(false);
   const [isMenuAtTop, setIsMenuAtTop] = useState(true);
   const content = homeContent[locale];
   const homePath = getRoutePath("home", locale);
@@ -68,6 +69,19 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
     window.addEventListener("scroll", updateScrollState, { passive: true });
     return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
+
+  useEffect(() => {
+    if (!open) {
+      setHasMenuEntered(false);
+      return;
+    }
+
+    let animationFrame = requestAnimationFrame(() => {
+      animationFrame = requestAnimationFrame(() => setHasMenuEntered(true));
+    });
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [open]);
 
   const showLogo = isAtTop && (!open || isMenuAtTop);
 
@@ -144,14 +158,29 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
             className="group/menu flex flex-1 flex-wrap content-center gap-x-10 gap-y-4 py-12 lg:gap-x-12 lg:gap-y-6"
           >
             {navigation.map((item, index) => (
-              <DriftPreview
+              <span
                 key={item.href}
-                href={item.href}
-                imageSrc={item.imageSrc}
-                index={index + 1}
-                isMenuOpen={open}
-                label={item.label}
-              />
+                className={`transition-[opacity,translate] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                  open
+                    ? hasMenuEntered
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-4 opacity-0"
+                    : "translate-y-0 opacity-100"
+                }`}
+                style={{ transitionDelay: open ? `${index * 100}ms` : "0ms" }}
+              >
+                <DriftPreview
+                  href={item.href}
+                  imageSrc={item.imageSrc}
+                  onClick={() => setOpen(false)}
+                  className="group relative z-10 flex items-start gap-2 text-5xl leading-none font-extralight tracking-tight text-white transition-colors duration-200 group-hover/menu:text-white/60 hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:text-6xl lg:text-8xl xl:text-9xl"
+                >
+                  <span className="relative z-10">{item.label}</span>
+                  <span className="relative z-10 mt-1 text-base font-medium tracking-normal text-white/35">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                </DriftPreview>
+              </span>
             ))}
           </nav>
 
