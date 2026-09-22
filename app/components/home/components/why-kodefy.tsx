@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
+import { FrameReveal } from "@/components/site/frame-reveal";
 import { FillButton } from "@/components/ui/fill-button";
 import { homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
@@ -37,15 +37,15 @@ export function WhyKodefy({ locale }: { locale: Locale }) {
               className={`flex flex-col gap-3 sm:gap-5 ${columnIndex === 1 ? "lg:mt-24" : ""}`}
             >
               {column.map((image, index) => (
-                <div key={`${image.src}-${index}`} className="relative aspect-square overflow-hidden bg-zinc-900">
-                  <Image
+                <div key={`${image.src}-${index}`} className="relative aspect-square overflow-hidden">
+                  <FrameReveal
                     src={image.src}
                     alt={image.alt}
-                    fill
-                    sizes="(max-width: 1024px) 50vw, 28vw"
-                    className="object-cover"
+                    className="size-full aspect-auto"
+                    backgroundClassName="bg-white"
+                    delayMs={(index * 2 + columnIndex) * 250}
                   />
-                  <div aria-hidden="true" className="absolute inset-0 bg-black/20" />
+                  <div aria-hidden="true" className="pointer-events-none absolute inset-0 z-20" />
                 </div>
               ))}
             </div>

@@ -1,7 +1,7 @@
-import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 
 import { AccordionGallery } from "@/components/site/accordion-gallery";
+import { FrameReveal } from "@/components/site/frame-reveal";
 import { FillButton } from "@/components/ui/fill-button";
 import { homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
@@ -20,16 +20,13 @@ export function SuccessStories({ locale }: { locale: Locale }) {
       <div aria-hidden="true" className="absolute inset-y-0 left-0 w-1/3 bg-white" />
       <div className="relative mx-auto max-w-[1440px] px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1fr] lg:gap-20">
-          <article className="relative aspect-[4/5] overflow-hidden bg-black">
-            <Image
+          <article className="relative aspect-[4/5] overflow-hidden">
+            <FrameReveal
               src={featuredProject.image}
               alt={featuredProject.alt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 42vw"
-              className="object-cover"
+              className="size-full aspect-auto"
             />
-            <div className="absolute inset-0 bg-black/20" />
-            <p className="absolute right-6 bottom-6 left-6 text-4xl leading-none font-light tracking-tight text-white sm:text-5xl">
+            <p className="absolute right-6 bottom-6 left-6 z-30 text-4xl leading-none font-light tracking-tight text-white sm:text-5xl">
               {featuredProject.name}
             </p>
           </article>

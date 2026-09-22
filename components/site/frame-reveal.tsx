@@ -8,6 +8,8 @@ type FrameRevealProps = {
   alt: string;
   backgroundClassName?: string;
   className?: string;
+  delayMs?: number;
+  revealFrame?: boolean;
   src: string;
 };
 
@@ -15,6 +17,8 @@ export function FrameReveal({
   alt,
   backgroundClassName = "bg-black",
   className,
+  delayMs = 0,
+  revealFrame = true,
   src,
 }: FrameRevealProps) {
   const elementRef = useRef<HTMLDivElement>(null);
@@ -48,22 +52,25 @@ export function FrameReveal({
         className={cn(
           "absolute right-0 bottom-0 left-0 z-0 w-full transition-[height] duration-1000 ease-in-out motion-reduce:duration-0",
           backgroundClassName,
-          hasEntered ? "h-full" : "h-0",
+          revealFrame ? (hasEntered ? "h-full" : "h-0") : "h-full",
         )}
+        style={{ transitionDelay: revealFrame && hasEntered ? `${delayMs}ms` : "0ms" }}
       />
       <div
         className={`absolute inset-0 z-10 overflow-hidden transition-[clip-path] duration-1000 ease-in-out motion-reduce:delay-0 motion-reduce:duration-0 ${
           hasEntered
-            ? "[clip-path:inset(0_0_0_0)] delay-750"
+            ? "[clip-path:inset(0_0_0_0)]"
             : "[clip-path:inset(100%_0_0_0)]"
         }`}
+        style={{ transitionDelay: hasEntered ? `${delayMs + 750}ms` : "0ms" }}
       >
         <img
           src={src}
           alt={alt}
           className={`h-full w-full object-cover transition-transform duration-1000 ease-in-out motion-reduce:delay-0 motion-reduce:duration-0 ${
-            hasEntered ? "scale-100 delay-750" : "scale-200"
+            hasEntered ? "scale-100" : "scale-200"
           }`}
+          style={{ transitionDelay: hasEntered ? `${delayMs + 750}ms` : "0ms" }}
         />
       </div>
     </div>
