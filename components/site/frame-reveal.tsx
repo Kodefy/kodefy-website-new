@@ -6,11 +6,17 @@ import { cn } from "@/lib/utils";
 
 type FrameRevealProps = {
   alt: string;
+  backgroundClassName?: string;
   className?: string;
   src: string;
 };
 
-export function FrameReveal({ alt, className, src }: FrameRevealProps) {
+export function FrameReveal({
+  alt,
+  backgroundClassName = "bg-black",
+  className,
+  src,
+}: FrameRevealProps) {
   const elementRef = useRef<HTMLDivElement>(null);
   const [hasEntered, setHasEntered] = useState(false);
 
@@ -39,9 +45,11 @@ export function FrameReveal({ alt, className, src }: FrameRevealProps) {
     >
       <div
         aria-hidden="true"
-        className={`absolute right-0 bottom-0 left-0 z-0 w-full bg-white mix-blend-difference transition-[height] duration-1000 ease-in-out motion-reduce:duration-0 ${
-          hasEntered ? "h-full" : "h-0"
-        }`}
+        className={cn(
+          "absolute right-0 bottom-0 left-0 z-0 w-full transition-[height] duration-1000 ease-in-out motion-reduce:duration-0",
+          backgroundClassName,
+          hasEntered ? "h-full" : "h-0",
+        )}
       />
       <div
         className={`absolute inset-0 z-10 overflow-hidden transition-[clip-path] duration-1000 ease-in-out motion-reduce:delay-0 motion-reduce:duration-0 ${
