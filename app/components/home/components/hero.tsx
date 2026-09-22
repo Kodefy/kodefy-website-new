@@ -1,6 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 
 import DriftWall from "@/components/DriftWall";
+import { FadeInText } from "@/components/site/fade-in-text";
+import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { business, homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
@@ -33,15 +35,19 @@ export function Hero({ locale }: { locale: Locale }) {
       <div data-fill-button-surface="dark" className="flex max-h-screen items-start bg-black px-6 pt-24 pb-6 text-white sm:items-center sm:px-10 sm:py-16 lg:px-12 xl:px-16 xl:py-24">
         <div className="w-full max-w-2xl">
           <h1 className="text-3xl leading-none font-light tracking-tight text-white sm:text-6xl xl:text-7xl">
-            {content.hero.title}{" "}
-            <span className="block">{content.hero.highlightedTitle}</span>
+            <RevealHeadline
+              revealBy="character"
+              text={`${content.hero.title} ${content.hero.highlightedTitle}`}
+            />
           </h1>
 
           <div className="mt-8 flex items-end justify-between gap-8 border-t border-white/20 pt-6">
             <div>
-              <p className="max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
-                {content.hero.body}
-              </p>
+              <FadeInText
+                className="max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8"
+                text={content.hero.body}
+                delay={0.15}
+              />
             </div>
           </div>
 

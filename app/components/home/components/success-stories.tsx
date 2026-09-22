@@ -1,7 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { AccordionGallery } from "@/components/site/accordion-gallery";
+import { FadeInText } from "@/components/site/fade-in-text";
 import { FrameReveal } from "@/components/site/frame-reveal";
+import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
@@ -33,11 +35,13 @@ export function SuccessStories({ locale }: { locale: Locale }) {
 
           <div className="flex flex-col justify-center py-2 lg:py-10">
             <h2 className="max-w-2xl text-5xl leading-none font-light tracking-tight sm:text-6xl lg:text-7xl">
-              {content.workIntro.title}
+              <RevealHeadline revealBy="character" text={content.workIntro.title} />
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-7 text-black/65 sm:text-lg sm:leading-8">
-              {content.workIntro.body}
-            </p>
+            <FadeInText
+              className="mt-6 max-w-xl text-base leading-7 text-black/65 sm:text-lg sm:leading-8"
+              text={content.workIntro.body}
+              delay={0.15}
+            />
             <div className="mt-8 flex flex-wrap gap-3">
               <FillButton
                 href="#contact"

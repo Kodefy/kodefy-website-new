@@ -6,7 +6,9 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FormEvent, useRef } from "react";
 
 import Grainient from "@/components/site/grainient";
+import { FadeInText } from "@/components/site/fade-in-text";
 import { LanguageSwitcher } from "@/components/site/language-switcher";
+import { RevealHeadline } from "@/components/site/reveal-headline";
 import { business, homeContent } from "@/content/site";
 import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
 
@@ -88,13 +90,17 @@ export function Footer({
           className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end"
         >
           <h2 className="max-w-xl whitespace-pre-line text-[clamp(4rem,8vw,8.5rem)] leading-[0.88] font-light tracking-tight">
-            {"Let’s\ntalk"}
+            <RevealHeadline revealBy="character" text={"Let’s\ntalk"} />
           </h2>
-          <p className="max-w-xl text-lg leading-8 text-white/75 lg:justify-self-end">
-            {isIndonesian
-              ? "Ceritakan kebutuhan bisnis Anda. Kami akan membantu menentukan langkah digital yang paling masuk akal untuk dimulai."
-              : "Tell us what your business needs. We will help identify the most sensible digital step to start with."}
-          </p>
+          <FadeInText
+            className="max-w-xl text-lg leading-8 text-white/75 lg:justify-self-end"
+            text={
+              isIndonesian
+                ? "Ceritakan kebutuhan bisnis Anda. Kami akan membantu menentukan langkah digital yang paling masuk akal untuk dimulai."
+                : "Tell us what your business needs. We will help identify the most sensible digital step to start with."
+            }
+            delay={0.15}
+          />
         </motion.div>
 
         <motion.div

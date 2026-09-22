@@ -1,6 +1,8 @@
 import Image from "next/image";
 
 import { FillButton } from "@/components/ui/fill-button";
+import { FadeInText } from "@/components/site/fade-in-text";
+import { RevealHeadline } from "@/components/site/reveal-headline";
 import { homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
 
@@ -12,11 +14,13 @@ export function Process({ locale }: { locale: Locale }) {
       <div className="mx-auto grid max-w-[1440px] gap-14 px-6 py-20 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-24 lg:px-12 lg:py-28">
         <div className="lg:sticky lg:top-12 lg:self-start">
           <h2 className="max-w-md text-5xl leading-none font-light tracking-tight sm:text-6xl">
-            {content.processIntro.title}
+            <RevealHeadline revealBy="character" text={content.processIntro.title} />
           </h2>
-          <p className="mt-4 max-w-md text-base leading-7 text-black/65 sm:text-lg sm:leading-8">
-            {content.processIntro.body}
-          </p>
+          <FadeInText
+            className="mt-4 max-w-md text-base leading-7 text-black/65 sm:text-lg sm:leading-8"
+            text={content.processIntro.body}
+            delay={0.15}
+          />
           <div className="relative mt-2 aspect-[4/5] w-full max-w-lg lg:max-w-[580px]">
             <Image
               src="/assets/mockups/kodefy-phone-mockup.webp"

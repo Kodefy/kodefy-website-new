@@ -4,6 +4,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
 import { FillButton } from "@/components/ui/fill-button";
+import { FadeInText } from "@/components/site/fade-in-text";
+import { RevealHeadline } from "@/components/site/reveal-headline";
 import type { Locale } from "@/lib/routes";
 
 const placeholders = [
@@ -41,13 +43,20 @@ export function Testimonials({ locale }: { locale: Locale }) {
       <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 py-20 sm:px-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20 lg:px-12 lg:py-28">
         <div className="flex flex-col justify-center">
           <h2 className="max-w-md text-5xl leading-none font-light tracking-tight sm:text-6xl">
-            {isIndonesian ? "Apa kata klien kami." : "What our clients say."}
+            <RevealHeadline
+              revealBy="character"
+              text={isIndonesian ? "Apa kata klien kami." : "What our clients say."}
+            />
           </h2>
-          <p className="mt-6 max-w-sm text-base leading-7 text-black/65 sm:text-lg sm:leading-8">
-            {isIndonesian
-              ? "Tempat sementara untuk pengalaman dan masukan dari klien Kodefy."
-              : "A temporary space for feedback and experiences from Kodefy clients."}
-          </p>
+          <FadeInText
+            className="mt-6 max-w-sm text-base leading-7 text-black/65 sm:text-lg sm:leading-8"
+            text={
+              isIndonesian
+                ? "Tempat sementara untuk pengalaman dan masukan dari klien Kodefy."
+                : "A temporary space for feedback and experiences from Kodefy clients."
+            }
+            delay={0.15}
+          />
           <div className="mt-8">
             <FillButton
               href="#contact"

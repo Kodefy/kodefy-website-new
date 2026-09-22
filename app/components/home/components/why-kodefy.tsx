@@ -1,6 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { FrameReveal } from "@/components/site/frame-reveal";
+import { FadeInText } from "@/components/site/fade-in-text";
+import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
@@ -54,16 +56,22 @@ export function WhyKodefy({ locale }: { locale: Locale }) {
 
         <div className="max-w-xl lg:justify-self-end">
           <h2 className="text-5xl leading-none font-light tracking-tight sm:text-6xl lg:text-7xl">
-            {content.title}
+            <RevealHeadline revealBy="character" text={content.title} />
           </h2>
-          <p className="mt-6 text-base leading-7 text-white/65 sm:text-lg sm:leading-8">
-            {content.body}
-          </p>
-          <p className="mt-6 text-base leading-7 text-white/65 sm:text-lg sm:leading-8">
-            {locale === "id"
-              ? "Baik Anda menjalankan bisnis jasa, company profile, maupun katalog produk, kami membangun fondasi digital yang menyatukan website, pencarian Google, dan analitik ke dalam langkah yang terarah."
-              : "Whether you run a service business, company profile, or product catalogue, we build a digital foundation that brings your website, Google search, and analytics into one focused direction."}
-          </p>
+          <FadeInText
+            className="mt-6 text-base leading-7 text-white/65 sm:text-lg sm:leading-8"
+            text={content.body}
+            delay={0.15}
+          />
+          <FadeInText
+            className="mt-6 text-base leading-7 text-white/65 sm:text-lg sm:leading-8"
+            text={
+              locale === "id"
+                ? "Baik Anda menjalankan bisnis jasa, company profile, maupun katalog produk, kami membangun fondasi digital yang menyatukan website, pencarian Google, dan analitik ke dalam langkah yang terarah."
+                : "Whether you run a service business, company profile, or product catalogue, we build a digital foundation that brings your website, Google search, and analytics into one focused direction."
+            }
+            delay={0.25}
+          />
           <div className="mt-8 flex flex-wrap gap-3">
             <FillButton
               href="#contact"

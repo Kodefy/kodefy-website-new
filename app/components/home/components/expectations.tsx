@@ -1,7 +1,9 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { DriftPreview } from "@/components/site/drift-preview";
+import { FadeInText } from "@/components/site/fade-in-text";
 import { FrameReveal } from "@/components/site/frame-reveal";
+import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
@@ -54,11 +56,13 @@ export function Expectations({ locale }: { locale: Locale }) {
 
         <div>
           <h2 id="expectations-heading" className="text-4xl leading-none font-light tracking-tight sm:text-5xl lg:text-6xl">
-            {content.title}
+            <RevealHeadline revealBy="character" text={content.title} />
           </h2>
-          <p className="mt-6 text-base leading-7 text-black/65 sm:text-lg sm:leading-8">
-            {content.body}
-          </p>
+          <FadeInText
+            className="mt-6 text-base leading-7 text-black/65 sm:text-lg sm:leading-8"
+            text={content.body}
+            delay={0.15}
+          />
           <div className="mt-8 flex flex-wrap gap-3">
             <FillButton
               href="#contact"

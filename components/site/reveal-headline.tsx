@@ -24,43 +24,78 @@ export function RevealHeadline({
   text,
   wordStagger = 0.06,
 }: RevealHeadlineProps) {
-  const items =
-    revealBy === "character"
-      ? text.split("")
-      : text.trim().split(/\s+/).filter(Boolean);
+  const items = text.trim().split(/\s+/).filter(Boolean);
+  const characterTokens = text.split(/(\s+)/).filter(Boolean);
   const rootRef = useRef<HTMLSpanElement>(null);
   const isInView = useInView(rootRef, { once: true, amount: 0.35 });
   const prefersReducedMotion = useReducedMotion();
-  const stagger = revealBy === "character" ? characterStagger : wordStagger;
+  let characterIndex = 0;
 
   return (
     <span ref={rootRef} className={cn("block overflow-hidden", className)} aria-label={text}>
-      <span
-        aria-hidden="true"
-        className={cn("block", revealBy === "character" && "whitespace-nowrap")}
-      >
-        {items.map((item, index) => (
-          <span
-            key={`${index}-${item}`}
-            className={cn(
-              "inline-block overflow-hidden pb-[0.16em] align-top",
-              revealBy === "word" && "mr-[0.22em] last:mr-0",
-            )}
-          >
-            <motion.span
-              initial={prefersReducedMotion ? false : { y: "110%" }}
-              animate={{ y: isInView || prefersReducedMotion ? "0%" : "110%" }}
-              transition={{
-                duration: prefersReducedMotion ? 0 : 1.15,
-                ease: revealEase,
-                delay: prefersReducedMotion ? 0 : delay + index * stagger,
-              }}
-              className="block transform-gpu [backface-visibility:hidden] will-change-transform"
-            >
-              {item === " " ? "\u00a0" : item}
-            </motion.span>
-          </span>
-        ))}
+      <span aria-hidden="true" className="block">
+        {revealBy === "character"
+          ? characterTokens.map((token, tokenIndex) => {
+              if (/^\s+$/.test(token)) {
+                return token.includes("\n") ? (
+                  <br key={`${tokenIndex}-break`} />
+                ) : (
+                  <span key={`${tokenIndex}-space`}> </span>
+                );
+              }
+
+              return (
+                <span
+                  key={`${tokenIndex}-${token}`}
+                  className="inline-block whitespace-nowrap"
+                >
+                  {Array.from(token).map((character) => {
+                    const index = characterIndex++;
+
+                    return (
+                      <span
+                        key={`${index}-${character}`}
+                        className="inline-block overflow-hidden pb-[0.16em] align-top"
+                      >
+                        <motion.span
+                          initial={prefersReducedMotion ? false : { y: "110%" }}
+                          animate={{ y: isInView || prefersReducedMotion ? "0%" : "110%" }}
+                          transition={{
+                            duration: prefersReducedMotion ? 0 : 1.15,
+                            ease: revealEase,
+                            delay: prefersReducedMotion
+                              ? 0
+                              : delay + index * characterStagger,
+                          }}
+                          className="block transform-gpu [backface-visibility:hidden] will-change-transform"
+                        >
+                          {character}
+                        </motion.span>
+                      </span>
+                    );
+                  })}
+                </span>
+              );
+            })
+          : items.map((item, index) => (
+              <span
+                key={`${index}-${item}`}
+                className="mr-[0.22em] inline-block overflow-hidden pb-[0.16em] align-top last:mr-0"
+              >
+                <motion.span
+                  initial={prefersReducedMotion ? false : { y: "110%" }}
+                  animate={{ y: isInView || prefersReducedMotion ? "0%" : "110%" }}
+                  transition={{
+                    duration: prefersReducedMotion ? 0 : 1.15,
+                    ease: revealEase,
+                    delay: prefersReducedMotion ? 0 : delay + index * wordStagger,
+                  }}
+                  className="block transform-gpu [backface-visibility:hidden] will-change-transform"
+                >
+                  {item}
+                </motion.span>
+              </span>
+            ))}
       </span>
     </span>
   );

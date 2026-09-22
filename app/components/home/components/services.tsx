@@ -1,6 +1,8 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { FillButton } from "@/components/ui/fill-button";
+import { FadeInText } from "@/components/site/fade-in-text";
+import { RevealHeadline } from "@/components/site/reveal-headline";
 import { homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
 
@@ -25,7 +27,7 @@ export function Services({ locale }: { locale: Locale }) {
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.75fr] lg:items-start lg:gap-24">
           <div>
             <h2 className="max-w-3xl text-5xl leading-none font-light tracking-tight sm:text-6xl lg:text-7xl">
-              {content.servicesIntro.title}
+              <RevealHeadline revealBy="character" text={content.servicesIntro.title} />
             </h2>
             <div className="mt-8 flex flex-wrap gap-3">
               <FillButton
@@ -41,9 +43,11 @@ export function Services({ locale }: { locale: Locale }) {
             </div>
           </div>
 
-          <p className="max-w-xl text-base leading-7 text-black/65 sm:text-lg sm:leading-8 lg:pt-2">
-            {content.servicesIntro.body}
-          </p>
+          <FadeInText
+            className="max-w-xl text-base leading-7 text-black/65 sm:text-lg sm:leading-8 lg:pt-2"
+            text={content.servicesIntro.body}
+            delay={0.15}
+          />
         </div>
 
         <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">

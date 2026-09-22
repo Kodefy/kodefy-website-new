@@ -1,6 +1,7 @@
 "use client";
 
 import { LogoLoop } from "@/components/site/logo-loop";
+import { RevealHeadline } from "@/components/site/reveal-headline";
 import { clients, homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
 
@@ -14,7 +15,7 @@ export function ClientLogos({ locale }: { locale: Locale }) {
           id="client-logos-heading"
           className="max-w-52 text-xl leading-tight font-medium tracking-tight text-black"
         >
-          {content.trust.label}
+          <RevealHeadline revealBy="character" text={content.trust.label} />
         </h2>
 
         <div className="min-w-0 flex-1 overflow-hidden">
