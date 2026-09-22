@@ -28,6 +28,7 @@ export function Header({
   const [isAtTop, setIsAtTop] = useState(true);
   const [hasMenuEntered, setHasMenuEntered] = useState(false);
   const [isMenuAtTop, setIsMenuAtTop] = useState(true);
+  const [hoveredNavIndex, setHoveredNavIndex] = useState<number | null>(null);
   const content = homeContent[locale];
   const homePath = getRoutePath("home", locale);
   const navigation = [
@@ -173,7 +174,7 @@ export function Header({
             aria-label={
               locale === "id" ? "Navigasi utama" : "Primary navigation"
             }
-            className="group/menu flex flex-1 flex-wrap content-center gap-x-10 gap-y-4 py-12 lg:gap-x-12 lg:gap-y-6"
+            className="flex flex-1 flex-wrap content-center gap-x-10 gap-y-4 py-12 lg:gap-x-12 lg:gap-y-6"
           >
             {navigation.map((item, index) => (
               <span
@@ -190,8 +191,19 @@ export function Header({
                 <DriftPreview
                   href={item.href}
                   imageSrc={item.imageSrc}
-                  onClick={() => setOpen(false)}
-                  className="group relative z-10 flex items-start gap-2 text-5xl leading-none font-extralight tracking-tight text-white transition-colors duration-200 group-hover/menu:text-white/60 hover:!text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:text-6xl lg:text-8xl xl:text-9xl"
+                  onClick={() => {
+                    setHoveredNavIndex(null);
+                    setOpen(false);
+                  }}
+                  onMouseEnter={() => setHoveredNavIndex(index)}
+                  onMouseLeave={() => setHoveredNavIndex(null)}
+                  onFocus={() => setHoveredNavIndex(index)}
+                  onBlur={() => setHoveredNavIndex(null)}
+                  className={`relative z-10 flex items-start gap-2 text-5xl leading-none font-extralight tracking-tight transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:text-6xl lg:text-8xl xl:text-9xl ${
+                    hoveredNavIndex !== null && hoveredNavIndex !== index
+                      ? "text-white/60"
+                      : "text-white"
+                  }`}
                 >
                   <span className="relative z-10">{item.label}</span>
                   <span className="relative z-10 mt-1 text-base font-medium tracking-normal text-white/35">
