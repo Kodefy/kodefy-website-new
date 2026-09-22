@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
   ArrowDownRight,
   ArrowRight,
@@ -13,6 +12,7 @@ import { ClientLogos } from "@/app/components/home/components/client-logos";
 import { Expectations } from "@/app/components/home/components/expectations";
 import { Hero } from "@/app/components/home/components/hero";
 import { Services } from "@/app/components/home/components/services";
+import { SuccessStories } from "@/app/components/home/components/success-stories";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { Button } from "@/components/ui/button";
@@ -47,39 +47,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
         <Services locale={locale} />
 
-        <section id="work" className="scroll-mt-24 bg-[#f8f7f3]">
-          <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-            <SectionIntro {...content.workIntro} />
-            <div className="mt-12 space-y-5">
-              {content.projects.map((project, index) => (
-                <article
-                  key={project.name}
-                  className="grid overflow-hidden rounded-[1.6rem] border border-black/10 bg-white lg:grid-cols-[1.08fr_0.92fr]"
-                >
-                  <div className={`relative min-h-[320px] lg:min-h-[500px] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                    <Image
-                      src={project.image}
-                      alt={project.alt}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 55vw"
-                      className="object-cover"
-                    />
-                  </div>
-                  <div className="flex flex-col p-7 sm:p-10 lg:p-12">
-                    <p className="section-eyebrow">{project.type}</p>
-                    <h3 className="mt-5 text-4xl font-semibold tracking-[-0.045em] sm:text-5xl">{project.name}</h3>
-                    <p className="mt-6 max-w-lg text-lg leading-8 text-black/60">{project.summary}</p>
-                    <div className="mt-auto pt-12">
-                      <p className="border-t border-black/10 pt-5 text-sm font-semibold text-black/65">
-                        {project.delivery}
-                      </p>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
+        <SuccessStories locale={locale} />
 
         <section className="bg-white">
           <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20 lg:px-12 lg:py-28">
