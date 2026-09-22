@@ -3,7 +3,7 @@ import { hasLocale } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 
-import { HomePage } from "@/components/home/home-page";
+import { HomePage } from "@/app/components/home/home-page";
 import { business } from "@/content/site";
 import { routing } from "@/i18n/routing";
 import { productionOrigin, type Locale } from "@/lib/routes";

@@ -46,7 +46,11 @@ export function MobileNavigation({
         </SheetHeader>
         <nav className="flex flex-col px-6 py-5" aria-label="Mobile navigation">
           {links.map((link) => (
-            <SheetClose key={link.href} render={<a href={link.href} />}>
+            <SheetClose
+              key={link.href}
+              nativeButton={false}
+              render={<a href={link.href} />}
+            >
               <span className="block border-b border-black/10 py-4 text-xl font-semibold">
                 {link.label}
               </span>

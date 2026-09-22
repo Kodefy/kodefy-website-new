@@ -12,6 +12,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import { Hero } from "@/app/components/home/components/hero";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { Button } from "@/components/ui/button";
@@ -39,73 +40,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       </a>
       <Header locale={locale} routeId="home" />
       <main id="main-content">
-        <section className="relative overflow-hidden bg-[#f8f7f3]">
-          <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(13,13,15,0.055)_1px,transparent_1px),linear-gradient(to_bottom,rgba(13,13,15,0.055)_1px,transparent_1px)] bg-[size:54px_54px] [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" />
-          <div className="relative mx-auto grid max-w-[1440px] gap-12 px-5 pt-16 pb-14 sm:px-8 sm:pt-20 lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-16 lg:px-12 lg:pt-24 lg:pb-20">
-            <div className="max-w-3xl">
-              <p className="section-eyebrow">{content.hero.eyebrow}</p>
-              <h1 className="mt-6 max-w-[880px] text-[clamp(3.25rem,8vw,7.4rem)] leading-[0.88] font-semibold tracking-[-0.065em] text-[#101014]">
-                {content.hero.title}{" "}
-                <span className="text-[#1847e8]">{content.hero.highlightedTitle}</span>
-              </h1>
-              <p className="mt-8 max-w-2xl text-lg leading-8 text-black/62 sm:text-xl">
-                {content.hero.body}
-              </p>
-              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-                <Button
-                  size="lg"
-                  className="h-13 rounded-full bg-[#1847e8] px-6 text-base text-white hover:bg-[#1238ba]"
-                  nativeButton={false}
-                  render={<a href={whatsappHref} target="_blank" rel="noreferrer" />}
-                >
-                  {content.cta.primary}
-                  <ArrowUpRight aria-hidden="true" />
-                </Button>
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="h-13 rounded-full border-black/15 bg-white px-6 text-base hover:bg-black hover:text-white"
-                  nativeButton={false}
-                  render={<a href="#work" />}
-                >
-                  {content.cta.secondary}
-                  <ArrowDownRight aria-hidden="true" />
-                </Button>
-              </div>
-              <p className="mt-5 text-sm font-medium text-black/48">{content.hero.note}</p>
-            </div>
-
-            <div className="relative mx-auto w-full max-w-[660px] lg:mx-0">
-              <div className="absolute -top-5 -right-5 size-24 rounded-full bg-[#d7ff52] sm:size-32" />
-              <div className="relative overflow-hidden rounded-[2rem] border border-black/10 bg-[#111115] p-3 shadow-[0_30px_80px_rgba(13,13,15,0.2)] sm:p-4">
-                <div className="relative aspect-[4/5] overflow-hidden rounded-[1.45rem] bg-black sm:aspect-[5/4] lg:aspect-[4/5] xl:aspect-[5/4]">
-                  <Image
-                    src="/assets/projects/qijian-technology.webp"
-                    alt={content.projects[0].alt}
-                    fill
-                    priority
-                    sizes="(max-width: 1024px) 90vw, 42vw"
-                    className="object-cover"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/90 via-black/45 to-transparent p-6 pt-24 text-white sm:p-8">
-                    <p className="text-xs font-bold tracking-[0.18em] text-[#d7ff52] uppercase">
-                      {content.hero.projectLabel}
-                    </p>
-                    <p className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">
-                      {content.hero.projectName}
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <div className="absolute -bottom-5 -left-3 rounded-2xl bg-[#d7ff52] px-5 py-4 text-[#101014] shadow-xl sm:-left-8 sm:px-6">
-                <p className="text-xs font-bold tracking-[0.14em] uppercase">
-                  {locale === "id" ? "Website mulai" : "Websites from"}
-                </p>
-                <p className="mt-1 text-xl font-semibold">Rp1,5 juta</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <Hero locale={locale} />
 
         <section aria-labelledby="client-logos-heading" className="border-y border-black/10 bg-white">
           <div className="mx-auto max-w-[1440px] px-5 py-11 sm:px-8 lg:px-12 lg:py-14">
