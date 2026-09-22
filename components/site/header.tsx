@@ -17,7 +17,13 @@ import { DriftPreview } from "@/components/site/drift-preview";
 import { business, homeContent } from "@/content/site";
 import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
 
-export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }) {
+export function Header({
+  locale,
+  routeId,
+}: {
+  locale: Locale;
+  routeId: RouteId;
+}) {
   const [open, setOpen] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
   const [hasMenuEntered, setHasMenuEntered] = useState(false);
@@ -28,32 +34,38 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
     {
       label: locale === "id" ? "Beranda" : "Home",
       href: homePath,
-      imageSrc: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
+      imageSrc:
+        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
     },
     {
       label: content.navigation.services,
       href: `${homePath}#services`,
-      imageSrc: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
+      imageSrc:
+        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
     },
     {
       label: content.navigation.work,
       href: `${homePath}#work`,
-      imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      imageSrc:
+        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     },
     {
       label: content.navigation.process,
       href: `${homePath}#process`,
-      imageSrc: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+      imageSrc:
+        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
     },
     {
       label: content.navigation.pricing,
       href: `${homePath}#pricing`,
-      imageSrc: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=800&q=80",
+      imageSrc:
+        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=800&q=80",
     },
     {
       label: locale === "id" ? "Kontak" : "Contact",
       href: `${homePath}#contact`,
-      imageSrc: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
+      imageSrc:
+        "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
     },
   ];
   const whatsappHref = `${business.whatsapp}?text=${encodeURIComponent(
@@ -101,7 +113,7 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
             aria-label={locale === "id" ? "Beranda Kodefy" : "Kodefy home"}
             aria-hidden={!showLogo}
             tabIndex={showLogo ? 0 : -1}
-            className={`transition-opacity duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white ${
+            className={`transition-opacity duration-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white ${
               showLogo ? "opacity-100" : "pointer-events-none opacity-0"
             }`}
           >
@@ -149,12 +161,18 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
 
         <div
           className="mx-auto flex h-full w-full max-w-[1440px] flex-col overflow-y-auto px-6 pt-32 pb-8 sm:px-8 sm:pt-36 lg:overflow-hidden lg:px-12 lg:pt-40"
-          onScroll={(event) => setIsMenuAtTop(event.currentTarget.scrollTop === 0)}
+          onScroll={(event) =>
+            setIsMenuAtTop(event.currentTarget.scrollTop === 0)
+          }
         >
-          <p className="text-xs font-semibold tracking-widest text-white/40 uppercase">Menu</p>
+          <p className="text-xs font-semibold tracking-widest text-white/40 uppercase">
+            Menu
+          </p>
 
           <nav
-            aria-label={locale === "id" ? "Navigasi utama" : "Primary navigation"}
+            aria-label={
+              locale === "id" ? "Navigasi utama" : "Primary navigation"
+            }
             className="group/menu flex flex-1 flex-wrap content-center gap-x-10 gap-y-4 py-12 lg:gap-x-12 lg:gap-y-6"
           >
             {navigation.map((item, index) => (
@@ -188,14 +206,21 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
             <div>
               <p className="font-semibold text-white">Kodefy</p>
               <p className="mt-2">{business.location}</p>
-              <p className="mt-1">{locale === "id" ? "Sejak 2020" : "Since 2020"}</p>
+              <p className="mt-1">
+                {locale === "id" ? "Sejak 2020" : "Since 2020"}
+              </p>
             </div>
 
             <div className="flex flex-col items-start gap-2">
               <a className="hover:text-white" href={`mailto:${business.email}`}>
                 {business.email}
               </a>
-              <a className="hover:text-white" href={business.whatsapp} target="_blank" rel="noreferrer">
+              <a
+                className="hover:text-white"
+                href={business.whatsapp}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {business.phoneDisplay}
               </a>
             </div>
@@ -205,7 +230,12 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
                 <SheetClose
                   key={language}
                   nativeButton={false}
-                  render={<a href={getRoutePath(routeId, language)} hrefLang={language} />}
+                  render={
+                    <a
+                      href={getRoutePath(routeId, language)}
+                      hrefLang={language}
+                    />
+                  }
                   className={
                     locale === language
                       ? "text-white underline underline-offset-4"
