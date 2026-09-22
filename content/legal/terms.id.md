@@ -1,4 +1,4 @@
-# KODEFY — Syarat & Ketentuan Layanan
+# KODEFY - Syarat & Ketentuan Layanan
 
 Terakhir diperbarui: 22 Mei 2026
 

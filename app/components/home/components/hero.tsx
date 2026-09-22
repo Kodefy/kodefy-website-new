@@ -1,7 +1,7 @@
-import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import DriftWall from "@/components/DriftWall";
-import { Button } from "@/components/ui/button";
+import { FillButton } from "@/components/ui/fill-button";
 import { business, homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
 
@@ -30,13 +30,9 @@ export function Hero({ locale }: { locale: Locale }) {
 
   return (
     <section className="grid h-dvh bg-black lg:grid-cols-2">
-      <div className="flex items-center bg-black px-6 py-12 text-white sm:px-10 lg:px-12 xl:px-16">
+      <div className="flex max-h-screen items-start bg-black px-6 pt-24 pb-6 text-white sm:items-center sm:px-10 sm:py-16 lg:px-12 xl:px-16 xl:py-24">
         <div className="w-full max-w-2xl">
-          <p className="flex items-center gap-3 text-xs font-semibold tracking-widest text-white/50 uppercase before:h-px before:w-7 before:bg-white/40">
-            {content.hero.eyebrow}
-          </p>
-
-          <h1 className="mt-8 text-5xl leading-none font-medium tracking-tight text-white sm:text-6xl xl:text-7xl">
+          <h1 className="text-3xl leading-none font-light tracking-tight text-white sm:text-6xl xl:text-7xl">
             {content.hero.title}{" "}
             <span className="block">{content.hero.highlightedTitle}</span>
           </h1>
@@ -46,35 +42,17 @@ export function Hero({ locale }: { locale: Locale }) {
               <p className="max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
                 {content.hero.body}
               </p>
-              <p className="mt-5 text-xs font-medium tracking-wide text-white/50">
-                {content.hero.note}
-              </p>
             </div>
-            <ArrowDownRight
-              aria-hidden="true"
-              className="hidden size-9 text-white/50 sm:block"
-            />
           </div>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button
-              size="lg"
-              className="h-12 rounded-full bg-white px-6 text-base text-black hover:bg-neutral-200"
-              nativeButton={false}
-              render={<a href={whatsappHref} target="_blank" rel="noreferrer" />}
-            >
+            <FillButton href={whatsappHref} target="_blank" rel="noreferrer" variant="solid">
               {content.cta.primary}
               <ArrowUpRight aria-hidden="true" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="h-12 rounded-full border-white/30 bg-transparent px-6 text-base text-white hover:bg-white hover:text-black"
-              nativeButton={false}
-              render={<a href="#work" />}
-            >
+            </FillButton>
+            <FillButton href="#work">
               {content.cta.secondary}
-            </Button>
+            </FillButton>
           </div>
         </div>
       </div>

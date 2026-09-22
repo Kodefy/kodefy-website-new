@@ -1,4 +1,4 @@
-# KODEFY — Kebijakan Privasi
+# KODEFY - Kebijakan Privasi
 
 Terakhir diperbarui: 22 Mei 2026
 

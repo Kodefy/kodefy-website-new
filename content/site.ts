@@ -32,11 +32,9 @@ type HomeContent = {
   navigation: { services: string; work: string; process: string; pricing: string };
   cta: { primary: string; secondary: string };
   hero: {
-    eyebrow: string;
     title: string;
     highlightedTitle: string;
     body: string;
-    note: string;
     projectLabel: string;
     projectName: string;
   };
@@ -83,7 +81,7 @@ export const homeContent: Record<Locale, HomeContent> = {
     seo: {
       title: "Website, SEO & Analytics for Growing Businesses | Kodefy",
       description:
-        "Kodefy helps businesses build credible websites, strengthen their SEO foundations, and set up practical analytics—with clear scope and transparent starting prices.",
+        "Kodefy helps businesses build credible websites, strengthen their SEO foundations, and set up practical analytics with clear scope and transparent starting prices.",
     },
     navigation: {
       services: "Services",
@@ -96,12 +94,10 @@ export const homeContent: Record<Locale, HomeContent> = {
       secondary: "See our work",
     },
     hero: {
-      eyebrow: "Digital partner for practical business growth",
       title: "Build a digital presence that makes your business",
       highlightedTitle: "easier to trust.",
       body:
-        "Kodefy creates professional websites, stronger SEO foundations, and clear analytics setups for businesses that want to be understood—and contacted—online.",
-      note: "Direct consultation · Clear scope · Transparent starting prices",
+        "Kodefy creates professional websites, stronger SEO foundations, and clear analytics setups for businesses that want to be understood and contacted online.",
       projectLabel: "Featured delivery",
       projectName: "Qijian Technology",
     },
@@ -139,7 +135,7 @@ export const homeContent: Record<Locale, HomeContent> = {
         number: "03",
         title: "Analytics setup",
         body:
-          "Practical measurement foundations for important actions such as contact clicks, forms, and campaign landing pages—without guesswork.",
+          "Practical measurement foundations for important actions such as contact clicks, forms, and campaign landing pages without guesswork.",
         price: "Starting from Rp500 thousand",
       },
     ],
@@ -191,7 +187,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
       {
         title: "Scope shaped around the business",
-        body: "Recommendations begin with your goals and constraints—not a preselected stack or oversized feature list.",
+        body: "Recommendations begin with your goals and constraints, not a preselected stack or oversized feature list.",
       },
       {
         title: "SEO-conscious implementation",
@@ -268,12 +264,10 @@ export const homeContent: Record<Locale, HomeContent> = {
       secondary: "Lihat karya kami",
     },
     hero: {
-      eyebrow: "Partner digital untuk pertumbuhan bisnis yang praktis",
-      title: "Bangun kehadiran digital yang membuat bisnis Anda",
-      highlightedTitle: "lebih mudah dipercaya.",
+      title: "Jasa pembuatan website yang membuat calon pelanggan",
+      highlightedTitle: "lebih yakin menghubungi bisnis Anda.",
       body:
-        "Kodefy membuat website profesional, fondasi SEO yang lebih kuat, dan setup analitik yang jelas bagi bisnis yang ingin lebih mudah dipahami—dan dihubungi—secara online.",
-      note: "Konsultasi langsung · Scope jelas · Harga awal transparan",
+        "Kodefy membantu bisnis membangun kehadiran digital yang lebih meyakinkan dan terukur melalui website profesional, fondasi SEO, dan setup analitik yang jelas agar calon pelanggan lebih mudah menemukan, memahami, dan menghubungi bisnis Anda.",
       projectLabel: "Proyek pilihan",
       projectName: "Qijian Technology",
     },
@@ -363,7 +357,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       },
       {
         title: "Scope disesuaikan dengan bisnis",
-        body: "Rekomendasi dimulai dari tujuan dan batasan Anda—bukan pilihan teknologi atau daftar fitur berlebihan.",
+        body: "Rekomendasi dimulai dari tujuan dan batasan Anda, bukan pilihan teknologi atau daftar fitur berlebihan.",
       },
       {
         title: "Implementasi sadar SEO",

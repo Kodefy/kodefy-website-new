@@ -1,4 +1,4 @@
-# KODEFY — Privacy Policy
+# KODEFY - Privacy Policy
 
 Last Updated: May 22, 2026
 

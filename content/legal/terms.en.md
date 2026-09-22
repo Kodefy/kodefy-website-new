@@ -1,4 +1,4 @@
-# KODEFY — Terms of Service
+# KODEFY - Terms of Service
 
 Last Updated: May 22, 2026
 
