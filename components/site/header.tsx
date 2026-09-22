@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { DriftPreview } from "@/components/site/drift-preview";
 import { business, homeContent } from "@/content/site";
 import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
 
@@ -21,12 +22,36 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
   const content = homeContent[locale];
   const homePath = getRoutePath("home", locale);
   const navigation = [
-    { label: locale === "id" ? "Beranda" : "Home", href: homePath },
-    { label: content.navigation.services, href: `${homePath}#services` },
-    { label: content.navigation.work, href: `${homePath}#work` },
-    { label: content.navigation.process, href: `${homePath}#process` },
-    { label: content.navigation.pricing, href: `${homePath}#pricing` },
-    { label: locale === "id" ? "Kontak" : "Contact", href: `${homePath}#contact` },
+    {
+      label: locale === "id" ? "Beranda" : "Home",
+      href: homePath,
+      imageSrc: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      label: content.navigation.services,
+      href: `${homePath}#services`,
+      imageSrc: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      label: content.navigation.work,
+      href: `${homePath}#work`,
+      imageSrc: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      label: content.navigation.process,
+      href: `${homePath}#process`,
+      imageSrc: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      label: content.navigation.pricing,
+      href: `${homePath}#pricing`,
+      imageSrc: "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      label: locale === "id" ? "Kontak" : "Contact",
+      href: `${homePath}#contact`,
+      imageSrc: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
+    },
   ];
   const whatsappHref = `${business.whatsapp}?text=${encodeURIComponent(
     locale === "id"
@@ -75,7 +100,7 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
       <SheetContent
         side="top"
         showCloseButton={false}
-        className="!inset-0 !h-dvh !w-full !max-w-none gap-0 overflow-hidden !border-0 bg-black p-0 text-white shadow-none"
+        className="!inset-0 !h-dvh !w-full !max-w-none gap-0 overflow-hidden !border-0 bg-black p-0 text-white shadow-none !transition-opacity !duration-1000 data-[side=top]:data-ending-style:!translate-y-0 data-[side=top]:data-starting-style:!translate-y-0"
       >
         <SheetTitle className="sr-only">
           {locale === "id" ? "Menu utama" : "Main menu"}
@@ -91,20 +116,17 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
 
           <nav
             aria-label={locale === "id" ? "Navigasi utama" : "Primary navigation"}
-            className="grid flex-1 content-center gap-x-10 gap-y-4 py-12 sm:grid-cols-2 lg:grid-cols-3"
+            className="group/menu flex flex-1 flex-wrap content-center gap-x-10 gap-y-4 py-12 lg:gap-x-12 lg:gap-y-6"
           >
             {navigation.map((item, index) => (
-              <SheetClose
+              <DriftPreview
                 key={item.href}
-                nativeButton={false}
-                render={<a href={item.href} />}
-                className="group flex items-start gap-2 text-5xl leading-none font-light tracking-tight text-white/60 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:text-6xl lg:text-7xl"
-              >
-                <span>{item.label}</span>
-                <span className="mt-1 text-xs font-medium text-white/35">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-              </SheetClose>
+                href={item.href}
+                imageSrc={item.imageSrc}
+                index={index + 1}
+                isMenuOpen={open}
+                label={item.label}
+              />
             ))}
           </nav>
 
