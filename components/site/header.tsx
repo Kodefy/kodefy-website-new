@@ -178,12 +178,12 @@ export function Header({
             {navigation.map((item, index) => (
               <span
                 key={item.href}
-                className={`transition-[opacity,translate] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+                className={`relative transition-[opacity,top] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
                   open
                     ? hasMenuEntered
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-4 opacity-0"
-                    : "translate-y-0 opacity-100"
+                      ? "top-0 opacity-100"
+                      : "top-4 opacity-0"
+                    : "top-0 opacity-100"
                 }`}
                 style={{ transitionDelay: open ? `${index * 100}ms` : "0ms" }}
               >
