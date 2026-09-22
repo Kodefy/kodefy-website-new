@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { FillButton } from "@/components/ui/fill-button";
+import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { homeContent } from "@/content/site";
@@ -27,24 +28,24 @@ export function Services({ locale }: { locale: Locale }) {
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.75fr] lg:items-start lg:gap-24">
           <div>
             <h2 className="max-w-3xl text-5xl leading-none font-light tracking-tight sm:text-6xl lg:text-7xl">
-              <RevealHeadline revealBy="character" text={content.servicesIntro.title} />
+              <RevealHeadline
+                revealBy="character"
+                text={content.servicesIntro.title}
+              />
             </h2>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <FillButton
-                href="#contact"
-                variant="solid"
-              >
+            <FadeIn className="mt-8 flex flex-wrap gap-3" delay={0.3} stagger={0.1}>
+              <FillButton href="#contact" variant="solid">
                 {content.cta.primary}
                 <ArrowUpRight aria-hidden="true" className="size-4" />
               </FillButton>
               <FillButton href="#pricing" variant="outline">
                 {locale === "id" ? "Lihat harga" : "See pricing"}
               </FillButton>
-            </div>
+            </FadeIn>
           </div>
 
           <FadeInText
-            className="max-w-xl text-base leading-7 text-black/65 sm:text-lg sm:leading-8 lg:pt-2"
+            className="max-w-xl text-base leading-7 text-muted-foreground sm:text-lg sm:leading-8 lg:pt-2"
             text={content.servicesIntro.body}
             delay={0.15}
           />
@@ -65,14 +66,24 @@ export function Services({ locale }: { locale: Locale }) {
                   <img
                     src={mark.src}
                     alt={mark.alt}
-                    className={index === 0 ? "h-8 w-auto" : "size-10 object-contain"}
+                    className={
+                      index === 0 ? "h-8 w-auto" : "size-10 object-contain"
+                    }
                   />
-                  <ArrowUpRight aria-hidden="true" className="size-5" strokeWidth={1.5} />
+                  <ArrowUpRight
+                    aria-hidden="true"
+                    className="size-5"
+                    strokeWidth={1.5}
+                  />
                 </div>
                 <h3 className="mt-12 text-3xl leading-tight font-medium tracking-tight sm:text-4xl">
-                  {service.title}
+                  <RevealHeadline revealBy="character" text={service.title} />
                 </h3>
-                <p className="mt-4 max-w-sm text-base leading-7 text-black/65">{service.body}</p>
+                <FadeInText
+                  className="mt-4 max-w-sm text-base leading-7 text-muted-foreground"
+                  text={service.body}
+                  delay={0.15}
+                />
               </article>
             );
           })}

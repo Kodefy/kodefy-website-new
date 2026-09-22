@@ -6,6 +6,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FormEvent, useRef } from "react";
 
 import Grainient from "@/components/site/grainient";
+import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { LanguageSwitcher } from "@/components/site/language-switcher";
 import { RevealHeadline } from "@/components/site/reveal-headline";
@@ -109,49 +110,61 @@ export function Footer({
         >
           <div>
             <div className="border-b border-white/15 pb-6">
-              <p className="text-base font-medium">
-                {isIndonesian ? "Kontak" : "Contact"}
-              </p>
+              <FadeInText
+                className="text-base font-medium"
+                text={isIndonesian ? "Kontak" : "Contact"}
+                delay={0.1}
+              />
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
-                <ContactLink label="Email" href={`mailto:${business.email}`}>
+                <ContactLink label="Email" href={`mailto:${business.email}`} delay={0.15}>
                   {business.email}
                 </ContactLink>
                 <ContactLink
                   label={isIndonesian ? "Nomor telepon" : "Phone number"}
                   href={business.whatsapp}
+                  delay={0.2}
                 >
                   {business.phoneDisplay}
                 </ContactLink>
               </div>
             </div>
             <div className="mt-6 flex items-center justify-between">
-              <p className="text-sm text-white/75">
-                {isIndonesian ? "Ikuti kami di" : "Follow us on"}
-              </p>
+              <FadeInText
+                className="text-sm text-white/75"
+                text={isIndonesian ? "Ikuti kami di" : "Follow us on"}
+                delay={0.25}
+              />
               <div className="flex items-center gap-5">
-                {socials.map((social) => (
-                  <button
-                    key={social}
-                    type="button"
-                    aria-label={social}
-                    className="transition-opacity duration-200 hover:cursor-pointer hover:opacity-60"
-                  >
-                    <img
-                      src={`/assets/social/${social}.svg`}
-                      alt=""
-                      aria-hidden="true"
-                      className="size-4 invert"
-                    />
-                  </button>
+                {socials.map((social, index) => (
+                  <FadeIn key={social} delay={0.3 + index * 0.08}>
+                    <button
+                      type="button"
+                      aria-label={social}
+                      className="transition-opacity duration-200 hover:cursor-pointer hover:opacity-60"
+                    >
+                      <img
+                        src={`/assets/social/${social}.svg`}
+                        alt=""
+                        aria-hidden="true"
+                        className="size-4 invert"
+                      />
+                    </button>
+                  </FadeIn>
                 ))}
               </div>
             </div>
-            <Link
-              href={homePath}
-              className="mt-8 block w-fit text-2xl tracking-[0.45em] transition-opacity duration-200 hover:cursor-pointer hover:opacity-60 sm:text-3xl"
+            <FadeInText
+              className="mt-8 w-fit text-2xl tracking-[0.45em] sm:text-3xl"
+              text="KODEFY"
+              delay={0.3}
             >
-              KODEFY
-            </Link>
+              <Link
+                href={homePath}
+                className="transition-opacity duration-200 hover:cursor-pointer hover:opacity-60"
+              >
+                KODEFY
+              </Link>
+            </FadeInText>
           </div>
 
           <form
@@ -199,34 +212,43 @@ export function Footer({
                 className="mt-3 w-full resize-none border-b border-white/20 bg-transparent pb-3 text-base text-white placeholder:text-white/40 outline-none transition-colors duration-200 focus:border-white"
               />
             </label>
-            <button
-              type="submit"
-              className="relative -top-3 inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-7 text-base text-black transition-colors duration-200 hover:cursor-pointer hover:bg-zinc-300 sm:w-fit"
-            >
-              {isIndonesian ? "Kirim pesan" : "Send message"}
-              <ArrowUpRight aria-hidden="true" className="size-4" />
-            </button>
+            <FadeIn className="relative -top-3 sm:w-fit" delay={0.3}>
+              <button
+                type="submit"
+                className="inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-7 text-base text-black transition-colors duration-200 hover:cursor-pointer hover:bg-zinc-300 sm:w-fit"
+              >
+                {isIndonesian ? "Kirim pesan" : "Send message"}
+                <ArrowUpRight aria-hidden="true" className="size-4" />
+              </button>
+            </FadeIn>
           </form>
         </motion.div>
 
         <div className="mt-auto flex flex-col gap-3 border-t border-white/15 pt-6 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {new Date().getFullYear()} Kodefy. {content.footer.rights}
-          </p>
+          <FadeInText
+            text={`© ${new Date().getFullYear()} Kodefy. ${content.footer.rights}`}
+            delay={0.35}
+          />
           <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link
-              href={getRoutePath("terms", locale)}
-              className="transition-colors duration-200 hover:cursor-pointer hover:text-white"
-            >
-              {content.footer.terms}
-            </Link>
-            <Link
-              href={getRoutePath("privacy", locale)}
-              className="transition-colors duration-200 hover:cursor-pointer hover:text-white"
-            >
-              {content.footer.privacy}
-            </Link>
-            <LanguageSwitcher locale={locale} routeId={routeId} compact />
+            <FadeInText text={content.footer.terms} delay={0.4}>
+              <Link
+                href={getRoutePath("terms", locale)}
+                className="transition-colors duration-200 hover:cursor-pointer hover:text-white"
+              >
+                {content.footer.terms}
+              </Link>
+            </FadeInText>
+            <FadeInText text={content.footer.privacy} delay={0.45}>
+              <Link
+                href={getRoutePath("privacy", locale)}
+                className="transition-colors duration-200 hover:cursor-pointer hover:text-white"
+              >
+                {content.footer.privacy}
+              </Link>
+            </FadeInText>
+            <FadeIn className="flex" delay={0.5}>
+              <LanguageSwitcher locale={locale} routeId={routeId} compact />
+            </FadeIn>
           </div>
         </div>
       </div>
@@ -238,20 +260,28 @@ function ContactLink({
   label,
   href,
   children,
+  delay = 0,
 }: {
   label: string;
   href: string;
   children: React.ReactNode;
+  delay?: number;
 }) {
   return (
     <div>
-      <p className="text-sm text-white/55">{label}</p>
-      <a
-        href={href}
-        className="mt-2 block w-fit text-base transition-opacity duration-200 hover:cursor-pointer hover:opacity-60"
+      <FadeInText className="text-sm text-white/55" text={label} delay={delay} />
+      <FadeInText
+        className="mt-2 w-fit text-base"
+        text={typeof children === "string" ? children : ""}
+        delay={delay + 0.05}
       >
-        {children}
-      </a>
+        <a
+          href={href}
+          className="transition-opacity duration-200 hover:cursor-pointer hover:opacity-60"
+        >
+          {children}
+        </a>
+      </FadeInText>
     </div>
   );
 }

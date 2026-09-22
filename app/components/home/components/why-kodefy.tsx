@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 
 import { FrameReveal } from "@/components/site/frame-reveal";
+import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
@@ -72,7 +73,7 @@ export function WhyKodefy({ locale }: { locale: Locale }) {
             }
             delay={0.25}
           />
-          <div className="mt-8 flex flex-wrap gap-3">
+          <FadeIn className="mt-8 flex flex-wrap gap-3" delay={0.4} stagger={0.1}>
             <FillButton
               href="#contact"
               variant="solid"
@@ -83,7 +84,7 @@ export function WhyKodefy({ locale }: { locale: Locale }) {
             <FillButton href="#services" variant="outline">
               {locale === "id" ? "Lihat layanan" : "Explore services"}
             </FillButton>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

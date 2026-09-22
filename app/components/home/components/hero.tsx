@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 
 import DriftWall from "@/components/DriftWall";
+import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
@@ -103,7 +104,7 @@ export function Hero({ locale }: { locale: Locale }) {
             </div>
           </div>
 
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <FadeIn className="mt-8 flex flex-col gap-3 sm:flex-row" delay={0.3} stagger={0.1}>
             <FillButton
               href={whatsappHref}
               target="_blank"
@@ -114,7 +115,7 @@ export function Hero({ locale }: { locale: Locale }) {
               <ArrowUpRight aria-hidden="true" />
             </FillButton>
             <FillButton href="#work">{content.cta.secondary}</FillButton>
-          </div>
+          </FadeIn>
         </div>
       </div>
 

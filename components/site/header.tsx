@@ -14,6 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { DriftPreview } from "@/components/site/drift-preview";
+import { FadeInText } from "@/components/site/fade-in-text";
 import { business, homeContent } from "@/content/site";
 import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
 
@@ -215,29 +216,41 @@ export function Header({
           </nav>
 
           <div className="grid gap-8 border-t border-white/20 pt-6 text-sm text-white/55 sm:grid-cols-2 lg:grid-cols-4">
-            <div>
-              <p className="font-semibold text-white">Kodefy</p>
-              <p className="mt-2">{business.location}</p>
-              <p className="mt-1">
+            <FadeInText
+              className="flex flex-col"
+              text={`${business.name} ${business.location}`}
+              delay={0.5}
+            >
+              <span className="font-semibold text-white">Kodefy</span>
+              <span className="mt-2">{business.location}</span>
+              <span className="mt-1">
                 {locale === "id" ? "Sejak 2020" : "Since 2020"}
-              </p>
-            </div>
+              </span>
+            </FadeInText>
 
-            <div className="flex flex-col items-start gap-2">
-              <a className="hover:text-white" href={`mailto:${business.email}`}>
+            <FadeInText
+              className="flex flex-col items-start gap-2"
+              text={`${business.email} ${business.phoneDisplay}`}
+              delay={0.7}
+            >
+              <a className="transition-colors duration-200 hover:cursor-pointer hover:text-white" href={`mailto:${business.email}`}>
                 {business.email}
               </a>
               <a
-                className="hover:text-white"
+                className="transition-colors duration-200 hover:cursor-pointer hover:text-white"
                 href={business.whatsapp}
                 target="_blank"
                 rel="noreferrer"
               >
                 {business.phoneDisplay}
               </a>
-            </div>
+            </FadeInText>
 
-            <div className="flex items-start gap-3">
+            <FadeInText
+              className="flex items-start gap-3"
+              text="ID EN"
+              delay={0.9}
+            >
               {(["id", "en"] as const).map((language) => (
                 <SheetClose
                   key={language}
@@ -250,24 +263,30 @@ export function Header({
                   }
                   className={
                     locale === language
-                      ? "text-white underline underline-offset-4"
-                      : "hover:text-white"
+                      ? "text-white underline underline-offset-4 hover:cursor-pointer"
+                      : "transition-colors duration-200 hover:cursor-pointer hover:text-white"
                   }
                 >
                   {language.toUpperCase()}
                 </SheetClose>
               ))}
-            </div>
+            </FadeInText>
 
-            <a
-              href={whatsappHref}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-2 font-semibold text-white hover:text-white/70 lg:justify-self-end"
+            <FadeInText
+              className="flex items-center gap-2 font-semibold text-white lg:justify-self-end"
+              text={content.cta.primary}
+              delay={1.1}
             >
-              {content.cta.primary}
-              <ArrowUpRight aria-hidden="true" className="size-4" />
-            </a>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 transition-colors duration-200 hover:cursor-pointer hover:text-white/70"
+              >
+                {content.cta.primary}
+                <ArrowUpRight aria-hidden="true" className="size-4" />
+              </a>
+            </FadeInText>
           </div>
         </div>
       </SheetContent>

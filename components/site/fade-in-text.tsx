@@ -1,18 +1,20 @@
 "use client";
 
 import { motion, useInView, useReducedMotion } from "framer-motion";
-import { useRef } from "react";
+import { useRef, type ReactNode } from "react";
 
 import { cn } from "@/lib/utils";
 
 type FadeInTextProps = {
   className?: string;
+  children?: ReactNode;
   delay?: number;
   text: string;
 };
 
 export function FadeInText({
   className,
+  children,
   delay = 0,
   text,
 }: FadeInTextProps) {
@@ -32,7 +34,7 @@ export function FadeInText({
       }}
       className={cn(className)}
     >
-      {text}
+      {children ?? text}
     </motion.p>
   );
 }
