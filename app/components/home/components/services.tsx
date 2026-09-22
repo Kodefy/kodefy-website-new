@@ -31,15 +31,11 @@ export function Services({ locale }: { locale: Locale }) {
               <FillButton
                 href="#contact"
                 variant="solid"
-                className="border-black bg-black text-white before:bg-white hover:text-black focus-visible:outline-black"
               >
                 {content.cta.primary}
                 <ArrowUpRight aria-hidden="true" className="size-4" />
               </FillButton>
-              <FillButton
-                href="#pricing"
-                className="border-black/30 text-black before:bg-black hover:text-white focus-visible:outline-black"
-              >
+              <FillButton href="#pricing" variant="outline">
                 {locale === "id" ? "Lihat harga" : "See pricing"}
               </FillButton>
             </div>

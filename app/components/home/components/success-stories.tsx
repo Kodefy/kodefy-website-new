@@ -42,15 +42,11 @@ export function SuccessStories({ locale }: { locale: Locale }) {
               <FillButton
                 href="#contact"
                 variant="solid"
-                className="border-black bg-black text-white before:bg-white hover:text-black focus-visible:outline-black"
               >
                 {locale === "id" ? "Diskusikan proyek Anda" : "Discuss your project"}
                 <ArrowUpRight aria-hidden="true" className="size-4" />
               </FillButton>
-              <FillButton
-                href="#work-gallery"
-                className="border-black/30 text-black before:bg-black hover:text-white focus-visible:outline-black"
-              >
+              <FillButton href="#work-gallery" variant="outline">
                 {locale === "id" ? "Lihat karya" : "Browse portfolio"}
               </FillButton>
             </div>

@@ -30,7 +30,7 @@ export function Hero({ locale }: { locale: Locale }) {
 
   return (
     <section className="grid h-dvh bg-black lg:grid-cols-2">
-      <div className="flex max-h-screen items-start bg-black px-6 pt-24 pb-6 text-white sm:items-center sm:px-10 sm:py-16 lg:px-12 xl:px-16 xl:py-24">
+      <div data-fill-button-surface="dark" className="flex max-h-screen items-start bg-black px-6 pt-24 pb-6 text-white sm:items-center sm:px-10 sm:py-16 lg:px-12 xl:px-16 xl:py-24">
         <div className="w-full max-w-2xl">
           <h1 className="text-3xl leading-none font-light tracking-tight text-white sm:text-6xl xl:text-7xl">
             {content.hero.title}{" "}

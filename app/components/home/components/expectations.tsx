@@ -63,15 +63,11 @@ export function Expectations({ locale }: { locale: Locale }) {
             <FillButton
               href="#contact"
               variant="solid"
-              className="border-black bg-black text-white before:bg-white hover:text-black focus-visible:outline-black"
             >
               {content.primary}
               <ArrowUpRight aria-hidden="true" className="size-4" />
             </FillButton>
-            <FillButton
-              href="#work"
-              className="border-black/30 text-black before:bg-black hover:text-white focus-visible:outline-black"
-            >
+            <FillButton href="#work" variant="outline">
               {content.secondary}
             </FillButton>
           </div>

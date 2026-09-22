@@ -30,10 +30,7 @@ export function Process({ locale }: { locale: Locale }) {
 
         <div>
           <div className="flex justify-start lg:justify-end">
-            <FillButton
-              href="#contact"
-              className="border-black/25 text-black before:bg-black hover:cursor-pointer hover:text-white focus-visible:outline-black"
-            >
+            <FillButton href="#contact" variant="outline">
               {locale === "id" ? "Pelajari lebih lanjut" : "Learn more"}
             </FillButton>
           </div>

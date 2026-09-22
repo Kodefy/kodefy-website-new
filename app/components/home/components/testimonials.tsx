@@ -52,7 +52,6 @@ export function Testimonials({ locale }: { locale: Locale }) {
             <FillButton
               href="#contact"
               variant="solid"
-              className="border-black bg-black text-white before:bg-white hover:cursor-pointer hover:text-black focus-visible:outline-black"
             >
               {isIndonesian ? "Diskusikan proyek Anda" : "Discuss your project"}
               <ArrowRight aria-hidden="true" className="size-4" />

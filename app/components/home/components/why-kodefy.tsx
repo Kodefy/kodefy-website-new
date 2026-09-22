@@ -28,7 +28,7 @@ export function WhyKodefy({ locale }: { locale: Locale }) {
   const content = homeContent[locale].whyIntro;
 
   return (
-    <section className="bg-black text-white lg:max-h-screen lg:overflow-hidden lg:h-dvh">
+    <section data-fill-button-surface="dark" className="bg-black text-white lg:max-h-screen lg:overflow-hidden lg:h-dvh">
       <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 sm:px-8 lg:min-h-dvh lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-20 lg:px-12 lg:py-12">
         <div className="grid grid-cols-2 gap-3 sm:gap-5">
           {[mosaicImages.slice(0, 2), mosaicImages.slice(2)].map((column, columnIndex) => (
@@ -68,15 +68,11 @@ export function WhyKodefy({ locale }: { locale: Locale }) {
             <FillButton
               href="#contact"
               variant="solid"
-              className="border-white bg-white text-black before:bg-zinc-800 hover:cursor-pointer hover:text-white focus-visible:outline-white"
             >
               {locale === "id" ? "Diskusikan proyek Anda" : "Discuss your project"}
               <ArrowUpRight aria-hidden="true" className="size-4" />
             </FillButton>
-            <FillButton
-              href="#services"
-              className="border-white/35 text-white before:bg-white hover:cursor-pointer hover:text-black focus-visible:outline-white"
-            >
+            <FillButton href="#services" variant="outline">
               {locale === "id" ? "Lihat layanan" : "Explore services"}
             </FillButton>
           </div>
