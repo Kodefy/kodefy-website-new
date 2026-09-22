@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -19,6 +19,8 @@ import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
 
 export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }) {
   const [open, setOpen] = useState(false);
+  const [isAtTop, setIsAtTop] = useState(true);
+  const [isMenuAtTop, setIsMenuAtTop] = useState(true);
   const content = homeContent[locale];
   const homePath = getRoutePath("home", locale);
   const navigation = [
@@ -59,15 +61,35 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
       : "Hi Kodefy, I'd like to discuss my business's digital needs.",
   )}`;
 
+  useEffect(() => {
+    const updateScrollState = () => setIsAtTop(window.scrollY === 0);
+
+    updateScrollState();
+    window.addEventListener("scroll", updateScrollState, { passive: true });
+    return () => window.removeEventListener("scroll", updateScrollState);
+  }, []);
+
+  const showLogo = isAtTop && (!open || isMenuAtTop);
+
   return (
-    <Sheet open={open} onOpenChange={(nextOpen) => setOpen(nextOpen)}>
+    <Sheet
+      open={open}
+      onOpenChange={(nextOpen) => {
+        setOpen(nextOpen);
+        if (nextOpen) setIsMenuAtTop(true);
+      }}
+    >
       <header className="pointer-events-none fixed top-0 right-0 z-[60] mix-blend-difference p-6 sm:p-8 lg:p-12">
         <div className="pointer-events-auto flex items-center gap-6">
           <Link
             href={homePath}
             onClick={() => setOpen(false)}
             aria-label={locale === "id" ? "Beranda Kodefy" : "Kodefy home"}
-            className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            aria-hidden={!showLogo}
+            tabIndex={showLogo ? 0 : -1}
+            className={`transition-opacity duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white ${
+              showLogo ? "opacity-100" : "pointer-events-none opacity-0"
+            }`}
           >
             <Image
               src="/assets/brand/kodefy-logo.png"
@@ -111,7 +133,10 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
             : "Primary navigation for the Kodefy website"}
         </SheetDescription>
 
-        <div className="mx-auto flex h-full w-full max-w-[1440px] flex-col overflow-y-auto px-6 pt-32 pb-8 sm:px-8 sm:pt-36 lg:overflow-hidden lg:px-12 lg:pt-40">
+        <div
+          className="mx-auto flex h-full w-full max-w-[1440px] flex-col overflow-y-auto px-6 pt-32 pb-8 sm:px-8 sm:pt-36 lg:overflow-hidden lg:px-12 lg:pt-40"
+          onScroll={(event) => setIsMenuAtTop(event.currentTarget.scrollTop === 0)}
+        >
           <p className="text-xs font-semibold tracking-widest text-white/40 uppercase">Menu</p>
 
           <nav
