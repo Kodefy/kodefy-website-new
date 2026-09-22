@@ -43,13 +43,21 @@ export function FrameReveal({ alt, className, src }: FrameRevealProps) {
           hasEntered ? "h-full" : "h-0"
         }`}
       />
-      <img
-        src={src}
-        alt={alt}
-        className={`absolute inset-0 z-10 h-full w-full object-cover transition-transform duration-1000 ease-in-out motion-reduce:delay-0 motion-reduce:duration-0 ${
-          hasEntered ? "translate-y-0 scale-100 delay-750" : "translate-y-[200%] scale-200"
+      <div
+        className={`absolute inset-0 z-10 overflow-hidden transition-[clip-path] duration-1000 ease-in-out motion-reduce:delay-0 motion-reduce:duration-0 ${
+          hasEntered
+            ? "[clip-path:inset(0_0_0_0)] delay-750"
+            : "[clip-path:inset(100%_0_0_0)]"
         }`}
-      />
+      >
+        <img
+          src={src}
+          alt={alt}
+          className={`h-full w-full object-cover transition-transform duration-1000 ease-in-out motion-reduce:delay-0 motion-reduce:duration-0 ${
+            hasEntered ? "scale-100 delay-750" : "scale-200"
+          }`}
+        />
+      </div>
     </div>
   );
 }
