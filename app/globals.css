@@ -127,6 +127,10 @@
   html {
     @apply font-sans;
   }
+  html:has([data-slot="sheet-content"]) {
+    background-color: #000;
+    color-scheme: dark;
+  }
   ::selection {
     background: #d7ff52;
     color: #101014;

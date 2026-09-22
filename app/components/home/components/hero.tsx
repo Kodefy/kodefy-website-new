@@ -13,7 +13,7 @@ export function Hero({ locale }: { locale: Locale }) {
   )}`;
 
   return (
-    <section className="grid h-[calc(100dvh-5rem)] bg-black lg:grid-cols-2">
+    <section className="grid h-dvh bg-black lg:grid-cols-2">
       <div className="flex items-center bg-black px-6 py-12 text-white sm:px-10 lg:px-12 xl:px-16">
         <div className="w-full max-w-2xl">
           <p className="flex items-center gap-3 text-xs font-semibold tracking-widest text-white/50 uppercase before:h-px before:w-7 before:bg-white/40">
