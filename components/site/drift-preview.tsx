@@ -142,7 +142,7 @@ export function DriftPreview({
       <span
         ref={previewRef}
         aria-hidden="true"
-        className="pointer-events-none fixed top-0 left-0 z-[70] hidden will-change-transform lg:block"
+        className="pointer-events-none fixed top-0 left-0 z-0 hidden will-change-transform lg:block"
         style={{ transform: "translate3d(-9999px, -9999px, 0)" }}
       >
         <span
