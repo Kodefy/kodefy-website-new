@@ -215,16 +215,16 @@ export const homeContent: Record<Locale, HomeContent> = {
     ],
     processIntro: {
       eyebrow: "How it works",
-      title: "A simple path from idea to launch.",
+      title: "From business needs to a website ready to use.",
       body:
-        "Every project is different, but the working rhythm stays clear so you always know what comes next.",
+        "We guide you through every step, so the process stays simple and easy to follow.",
     },
     process: [
       { number: "01", title: "Consultation", body: "We discuss your business, goals, audience, and current challenges." },
       { number: "02", title: "Scope & proposal", body: "You receive a defined scope, deliverables, timeline, and price." },
       { number: "03", title: "Design & development", body: "The approved direction is translated into a responsive, working experience." },
-      { number: "04", title: "Review", body: "You review the work and provide focused feedback within the agreed scope." },
-      { number: "05", title: "Launch", body: "After approval and final payment, the project is prepared for delivery or deployment." },
+      { number: "04", title: "Review & Revision", body: "You review the work and provide focused feedback within the agreed scope." },
+      { number: "05", title: "Launch", body: "The project is launched and handed over." },
     ],
     pricingIntro: {
       eyebrow: "Starting prices",
@@ -393,16 +393,16 @@ export const homeContent: Record<Locale, HomeContent> = {
     ],
     processIntro: {
       eyebrow: "Cara kerja",
-      title: "Jalur sederhana dari ide hingga peluncuran.",
+      title: "Dari konsultasi hingga website siap digunakan.",
       body:
-        "Setiap proyek berbeda, tetapi ritme kerja tetap jelas agar Anda selalu tahu apa yang terjadi selanjutnya.",
+        "Kami memandu Anda di setiap langkah agar prosesnya tetap sederhana dan mudah diikuti.",
     },
     process: [
       { number: "01", title: "Konsultasi", body: "Kami membahas bisnis, tujuan, audiens, dan tantangan Anda saat ini." },
-      { number: "02", title: "Scope & proposal", body: "Anda menerima scope, deliverables, timeline, dan harga yang terdefinisi." },
+      { number: "02", title: "Scope & proposal", body: "Anda menerima scope, deliverables, timeline, dan harga." },
       { number: "03", title: "Desain & development", body: "Arah yang disetujui diterjemahkan menjadi pengalaman responsif yang berfungsi." },
-      { number: "04", title: "Review", body: "Anda meninjau hasil dan memberi feedback terarah dalam scope yang disepakati." },
-      { number: "05", title: "Peluncuran", body: "Setelah persetujuan dan pelunasan, proyek disiapkan untuk diserahkan atau diluncurkan." },
+      { number: "04", title: "Review & Revisi", body: "Anda meninjau hasil dan memberi feedback terarah dalam scope yang disepakati." },
+      { number: "05", title: "Peluncuran", body: "Website diluncurkan dan diserahkan." },
     ],
     pricingIntro: {
       eyebrow: "Harga mulai",

@@ -6,6 +6,7 @@ import {
 import { ClientLogos } from "@/app/components/home/components/client-logos";
 import { Expectations } from "@/app/components/home/components/expectations";
 import { Hero } from "@/app/components/home/components/hero";
+import { Process } from "@/app/components/home/components/process";
 import { Services } from "@/app/components/home/components/services";
 import { SuccessStories } from "@/app/components/home/components/success-stories";
 import { WhyKodefy } from "@/app/components/home/components/why-kodefy";
@@ -45,20 +46,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
         <WhyKodefy locale={locale} />
 
-        <section id="process" className="scroll-mt-24 bg-[#e9e7e0]">
-          <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-            <SectionIntro {...content.processIntro} />
-            <ol className="mt-12 border-t border-black/15">
-              {content.process.map((step) => (
-                <li key={step.number} className="grid gap-3 border-b border-black/15 py-7 sm:grid-cols-[70px_0.7fr_1.3fr] sm:items-start sm:gap-8 lg:py-9">
-                  <span className="font-mono text-xs font-semibold text-[#1847e8]">{step.number}</span>
-                  <h3 className="text-xl font-semibold tracking-tight lg:text-2xl">{step.title}</h3>
-                  <p className="max-w-2xl text-sm leading-6 text-black/60 sm:text-base sm:leading-7">{step.body}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
+        <Process locale={locale} />
 
         <section id="pricing" className="scroll-mt-24 bg-[#f8f7f3]">
           <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
