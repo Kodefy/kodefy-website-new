@@ -191,9 +191,9 @@ export const homeContent: Record<Locale, HomeContent> = {
     ],
     whyIntro: {
       eyebrow: "Why Kodefy",
-      title: "A clear engagement, from first conversation to launch.",
+      title: "Turn your website into a business growth engine.",
       body:
-        "Good digital work starts with clarity: what your business needs, what will be delivered, and what happens next.",
+        "A website is more than a visual presence. Built with the right focus, it helps potential customers understand your business, build trust, and take the next step to contact you.",
     },
     reasons: [
       {
@@ -369,9 +369,9 @@ export const homeContent: Record<Locale, HomeContent> = {
     ],
     whyIntro: {
       eyebrow: "Mengapa Kodefy",
-      title: "Kerja sama yang jelas, sejak percakapan pertama hingga peluncuran.",
+      title: "Ubah website Anda menjadi mesin pertumbuhan bisnis.",
       body:
-        "Pekerjaan digital yang baik dimulai dari kejelasan: apa yang bisnis Anda butuhkan, apa yang akan dikerjakan, dan apa langkah berikutnya.",
+        "Website bukan sekadar tampilan. Dengan fokus yang tepat, website membantu calon pelanggan memahami bisnis Anda, membangun kepercayaan, dan mengambil langkah untuk menghubungi Anda.",
     },
     reasons: [
       {

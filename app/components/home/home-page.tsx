@@ -1,11 +1,6 @@
 import {
-  ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
-  Check,
-  Gauge,
-  MessagesSquare,
-  Sparkles,
 } from "lucide-react";
 
 import { ClientLogos } from "@/app/components/home/components/client-logos";
@@ -13,13 +8,12 @@ import { Expectations } from "@/app/components/home/components/expectations";
 import { Hero } from "@/app/components/home/components/hero";
 import { Services } from "@/app/components/home/components/services";
 import { SuccessStories } from "@/app/components/home/components/success-stories";
+import { WhyKodefy } from "@/app/components/home/components/why-kodefy";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { Button } from "@/components/ui/button";
 import { business, homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
-
-const reasonIcons = [Sparkles, MessagesSquare, Gauge, Check];
 
 export function HomePage({ locale }: { locale: Locale }) {
   const content = homeContent[locale];
@@ -49,30 +43,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
         <SuccessStories locale={locale} />
 
-        <section className="bg-white">
-          <div className="mx-auto grid max-w-[1440px] gap-12 px-5 py-20 sm:px-8 lg:grid-cols-[0.82fr_1.18fr] lg:gap-20 lg:px-12 lg:py-28">
-            <div>
-              <SectionIntro {...content.whyIntro} />
-              <div className="mt-10 hidden lg:block">
-                <div className="flex size-40 items-center justify-center rounded-full bg-[#1847e8] text-white">
-                  <ArrowDownRight aria-hidden="true" className="size-14" strokeWidth={1.5} />
-                </div>
-              </div>
-            </div>
-            <div className="grid gap-px overflow-hidden rounded-2xl border border-black/10 bg-black/10 sm:grid-cols-2">
-              {content.reasons.map((reason, index) => {
-                const Icon = reasonIcons[index];
-                return (
-                  <article key={reason.title} className="min-h-64 bg-[#f8f7f3] p-7 sm:p-8">
-                    <Icon aria-hidden="true" className="size-6 text-[#1847e8]" />
-                    <h3 className="mt-12 text-xl font-semibold tracking-tight">{reason.title}</h3>
-                    <p className="mt-3 text-sm leading-6 text-black/58">{reason.body}</p>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <WhyKodefy locale={locale} />
 
         <section id="process" className="scroll-mt-24 bg-[#e9e7e0]">
           <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
