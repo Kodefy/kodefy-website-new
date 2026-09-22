@@ -39,9 +39,6 @@ export function Footer({
   const sendMessage = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const subject = isIndonesian
-      ? "Inquiry dari website Kodefy"
-      : "Inquiry from the Kodefy website";
     const message = [
       `${isIndonesian ? "Nama" : "Name"}: ${data.get("name")}`,
       `Email: ${data.get("email")}`,
@@ -51,7 +48,9 @@ export function Footer({
       `${isIndonesian ? "Pesan" : "Message"}:`,
       data.get("message"),
     ].join("\n");
-    window.location.href = `mailto:${business.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(message)}`;
+    const whatsappUrl = new URL(business.whatsapp);
+    whatsappUrl.searchParams.set("text", message);
+    window.open(whatsappUrl.toString(), "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -170,6 +169,7 @@ export function Footer({
               label={isIndonesian ? "Nomor telepon" : "Phone number"}
               name="phone"
               placeholder={isIndonesian ? "Nomor telepon Anda" : "Your phone number"}
+              phone
             />
             <Field
               label={isIndonesian ? "Layanan" : "Service"}
@@ -256,21 +256,40 @@ function Field({
   required,
   type = "text",
   placeholder,
+  phone = false,
 }: {
   label: string;
   name: string;
   required?: boolean;
   type?: string;
   placeholder?: string;
+  phone?: boolean;
 }) {
   return (
     <label className="block">
       <span className="text-sm text-white/70">{label}</span>
       <input
         name={name}
-        type={type}
+        type={phone ? "tel" : type}
         required={required}
         placeholder={placeholder}
+        inputMode={phone ? "tel" : undefined}
+        pattern={phone ? "[0-9+()\\-\\s]{7,20}" : undefined}
+        title={
+          phone
+            ? "Use 7 to 20 digits and standard phone-number characters only."
+            : undefined
+        }
+        onInput={
+          phone
+            ? (event) => {
+                event.currentTarget.value = event.currentTarget.value.replace(
+                  /[^0-9+()\-\s]/g,
+                  "",
+                );
+              }
+            : undefined
+        }
         className="mt-3 w-full border-b border-white/20 bg-transparent pb-3 text-base text-white placeholder:text-white/40 outline-none transition-colors duration-200 focus:border-white"
       />
     </label>
