@@ -36,6 +36,7 @@ export function Expectations({ locale }: { locale: Locale }) {
                 imageAlt=""
                 previewWidth={224}
                 previewHeight={280}
+                zIndex={5}
                 className="group flex items-center justify-between gap-4 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
               >
                 <span>{label}</span>

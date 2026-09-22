@@ -10,6 +10,7 @@ type DriftPreviewProps = ComponentPropsWithoutRef<"a"> & {
   imageAlt?: string;
   previewHeight?: number;
   previewWidth?: number;
+  zIndex?: number;
 };
 
 export function DriftPreview({
@@ -22,6 +23,7 @@ export function DriftPreview({
   onPointerMove,
   previewHeight = 320,
   previewWidth = 256,
+  zIndex = 0,
   ...props
 }: DriftPreviewProps) {
   const previewRef = useRef<HTMLSpanElement>(null);
@@ -142,8 +144,11 @@ export function DriftPreview({
       <span
         ref={previewRef}
         aria-hidden="true"
-        className="pointer-events-none fixed top-0 left-0 z-0 hidden will-change-transform lg:block"
-        style={{ transform: "translate3d(-9999px, -9999px, 0)" }}
+        className="pointer-events-none fixed top-0 left-0 hidden will-change-transform lg:block"
+        style={{
+          transform: "translate3d(-9999px, -9999px, 0)",
+          zIndex,
+        }}
       >
         <span
           className={`relative block overflow-hidden transition-[opacity,scale] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-[opacity,scale] motion-reduce:transition-none ${
