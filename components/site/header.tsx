@@ -36,13 +36,13 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
 
   return (
     <Sheet open={open} onOpenChange={(nextOpen) => setOpen(nextOpen)}>
-      <header className="pointer-events-none fixed top-0 right-0 z-[60] p-6 sm:p-8 lg:p-12">
+      <header className="pointer-events-none fixed top-0 right-0 z-[60] mix-blend-difference p-6 sm:p-8 lg:p-12">
         <div className="pointer-events-auto flex items-center gap-6">
           <Link
             href={homePath}
             onClick={() => setOpen(false)}
             aria-label={locale === "id" ? "Beranda Kodefy" : "Kodefy home"}
-            className="mix-blend-difference focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             <Image
               src="/assets/brand/kodefy-logo.png"
@@ -64,7 +64,7 @@ export function Header({ locale, routeId }: { locale: Locale; routeId: RouteId }
                   ? "Buka menu"
                   : "Open menu"
             }
-            className="group relative h-8 w-12 mix-blend-difference focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+            className="group relative h-8 w-12 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
           >
             <span className="absolute top-2 right-0 h-px w-10 bg-white transition-all group-hover:w-6 group-aria-expanded:top-4 group-aria-expanded:w-10 group-aria-expanded:rotate-45" />
             <span className="absolute right-0 bottom-2 h-px w-10 bg-white transition-all group-hover:w-8 group-aria-expanded:bottom-4 group-aria-expanded:w-10 group-aria-expanded:-rotate-45" />
