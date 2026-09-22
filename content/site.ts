@@ -102,7 +102,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       projectName: "Qijian Technology",
     },
     trust: {
-      label: "Supporting businesses with focused digital work since 2020",
+      label: "Trusted by businesses across industries.",
       logosLabel: "Selected client brands",
     },
     metrics: [
@@ -272,7 +272,7 @@ export const homeContent: Record<Locale, HomeContent> = {
       projectName: "Qijian Technology",
     },
     trust: {
-      label: "Mendukung bisnis dengan pekerjaan digital yang terarah sejak 2020",
+      label: "Dipercaya oleh bisnis dari berbagai industri.",
       logosLabel: "Pilihan brand klien",
     },
     metrics: [

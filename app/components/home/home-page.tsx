@@ -12,11 +12,12 @@ import {
   Sparkles,
 } from "lucide-react";
 
+import { ClientLogos } from "@/app/components/home/components/client-logos";
 import { Hero } from "@/app/components/home/components/hero";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { Button } from "@/components/ui/button";
-import { business, clients, homeContent } from "@/content/site";
+import { business, homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
 
 const serviceIcons = [Compass, SearchCheck, BarChart3];
@@ -42,31 +43,7 @@ export function HomePage({ locale }: { locale: Locale }) {
       <main id="main-content">
         <Hero locale={locale} />
 
-        <section aria-labelledby="client-logos-heading" className="border-y border-black/10 bg-white">
-          <div className="mx-auto max-w-[1440px] px-5 py-11 sm:px-8 lg:px-12 lg:py-14">
-            <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-              <h2 id="client-logos-heading" className="max-w-lg text-base font-semibold text-black/72">
-                {content.trust.label}
-              </h2>
-              <p className="text-xs font-bold tracking-[0.15em] text-black/40 uppercase">
-                {content.trust.logosLabel}
-              </p>
-            </div>
-            <ul className="mt-9 grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-black/10 bg-black/10 sm:grid-cols-4 lg:grid-cols-7">
-              {clients.map((client) => (
-                <li key={client.name} className="flex min-h-24 items-center justify-center bg-white px-4 py-5">
-                  <Image
-                    src={client.logo}
-                    alt={client.name}
-                    width={140}
-                    height={52}
-                    className="max-h-10 w-auto max-w-[110px] object-contain grayscale sm:max-w-[125px]"
-                  />
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        <ClientLogos locale={locale} />
 
         <section className="bg-[#d7ff52] text-[#101014]">
           <div className="mx-auto grid max-w-[1440px] sm:grid-cols-3">
