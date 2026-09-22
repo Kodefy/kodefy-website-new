@@ -84,12 +84,12 @@ export function Footer({
         className="pointer-events-none absolute inset-0 bg-black/35"
       />
 
-      <div className="relative mx-auto flex min-h-screen max-w-[1440px] flex-col px-6 py-20 sm:px-8 lg:h-dvh lg:min-h-0 lg:px-12 lg:py-16">
+      <div className="relative mx-auto flex min-h-screen max-w-[1440px] flex-col px-6 py-20 sm:px-8 lg:h-dvh lg:min-h-0 lg:px-12 lg:py-10">
         <motion.div
           style={{ y: headingY }}
           className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end"
         >
-          <h2 className="max-w-xl whitespace-pre-line text-[clamp(4rem,8vw,8.5rem)] leading-[0.88] font-light tracking-tight">
+          <h2 className="max-w-xl whitespace-pre-line text-[clamp(3.5rem,6.25vw,7.25rem)] leading-[0.88] font-light tracking-tight">
             <RevealHeadline revealBy="character" text={"Let’s\ntalk"} />
           </h2>
           <FadeInText
@@ -105,14 +105,14 @@ export function Footer({
 
         <motion.div
           style={{ y: detailsY }}
-          className="mt-12 grid gap-10 border-t border-white/15 pt-10 lg:mt-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 lg:pt-10"
+          className="mt-10 grid gap-8 border-t border-white/15 pt-8 lg:mt-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:pt-8"
         >
           <div>
-            <div className="border-b border-white/15 pb-8">
+            <div className="border-b border-white/15 pb-6">
               <p className="text-base font-medium">
                 {isIndonesian ? "Kontak" : "Contact"}
               </p>
-              <div className="mt-6 grid gap-6 sm:grid-cols-2">
+              <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 <ContactLink label="Email" href={`mailto:${business.email}`}>
                   {business.email}
                 </ContactLink>
@@ -124,7 +124,7 @@ export function Footer({
                 </ContactLink>
               </div>
             </div>
-            <div className="mt-8 flex items-center justify-between">
+            <div className="mt-6 flex items-center justify-between">
               <p className="text-sm text-white/75">
                 {isIndonesian ? "Ikuti kami di" : "Follow us on"}
               </p>
@@ -148,7 +148,7 @@ export function Footer({
             </div>
             <Link
               href={homePath}
-              className="mt-12 block w-fit text-2xl tracking-[0.45em] transition-opacity duration-200 hover:cursor-pointer hover:opacity-60 sm:text-3xl"
+              className="mt-8 block w-fit text-2xl tracking-[0.45em] transition-opacity duration-200 hover:cursor-pointer hover:opacity-60 sm:text-3xl"
             >
               KODEFY
             </Link>
@@ -156,7 +156,7 @@ export function Footer({
 
           <form
             onSubmit={sendMessage}
-            className="grid gap-x-8 gap-y-7 sm:grid-cols-2"
+            className="grid gap-x-8 gap-y-5 sm:grid-cols-2"
           >
             <Field
               label={isIndonesian ? "Nama lengkap" : "Full name"}
@@ -190,7 +190,7 @@ export function Footer({
               </span>
               <textarea
                 name="message"
-                rows={4}
+                rows={3}
                 placeholder={
                   isIndonesian
                     ? "Ceritakan kebutuhan proyek Anda..."
@@ -201,7 +201,7 @@ export function Footer({
             </label>
             <button
               type="submit"
-              className="relative -top-5 inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-7 text-base text-black transition-colors duration-200 hover:cursor-pointer hover:bg-zinc-300 sm:w-fit"
+              className="relative -top-3 inline-flex h-14 items-center justify-center gap-3 rounded-full bg-white px-7 text-base text-black transition-colors duration-200 hover:cursor-pointer hover:bg-zinc-300 sm:w-fit"
             >
               {isIndonesian ? "Kirim pesan" : "Send message"}
               <ArrowUpRight aria-hidden="true" className="size-4" />
@@ -209,7 +209,7 @@ export function Footer({
           </form>
         </motion.div>
 
-        <div className="mt-auto flex flex-col gap-5 border-t border-white/15 pt-8 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-auto flex flex-col gap-3 border-t border-white/15 pt-6 text-sm text-white/55 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {new Date().getFullYear()} Kodefy. {content.footer.rights}
           </p>
