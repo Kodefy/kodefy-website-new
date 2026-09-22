@@ -134,21 +134,21 @@ export const homeContent: Record<Locale, HomeContent> = {
     services: [
       {
         number: "01",
-        title: "Website development",
+        title: "Professional Websites",
         body:
           "Professional landing pages, company profiles, portfolios, and catalog websites built to explain your offer clearly and turn interest into enquiries.",
         price: "Starting from Rp1.5 million",
       },
       {
         number: "02",
-        title: "SEO foundations & growth",
+        title: "SEO Foundations",
         body:
           "SEO setup, technical audits, and ongoing optimization that make important pages easier for search engines to understand and improve over time.",
         price: "Starting from Rp1.5 million",
       },
       {
         number: "03",
-        title: "Analytics setup",
+        title: "Analytics Setup",
         body:
           "Practical measurement foundations for important actions such as contact clicks, forms, and campaign landing pages without guesswork.",
         price: "Starting from Rp500 thousand",
@@ -312,21 +312,21 @@ export const homeContent: Record<Locale, HomeContent> = {
     services: [
       {
         number: "01",
-        title: "Pengembangan website",
+        title: "Website Profesional",
         body:
           "Landing page, company profile, portfolio, dan website katalog profesional untuk menjelaskan penawaran dengan jelas dan mengubah ketertarikan menjadi inquiry.",
         price: "Mulai dari Rp1,5 juta",
       },
       {
         number: "02",
-        title: "Fondasi & pertumbuhan SEO",
+        title: "Fondasi SEO",
         body:
           "SEO setup, technical audit, dan optimasi berkelanjutan agar halaman penting lebih mudah dipahami mesin pencari dan dikembangkan dari waktu ke waktu.",
         price: "Mulai dari Rp1,5 juta",
       },
       {
         number: "03",
-        title: "Setup analitik",
+        title: "Setup Analitik",
         body:
           "Fondasi pengukuran praktis untuk aksi penting seperti klik kontak, formulir, dan campaign landing page agar keputusan tidak sekadar berdasarkan dugaan.",
         price: "Mulai dari Rp500 ribu",

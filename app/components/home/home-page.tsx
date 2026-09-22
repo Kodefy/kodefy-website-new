@@ -3,25 +3,22 @@ import {
   ArrowDownRight,
   ArrowRight,
   ArrowUpRight,
-  BarChart3,
   Check,
-  Compass,
   Gauge,
   MessagesSquare,
-  SearchCheck,
   Sparkles,
 } from "lucide-react";
 
 import { ClientLogos } from "@/app/components/home/components/client-logos";
 import { Expectations } from "@/app/components/home/components/expectations";
 import { Hero } from "@/app/components/home/components/hero";
+import { Services } from "@/app/components/home/components/services";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { Button } from "@/components/ui/button";
 import { business, homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
 
-const serviceIcons = [Compass, SearchCheck, BarChart3];
 const reasonIcons = [Sparkles, MessagesSquare, Gauge, Check];
 
 export function HomePage({ locale }: { locale: Locale }) {
@@ -48,32 +45,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
         <Expectations locale={locale} />
 
-        <section id="services" className="scroll-mt-24 bg-[#101014] text-white">
-          <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
-            <SectionIntro {...content.servicesIntro} dark />
-            <div className="mt-12 grid gap-4 lg:grid-cols-3">
-              {content.services.map((service, index) => {
-                const Icon = serviceIcons[index];
-                return (
-                  <article
-                    key={service.title}
-                    className="group flex min-h-[390px] flex-col rounded-[1.5rem] border border-white/15 bg-white/[0.045] p-7 sm:p-8"
-                  >
-                    <div className="flex items-start justify-between">
-                      <span className="font-mono text-xs text-white/40">{service.number}</span>
-                      <span className="flex size-12 items-center justify-center rounded-full bg-[#d7ff52] text-black">
-                        <Icon aria-hidden="true" className="size-5" />
-                      </span>
-                    </div>
-                    <h3 className="mt-14 max-w-xs text-3xl font-semibold tracking-[-0.035em]">{service.title}</h3>
-                    <p className="mt-4 text-base leading-7 text-white/60">{service.body}</p>
-                    <p className="mt-auto pt-8 text-sm font-semibold text-[#d7ff52]">{service.price}</p>
-                  </article>
-                );
-              })}
-            </div>
-          </div>
-        </section>
+        <Services locale={locale} />
 
         <section id="work" className="scroll-mt-24 bg-[#f8f7f3]">
           <div className="mx-auto max-w-[1440px] px-5 py-20 sm:px-8 lg:px-12 lg:py-28">
