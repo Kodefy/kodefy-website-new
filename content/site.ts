@@ -737,9 +737,14 @@ export const webDevelopmentPageContent: Record<
     };
     testimonials?: {
       title: string;
-      imageSrc: string;
-      imageAlt: string;
-      items: { quote: string; body: string; name: string; role: string }[];
+      items: {
+        quote: string;
+        body: string;
+        name: string;
+        role: string;
+        imageSrc: string;
+        imageAlt: string;
+      }[];
     };
     spiral: { title: string; body: string; cta: string };
     process: {
@@ -781,26 +786,30 @@ export const webDevelopmentPageContent: Record<
     },
     testimonials: {
       title: "What our clients say.",
-      imageSrc: "/assets/projects/lievee.webp",
-      imageAlt: "Lievee website project by Kodefy",
       items: [
         {
           quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           name: "Lorem Ipsum",
           role: "Placeholder testimonial",
+          imageSrc: "/assets/projects/qijian-technology.webp",
+          imageAlt: "Qijian Technology website project by Kodefy",
         },
         {
           quote: "Ut enim ad minim veniam, quis nostrud exercitation.",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
           name: "Dolor Sit",
           role: "Placeholder testimonial",
+          imageSrc: "/assets/projects/lievee.webp",
+          imageAlt: "Lievee website project by Kodefy",
         },
         {
           quote: "Duis aute irure dolor in reprehenderit in voluptate.",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
           name: "Amet Consectetur",
           role: "Placeholder testimonial",
+          imageSrc: "/assets/projects/sukses-pamerindo.webp",
+          imageAlt: "Sukses Pamerindo Utama website project by Kodefy",
         },
       ],
     },
@@ -899,26 +908,30 @@ export const webDevelopmentPageContent: Record<
     },
     testimonials: {
       title: "Apa kata klien kami.",
-      imageSrc: "/assets/projects/lievee.webp",
-      imageAlt: "Proyek website Lievee oleh Kodefy",
       items: [
         {
           quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
           name: "Lorem Ipsum",
           role: "Testimonial sementara",
+          imageSrc: "/assets/projects/qijian-technology.webp",
+          imageAlt: "Proyek website Qijian Technology oleh Kodefy",
         },
         {
           quote: "Ut enim ad minim veniam, quis nostrud exercitation.",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
           name: "Dolor Sit",
           role: "Testimonial sementara",
+          imageSrc: "/assets/projects/lievee.webp",
+          imageAlt: "Proyek website Lievee oleh Kodefy",
         },
         {
           quote: "Duis aute irure dolor in reprehenderit in voluptate.",
           body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
           name: "Amet Consectetur",
           role: "Testimonial sementara",
+          imageSrc: "/assets/projects/sukses-pamerindo.webp",
+          imageAlt: "Proyek website Sukses Pamerindo Utama oleh Kodefy",
         },
       ],
     },

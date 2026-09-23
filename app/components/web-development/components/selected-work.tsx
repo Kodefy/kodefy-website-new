@@ -47,20 +47,30 @@ export function SelectedWork({ locale }: { locale: Locale }) {
 
         <div className="mt-12 grid gap-5 sm:grid-cols-3 lg:mt-14 lg:items-start">
           {projects.map((project, index) => (
-            <FrameReveal
-              key={project.name}
-              src={project.image}
-              alt={project.alt}
-              backgroundClassName="bg-black"
-              revealFrom={index === 1 ? "top" : "bottom"}
-              className={`w-full ${
-                index === 0
-                  ? "aspect-[4/5]"
-                  : index === 1
-                    ? "aspect-[3/5] sm:mt-8"
-                    : "aspect-[4/5] sm:mt-16"
-              }`}
-            />
+            <div key={project.name}>
+              <FrameReveal
+                src={project.image}
+                alt={project.alt}
+                backgroundClassName="bg-black"
+                revealFrom={index % 2 === 0 ? "right" : "left"}
+                className={`w-full sm:hidden ${
+                  index === 1 ? "aspect-[3/5]" : "aspect-[4/5]"
+                }`}
+              />
+              <FrameReveal
+                src={project.image}
+                alt={project.alt}
+                backgroundClassName="bg-black"
+                revealFrom={index === 1 ? "top" : "bottom"}
+                className={`hidden w-full sm:block ${
+                  index === 0
+                    ? "aspect-[4/5]"
+                    : index === 1
+                      ? "aspect-[3/5] sm:mt-8"
+                      : "aspect-[4/5] sm:mt-16"
+                }`}
+              />
+            </div>
           ))}
         </div>
       </div>

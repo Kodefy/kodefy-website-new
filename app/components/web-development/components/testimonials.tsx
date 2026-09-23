@@ -2,10 +2,10 @@
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
-import { FrameReveal } from "@/components/site/frame-reveal";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { webDevelopmentPageContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
@@ -13,6 +13,8 @@ import type { Locale } from "@/lib/routes";
 export function WebsiteTestimonials({ locale }: { locale: Locale }) {
   const content = webDevelopmentPageContent[locale].testimonials;
   const [activeIndex, setActiveIndex] = useState(0);
+  const [slideVersion, setSlideVersion] = useState(0);
+  const [autoplayReset, setAutoplayReset] = useState(0);
   const items = content?.items ?? [];
 
   useEffect(() => {
@@ -20,18 +22,20 @@ export function WebsiteTestimonials({ locale }: { locale: Locale }) {
 
     const interval = window.setInterval(() => {
       setActiveIndex((index) => (index + 1) % items.length);
+      setSlideVersion((version) => version + 1);
     }, 5000);
 
     return () => window.clearInterval(interval);
-  }, [items.length]);
+  }, [autoplayReset, items.length]);
 
   if (!content || items.length === 0) return null;
 
   const testimonial = items[activeIndex];
-  const previous = () =>
-    setActiveIndex((index) => (index - 1 + items.length) % items.length);
-  const next = () =>
-    setActiveIndex((index) => (index + 1) % items.length);
+  const changeSlide = (direction: -1 | 1) => {
+    setActiveIndex((index) => (index + direction + items.length) % items.length);
+    setSlideVersion((version) => version + 1);
+    setAutoplayReset((value) => value + 1);
+  };
 
   return (
     <section aria-labelledby="web-development-testimonials-heading" className="bg-zinc-100 text-black">
@@ -44,19 +48,26 @@ export function WebsiteTestimonials({ locale }: { locale: Locale }) {
         </h2>
 
         <div className="mt-14 grid gap-10 lg:mt-20 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20">
-          <FrameReveal
-            src={content.imageSrc}
-            alt={content.imageAlt}
-            revealFrom="bottom"
-            backgroundClassName="bg-black"
-            className="aspect-video w-full lg:self-center lg:origin-right lg:scale-160"
-          />
+          <div className="relative aspect-video w-full overflow-hidden bg-black lg:self-center lg:origin-right lg:scale-160">
+            <AnimatePresence mode="sync">
+              <motion.img
+                key={`testimonial-image-${slideVersion}`}
+                src={testimonial.imageSrc}
+                alt={testimonial.imageAlt}
+                initial={{ clipPath: "inset(100% 0 0 0)", scale: 1.04, y: "6%" }}
+                animate={{ clipPath: "inset(0 0 0 0)", scale: 1, y: "0%" }}
+                exit={{ opacity: 0.999 }}
+                transition={{ duration: 1, ease: [0.16, 0.95, 0.22, 1] }}
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+            </AnimatePresence>
+          </div>
 
           <div className="relative flex min-h-116 flex-col justify-center px-0 sm:px-16 lg:px-20">
             <button
               type="button"
               aria-label={locale === "id" ? "Testimonial sebelumnya" : "Previous testimonial"}
-              onClick={previous}
+              onClick={() => changeSlide(-1)}
               className="absolute top-1/2 left-0 hidden size-14 -translate-y-1/2 items-center justify-center rounded-full bg-white transition-colors duration-200 hover:cursor-pointer hover:bg-black hover:text-white sm:flex"
             >
               <ArrowLeft aria-hidden="true" className="size-5" />
@@ -99,17 +110,17 @@ export function WebsiteTestimonials({ locale }: { locale: Locale }) {
             <button
               type="button"
               aria-label={locale === "id" ? "Testimonial berikutnya" : "Next testimonial"}
-              onClick={next}
+              onClick={() => changeSlide(1)}
               className="absolute top-1/2 right-0 hidden size-14 -translate-y-1/2 items-center justify-center rounded-full bg-white transition-colors duration-200 hover:cursor-pointer hover:bg-black hover:text-white sm:flex"
             >
               <ArrowRight aria-hidden="true" className="size-5" />
             </button>
 
             <div className="mt-8 flex gap-3 sm:hidden">
-              <button type="button" aria-label={locale === "id" ? "Testimonial sebelumnya" : "Previous testimonial"} onClick={previous} className="flex size-11 items-center justify-center rounded-full border border-black/20 hover:cursor-pointer">
+              <button type="button" aria-label={locale === "id" ? "Testimonial sebelumnya" : "Previous testimonial"} onClick={() => changeSlide(-1)} className="flex size-11 items-center justify-center rounded-full border border-black/20 hover:cursor-pointer">
                 <ArrowLeft aria-hidden="true" className="size-4" />
               </button>
-              <button type="button" aria-label={locale === "id" ? "Testimonial berikutnya" : "Next testimonial"} onClick={next} className="flex size-11 items-center justify-center rounded-full border border-black/20 hover:cursor-pointer">
+              <button type="button" aria-label={locale === "id" ? "Testimonial berikutnya" : "Next testimonial"} onClick={() => changeSlide(1)} className="flex size-11 items-center justify-center rounded-full border border-black/20 hover:cursor-pointer">
                 <ArrowRight aria-hidden="true" className="size-4" />
               </button>
             </div>
