@@ -7,6 +7,7 @@ import {
   legalSeo,
   portfolioPageContent,
   servicesPageContent,
+  webDevelopmentPageContent,
 } from "@/content/site";
 import {
   getAbsoluteRouteUrl,
@@ -24,6 +25,8 @@ export function buildPageMetadata(routeId: RouteId, locale: Locale): Metadata {
         ? aboutPageContent[locale].seo
       : routeId === "services"
         ? servicesPageContent[locale].seo
+        : routeId === "webDevelopment"
+          ? webDevelopmentPageContent[locale].seo
         : routeId === "portfolio"
           ? portfolioPageContent[locale].seo
           : routeId === "contact"

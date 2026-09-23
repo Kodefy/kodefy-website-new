@@ -21,6 +21,13 @@ export const routeRegistry = {
     internalPath: "/services",
     paths: { en: "/services", id: "/layanan" },
   },
+  webDevelopment: {
+    internalPath: "/services/web-development",
+    paths: {
+      en: "/services/web-development",
+      id: "/layanan/pembuatan-website",
+    },
+  },
   portfolio: {
     internalPath: "/portfolio",
     paths: { en: "/portfolio", id: "/portofolio" },

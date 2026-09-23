@@ -719,6 +719,280 @@ export const servicesPageContent: Record<
   },
 };
 
+export const webDevelopmentPageContent: Record<
+  Locale,
+  {
+    hero: {
+      title: string;
+      body: string;
+      primaryCta: string;
+      secondaryCta: string;
+    };
+    trust: { label: string; logosLabel: string };
+    selectedWork: {
+      title: string;
+      body: string;
+      primaryCta: string;
+      phoneCta: string;
+    };
+    testimonials?: {
+      title: string;
+      imageSrc: string;
+      imageAlt: string;
+      items: { quote: string; body: string; name: string; role: string }[];
+    };
+    spiral: { title: string; body: string; cta: string };
+    process: {
+      title: string;
+      primaryCta: string;
+      phoneCta: string;
+      steps: { number: string; title: string; body: string }[];
+    };
+    faq?: {
+      title: string;
+      items: { question: string; answer: string }[];
+    };
+    seo: { description: string; title: string };
+  }
+> = {
+  en: {
+    seo: {
+      title: "Website Development Services | Kodefy",
+      description:
+        "Kodefy designs and builds professional websites that make a business clearer, more credible, and easier for prospective customers to contact.",
+    },
+    hero: {
+      title: "Websites that make your business easier to understand.",
+      body:
+        "Kodefy designs and builds professional websites that explain your offer clearly, build confidence, and give prospective customers a clear reason to get in touch.",
+      primaryCta: "Discuss your project",
+      secondaryCta: "Explore services",
+    },
+    trust: {
+      label: "Trusted by businesses across industries.",
+      logosLabel: "Selected client brands",
+    },
+    selectedWork: {
+      title: "See how we bring websites to life.",
+      body:
+        "Explore a selection of websites we have built for businesses with different needs, industries, and audiences.",
+      primaryCta: "Discuss your project",
+      phoneCta: "Chat via WhatsApp",
+    },
+    testimonials: {
+      title: "What our clients say.",
+      imageSrc: "/assets/projects/lievee.webp",
+      imageAlt: "Lievee website project by Kodefy",
+      items: [
+        {
+          quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          name: "Lorem Ipsum",
+          role: "Placeholder testimonial",
+        },
+        {
+          quote: "Ut enim ad minim veniam, quis nostrud exercitation.",
+          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+          name: "Dolor Sit",
+          role: "Placeholder testimonial",
+        },
+        {
+          quote: "Duis aute irure dolor in reprehenderit in voluptate.",
+          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+          name: "Amet Consectetur",
+          role: "Placeholder testimonial",
+        },
+      ],
+    },
+    spiral: {
+      title: "From business needs to a website ready to use.",
+      body:
+        "We shape each website around the message, audience, and next step that matter most to your business.",
+      cta: "Discuss your project",
+    },
+    process: {
+      title: "A clear process from the first conversation to launch.",
+      primaryCta: "Discuss your project",
+      phoneCta: "Chat via WhatsApp",
+      steps: [
+        {
+          number: "01",
+          title: "Consultation",
+          body: "We discuss your business, goals, audience, and current challenges.",
+        },
+        {
+          number: "02",
+          title: "Scope & proposal",
+          body: "You receive a defined scope, deliverables, timeline, and price.",
+        },
+        {
+          number: "03",
+          title: "Design & development",
+          body: "The approved direction is translated into a responsive, working experience.",
+        },
+        {
+          number: "04",
+          title: "Review & Revision",
+          body: "You review the work and provide focused feedback within the agreed scope.",
+        },
+        {
+          number: "05",
+          title: "Launch",
+          body: "The project is launched and handed over.",
+        },
+      ],
+    },
+    faq: {
+      title: "Frequently asked questions.",
+      items: [
+        {
+          question: "How long does a website project take?",
+          answer:
+            "The timeline depends on the scope, content readiness, and feedback cycle. A focused landing page can move faster, while a larger website with more pages or features needs more time. We confirm a clear timeline before work begins.",
+        },
+        {
+          question: "What do I need to prepare before we start?",
+          answer:
+            "A short overview of your business, your goals, your audience, and any existing brand assets is a helpful starting point. If your content is not ready yet, we can help define what is needed.",
+        },
+        {
+          question: "Will my website be ready for SEO?",
+          answer:
+            "Every website is built with a clean technical foundation, responsive structure, and clear page hierarchy. Dedicated SEO work, such as keyword strategy or ongoing optimisation, can be scoped separately when needed.",
+        },
+        {
+          question: "Can I request revisions?",
+          answer:
+            "Yes. We include review checkpoints so you can give focused feedback as the project moves forward. The revision process follows the agreed scope to keep decisions and delivery clear.",
+        },
+        {
+          question: "What happens after the website goes live?",
+          answer:
+            "We make sure the website is ready to launch and hand it over clearly. If you need future updates, SEO, analytics, or ongoing support, we can discuss the right next step for your business.",
+        },
+      ],
+    },
+  },
+  id: {
+    seo: {
+      title: "Jasa Pembuatan Website | Kodefy",
+      description:
+        "Kodefy merancang dan membangun website profesional untuk membantu bisnis terlihat lebih meyakinkan, mudah dipahami, dan siap dihubungi calon pelanggan.",
+    },
+    hero: {
+      title: "Jasa pembuatan website untuk bisnis yang lebih mudah dipahami.",
+      body:
+        "Kodefy merancang dan membangun website profesional untuk menjelaskan penawaran dengan jelas, membangun kepercayaan, dan memberi calon pelanggan alasan untuk menghubungi bisnis Anda.",
+      primaryCta: "Diskusikan proyek Anda",
+      secondaryCta: "Lihat layanan",
+    },
+    trust: {
+      label: "Dipercaya oleh bisnis dari berbagai industri.",
+      logosLabel: "Pilihan brand klien",
+    },
+    selectedWork: {
+      title: "Lihat bagaimana kami mewujudkan website untuk bisnis.",
+      body:
+        "Lihat pilihan website yang kami bangun untuk bisnis dengan kebutuhan, industri, dan karakter yang berbeda.",
+      primaryCta: "Diskusikan proyek Anda",
+      phoneCta: "Chat via WhatsApp",
+    },
+    testimonials: {
+      title: "Apa kata klien kami.",
+      imageSrc: "/assets/projects/lievee.webp",
+      imageAlt: "Proyek website Lievee oleh Kodefy",
+      items: [
+        {
+          quote: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          name: "Lorem Ipsum",
+          role: "Testimonial sementara",
+        },
+        {
+          quote: "Ut enim ad minim veniam, quis nostrud exercitation.",
+          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+          name: "Dolor Sit",
+          role: "Testimonial sementara",
+        },
+        {
+          quote: "Duis aute irure dolor in reprehenderit in voluptate.",
+          body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.",
+          name: "Amet Consectetur",
+          role: "Testimonial sementara",
+        },
+      ],
+    },
+    spiral: {
+      title: "Lihat apa yang bisa kami buat untuk Anda.",
+      body:
+        "Setiap website kami buat berdasarkan pesan yang ingin disampaikan, audiens yang dituju, dan tujuan bisnis Anda.",
+      cta: "Diskusikan proyek Anda",
+    },
+    process: {
+      title: "Proses yang jelas dari konsultasi hingga website siap digunakan.",
+      primaryCta: "Diskusikan proyek Anda",
+      phoneCta: "Chat via WhatsApp",
+      steps: [
+        {
+          number: "01",
+          title: "Konsultasi",
+          body: "Kami membahas bisnis, tujuan, audiens, dan tantangan Anda saat ini.",
+        },
+        {
+          number: "02",
+          title: "Scope & proposal",
+          body: "Anda menerima scope, deliverables, timeline, dan harga.",
+        },
+        {
+          number: "03",
+          title: "Desain & development",
+          body: "Arah yang disetujui diterjemahkan menjadi pengalaman responsif yang berfungsi.",
+        },
+        {
+          number: "04",
+          title: "Review & Revisi",
+          body: "Anda meninjau hasil dan memberi feedback terarah dalam scope yang disepakati.",
+        },
+        {
+          number: "05",
+          title: "Peluncuran",
+          body: "Website diluncurkan dan diserahkan.",
+        },
+      ],
+    },
+    faq: {
+      title: "Pertanyaan yang sering ditanyakan.",
+      items: [
+        {
+          question: "Berapa lama proses pembuatan website?",
+          answer:
+            "Timeline bergantung pada scope, kesiapan konten, dan proses feedback. Landing page yang terarah bisa dikerjakan lebih cepat, sementara website dengan halaman atau fitur lebih banyak membutuhkan waktu lebih panjang. Timeline yang jelas disepakati sebelum pengerjaan dimulai.",
+        },
+        {
+          question: "Apa yang perlu saya siapkan sebelum mulai?",
+          answer:
+            "Gambaran singkat tentang bisnis, tujuan, audiens, serta aset brand yang sudah ada merupakan awal yang baik. Jika konten belum siap, kami dapat membantu menentukan apa saja yang perlu disiapkan.",
+        },
+        {
+          question: "Apakah website sudah siap untuk SEO?",
+          answer:
+            "Setiap website dibuat dengan fondasi teknis yang rapi, struktur responsif, dan hierarki halaman yang jelas. Pekerjaan SEO khusus, seperti strategi keyword atau optimasi berkelanjutan, dapat dibahas secara terpisah bila diperlukan.",
+        },
+        {
+          question: "Apakah saya bisa meminta revisi?",
+          answer:
+            "Bisa. Kami menyediakan checkpoint review agar Anda dapat memberikan feedback yang terarah selama proses berjalan. Revisi mengikuti scope yang disepakati agar keputusan dan pengerjaan tetap jelas.",
+        },
+        {
+          question: "Apa yang terjadi setelah website diluncurkan?",
+          answer:
+            "Kami memastikan website siap diluncurkan dan diserahkan dengan jelas. Jika Anda membutuhkan update, SEO, analitik, atau dukungan lanjutan, kita dapat mendiskusikan langkah berikutnya yang sesuai untuk bisnis Anda.",
+        },
+      ],
+    },
+  },
+};
+
 export const portfolioPageContent: Record<
   Locale,
   {

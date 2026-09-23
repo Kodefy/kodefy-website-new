@@ -1,7 +1,7 @@
 "use client";
 
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { FillButton } from "@/components/ui/fill-button";
 import { FadeIn } from "@/components/site/fade-in";
@@ -34,6 +34,14 @@ export function Testimonials({ locale }: { locale: Locale }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const testimonial = placeholders[activeIndex];
   const isIndonesian = locale === "id";
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveIndex((index) => (index + 1) % placeholders.length);
+    }, 5000);
+
+    return () => window.clearInterval(interval);
+  }, []);
 
   const previous = () =>
     setActiveIndex(
