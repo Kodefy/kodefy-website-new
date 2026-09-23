@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import {
   aboutPageContent,
+  contactPageContent,
   homeContent,
   legalSeo,
   portfolioPageContent,
@@ -25,7 +26,9 @@ export function buildPageMetadata(routeId: RouteId, locale: Locale): Metadata {
         ? servicesPageContent[locale].seo
         : routeId === "portfolio"
           ? portfolioPageContent[locale].seo
-        : legalSeo[routeId][locale];
+          : routeId === "contact"
+            ? contactPageContent[locale].seo
+            : legalSeo[routeId][locale];
   const canonical = getAbsoluteRouteUrl(routeId, locale);
 
   return {

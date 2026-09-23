@@ -75,7 +75,7 @@ export function AccordionGallery({
   }, [lazy, lazyRootMargin]);
 
   return (
-    <div ref={rootRef} className="min-h-[184px] sm:min-h-[420px]">
+    <div ref={rootRef} className="min-h-46 sm:min-h-105">
       {Gallery ? <Gallery {...props} /> : null}
     </div>
   );

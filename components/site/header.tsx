@@ -65,7 +65,7 @@ export function Header({
     },
     {
       label: locale === "id" ? "Kontak" : "Contact",
-      href: `${homePath}#contact`,
+      href: getRoutePath("contact", locale),
       imageSrc:
         "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
     },

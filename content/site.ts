@@ -442,6 +442,88 @@ export const homeContent: Record<Locale, HomeContent> = {
   },
 };
 
+export const contactPageContent: Record<
+  Locale,
+  {
+    seo: { title: string; description: string };
+    hero: {
+      title: string;
+      body: string;
+      primaryCta: string;
+      secondaryCta: string;
+    };
+    form: {
+      title: string;
+      body: string;
+      contactLabel: string;
+      emailLabel: string;
+      phoneLabel: string;
+      nameLabel: string;
+      namePlaceholder: string;
+      serviceLabel: string;
+      servicePlaceholder: string;
+      messageLabel: string;
+      messagePlaceholder: string;
+      submit: string;
+    };
+  }
+> = {
+  en: {
+    seo: {
+      title: "Contact Kodefy | Website, SEO & Analytics",
+      description:
+        "Tell Kodefy what your business needs and find the right next step for your website, SEO, or analytics.",
+    },
+    hero: {
+      title: "Need help?",
+      body: "Tell us what your business needs. We will help you determine the right next step.",
+      primaryCta: "Chat on WhatsApp",
+      secondaryCta: "Send an email",
+    },
+    form: {
+      title: "Let's work together.",
+      body: "Tell us a little about what you need. We will help you find the right next step for your business.",
+      contactLabel: "Contact",
+      emailLabel: "Email address",
+      phoneLabel: "Phone number",
+      nameLabel: "Full name",
+      namePlaceholder: "Your full name",
+      serviceLabel: "Service",
+      servicePlaceholder: "Website, SEO, analytics...",
+      messageLabel: "Message",
+      messagePlaceholder: "Tell us about your project...",
+      submit: "Send message",
+    },
+  },
+  id: {
+    seo: {
+      title: "Kontak Kodefy | Website, SEO & Analitik",
+      description:
+        "Ceritakan kebutuhan bisnis Anda kepada Kodefy dan tentukan langkah berikutnya untuk website, SEO, atau analitik.",
+    },
+    hero: {
+      title: "Butuh bantuan?",
+      body: "Ceritakan kebutuhan bisnis Anda. Kami akan membantu menentukan langkah yang paling tepat untuk anda.",
+      primaryCta: "Chat via WhatsApp",
+      secondaryCta: "Kirim email",
+    },
+    form: {
+      title: "Mari bekerja bersama.",
+      body: "Ceritakan sedikit tentang kebutuhan Anda. Kami akan membantu menentukan langkah yang paling tepat untuk bisnis Anda.",
+      contactLabel: "Kontak",
+      emailLabel: "Email",
+      phoneLabel: "Nomor telepon",
+      nameLabel: "Nama lengkap",
+      namePlaceholder: "Nama Anda",
+      serviceLabel: "Layanan",
+      servicePlaceholder: "Website, SEO, analitik...",
+      messageLabel: "Pesan",
+      messagePlaceholder: "Ceritakan kebutuhan proyek Anda...",
+      submit: "Kirim pesan",
+    },
+  },
+};
+
 export const legalSeo = {
   terms: {
     en: {

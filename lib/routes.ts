@@ -29,6 +29,10 @@ export const routeRegistry = {
     internalPath: "/about",
     paths: { en: "/about", id: "/tentang-kami" },
   },
+  contact: {
+    internalPath: "/contact",
+    paths: { en: "/contact", id: "/kontak-kami" },
+  },
 } as const;
 
 export type RouteId = keyof typeof routeRegistry;

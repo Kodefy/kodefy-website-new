@@ -14,5 +14,6 @@ export const routing = defineRouting({
     "/services": routeRegistry.services.paths,
     "/portfolio": routeRegistry.portfolio.paths,
     "/about": routeRegistry.about.paths,
+    "/contact": routeRegistry.contact.paths,
   },
 });

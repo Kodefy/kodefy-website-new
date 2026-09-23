@@ -41,6 +41,73 @@ export function Footer({
   const headingY = useTransform(scrollYProgress, [0, 1], [-36, 52]);
   const detailsY = useTransform(scrollYProgress, [0, 1], [-12, 12]);
 
+  if (routeId === "contact") {
+    return (
+      <footer ref={footerRef} className="relative isolate overflow-hidden bg-[#101010] text-white">
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 opacity-75">
+          <LazyGrainient
+            className="h-full w-full"
+            timeSpeed={0.6}
+            color1={isMobile ? "#878787" : "#000000"}
+            color2="#000000"
+            color3="#878787"
+            grainAmount={0.01}
+            grainScale={1.8}
+            contrast={1.25}
+            saturation={0}
+            zoom={1}
+            noiseScale={2.5}
+          />
+        </div>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-black/35" />
+        <div className="relative mx-auto flex max-w-360 flex-col gap-10 px-6 py-12 sm:px-8 lg:flex-row lg:items-end lg:justify-between lg:px-12 lg:py-16">
+          <div>
+            <Link
+              href={homePath}
+              className="text-3xl tracking-[0.4em] transition-opacity duration-200 hover:cursor-pointer hover:opacity-60"
+            >
+              <RevealHeadline revealBy="character" text="KODEFY" />
+            </Link>
+            <div className="mt-6 flex flex-col gap-3 text-sm text-white/70 sm:flex-row sm:gap-8">
+              <FadeInText className="w-fit" text={business.email} delay={0.1}>
+                <a className="hover:text-white" href={`mailto:${business.email}`}>
+                  {business.email}
+                </a>
+              </FadeInText>
+              <FadeInText className="w-fit" text={business.phoneDisplay} delay={0.15}>
+                <a
+                  className="hover:text-white"
+                  href={business.whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {business.phoneDisplay}
+                </a>
+              </FadeInText>
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-white/60 lg:justify-end">
+            <FadeInText text={`© ${new Date().getFullYear()} Kodefy.`} delay={0.2} />
+            <FadeInText className="w-fit" text={content.footer.terms} delay={0.25}>
+              <Link className="hover:text-white" href={getRoutePath("terms", locale)}>
+                {content.footer.terms}
+              </Link>
+            </FadeInText>
+            <FadeInText className="w-fit" text={content.footer.privacy} delay={0.3}>
+              <Link className="hover:text-white" href={getRoutePath("privacy", locale)}>
+                {content.footer.privacy}
+              </Link>
+            </FadeInText>
+            <FadeIn delay={0.35}>
+              <LanguageSwitcher locale={locale} routeId={routeId} compact />
+            </FadeIn>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+
   const sendMessage = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -125,6 +192,7 @@ export function Footer({
                   label={isIndonesian ? "Nomor telepon" : "Phone number"}
                   href={business.whatsapp}
                   delay={0.2}
+                  external
                 >
                   {business.phoneDisplay}
                 </ContactLink>
@@ -263,11 +331,13 @@ function ContactLink({
   href,
   children,
   delay = 0,
+  external = false,
 }: {
   label: string;
   href: string;
   children: React.ReactNode;
   delay?: number;
+  external?: boolean;
 }) {
   return (
     <div>
@@ -279,6 +349,8 @@ function ContactLink({
       >
         <a
           href={href}
+          target={external ? "_blank" : undefined}
+          rel={external ? "noreferrer" : undefined}
           className="transition-opacity duration-200 hover:cursor-pointer hover:opacity-60"
         >
           {children}
