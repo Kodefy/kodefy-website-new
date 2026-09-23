@@ -107,7 +107,7 @@ export function Header({
         if (nextOpen) setIsMenuAtTop(true);
       }}
     >
-      <header className="pointer-events-none fixed top-0 right-0 z-[60] mix-blend-difference p-6 sm:p-8 lg:p-12">
+      <header className="pointer-events-none fixed top-0 right-0 z-60 mix-blend-difference p-6 sm:p-8 lg:p-12">
         <div className="pointer-events-auto flex items-center gap-6">
           <Link
             href={homePath}
@@ -150,7 +150,7 @@ export function Header({
       <SheetContent
         side="top"
         showCloseButton={false}
-        className="!inset-0 !h-dvh !w-full !max-w-none gap-0 overflow-hidden !border-0 bg-black p-0 text-white shadow-none !transition-opacity !duration-1000 data-[side=top]:data-ending-style:!translate-y-0 data-[side=top]:data-starting-style:!translate-y-0"
+        className="inset-0! h-dvh! w-full! max-w-none! gap-0 overflow-hidden border-0! bg-black p-0 text-white shadow-none transition-opacity! duration-1000! data-[side=top]:data-ending-style:translate-y-0! data-[side=top]:data-starting-style:translate-y-0!"
       >
         <SheetTitle className="sr-only">
           {locale === "id" ? "Menu utama" : "Main menu"}
@@ -162,7 +162,7 @@ export function Header({
         </SheetDescription>
 
         <div
-          className="mx-auto flex h-full w-full max-w-[1440px] flex-col overflow-y-auto px-6 pt-32 pb-8 sm:px-8 sm:pt-36 lg:overflow-hidden lg:px-12 lg:pt-40"
+          className="mx-auto flex h-full w-full max-w-360 flex-col overflow-y-auto px-6 pt-32 pb-8 sm:px-8 sm:pt-36 lg:overflow-hidden lg:px-12 lg:pt-40"
           onScroll={(event) =>
             setIsMenuAtTop(event.currentTarget.scrollTop === 0)
           }

@@ -13,7 +13,7 @@ export function Process({ locale }: { locale: Locale }) {
 
   return (
     <section id="process" className="scroll-mt-24 bg-white text-black">
-      <div className="mx-auto grid max-w-[1440px] gap-14 px-6 py-20 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-24 lg:px-12 lg:py-28">
+      <div className="mx-auto grid max-w-360 gap-14 px-6 py-20 sm:px-8 lg:grid-cols-[1fr_1fr] lg:gap-24 lg:px-12 lg:py-28">
         <div className="lg:sticky lg:top-12 lg:self-start">
           <h2 className="max-w-md text-5xl leading-none font-light tracking-tight sm:text-6xl">
             <RevealHeadline

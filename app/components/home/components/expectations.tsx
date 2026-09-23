@@ -31,7 +31,7 @@ export function Expectations({ locale }: { locale: Locale }) {
         aria-hidden="true"
         className="absolute inset-y-0 left-0 hidden w-1/2 bg-zinc-100 lg:block"
       />
-      <div className="relative z-10 mx-auto grid max-w-[1440px] gap-10 px-6 py-16 sm:px-8 lg:grid-cols-[0.6fr_0.8fr_0.75fr] lg:items-center lg:gap-16 lg:px-12 lg:py-24">
+      <div className="relative z-10 mx-auto grid max-w-360 gap-10 px-6 py-16 sm:px-8 lg:grid-cols-[0.6fr_0.8fr_0.75fr] lg:items-center lg:gap-16 lg:px-12 lg:py-24">
         <ul className="mx-auto w-full max-w-xs lg:mx-0 lg:max-w-none">
           {content.labels.map((label, index) => (
             <li

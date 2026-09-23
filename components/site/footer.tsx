@@ -85,7 +85,7 @@ export function Footer({
         className="pointer-events-none absolute inset-0 bg-black/35"
       />
 
-      <div className="relative mx-auto flex min-h-screen max-w-[1440px] flex-col px-6 py-20 sm:px-8 lg:h-dvh lg:min-h-0 lg:px-12 lg:py-10">
+      <div className="relative mx-auto flex min-h-screen max-w-360 flex-col px-6 py-20 sm:px-8 lg:h-dvh lg:min-h-0 lg:px-12 lg:py-10">
         <motion.div
           style={{ y: headingY }}
           className="grid gap-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-end"

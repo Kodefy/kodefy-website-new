@@ -10,7 +10,7 @@ export function ClientLogos({ locale }: { locale: Locale }) {
 
   return (
     <section aria-labelledby="client-logos-heading" className="bg-white">
-      <div className="mx-auto flex max-w-[1440px] flex-col gap-8 px-6 py-12 sm:px-8 lg:flex-row lg:items-center lg:gap-16 lg:px-12 lg:py-16">
+      <div className="mx-auto flex max-w-360 flex-col gap-8 px-6 py-12 sm:px-8 lg:flex-row lg:items-center lg:gap-16 lg:px-12 lg:py-16">
         <h2
           id="client-logos-heading"
           className="max-w-52 text-xl leading-tight font-medium tracking-tight text-black"

@@ -48,7 +48,7 @@ export function Testimonials({ locale }: { locale: Locale }) {
         aria-hidden="true"
         className="absolute inset-y-0 left-0 hidden w-[42%] bg-white lg:block"
       />
-      <div className="relative mx-auto grid max-w-[1440px] gap-14 px-6 py-20 sm:px-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20 lg:px-12 lg:py-28">
+      <div className="relative mx-auto grid max-w-360 gap-14 px-6 py-20 sm:px-8 lg:grid-cols-[0.78fr_1.22fr] lg:gap-20 lg:px-12 lg:py-28">
         <div className="flex flex-col justify-center">
           <h2 className="max-w-md text-5xl leading-none font-light tracking-tight sm:text-6xl">
             <RevealHeadline
@@ -75,7 +75,7 @@ export function Testimonials({ locale }: { locale: Locale }) {
           </FadeIn>
         </div>
 
-        <div className="relative flex min-h-[29rem] flex-col justify-center px-0 sm:px-16 lg:px-20">
+        <div className="relative flex min-h-116 flex-col justify-center px-0 sm:px-16 lg:px-20">
           <button
             type="button"
             aria-label={

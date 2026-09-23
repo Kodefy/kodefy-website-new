@@ -32,7 +32,7 @@ export function WhyKodefy({ locale }: { locale: Locale }) {
 
   return (
     <section data-fill-button-surface="dark" className="bg-black text-white lg:max-h-screen lg:overflow-hidden lg:h-dvh">
-      <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-20 sm:px-8 lg:min-h-dvh lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-20 lg:px-12 lg:py-12">
+      <div className="mx-auto grid max-w-360 gap-10 px-6 py-20 sm:px-8 lg:min-h-dvh lg:grid-cols-[1.08fr_0.92fr] lg:items-center lg:gap-20 lg:px-12 lg:py-12">
         <div className="grid grid-cols-2 gap-3 sm:gap-5">
           {[mosaicImages.slice(0, 2), mosaicImages.slice(2)].map((column, columnIndex) => (
             <div
