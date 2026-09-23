@@ -29,7 +29,7 @@ export function HomePage({ locale }: { locale: Locale }) {
     <>
       <a
         href="#main-content"
-        className="fixed top-3 left-3 z-[100] -translate-y-20 rounded-md bg-black px-4 py-3 text-sm font-semibold text-white focus:translate-y-0"
+        className="fixed top-3 left-3 z-100 -translate-y-20 rounded-md bg-black px-4 py-3 text-sm font-semibold text-white focus:translate-y-0"
       >
         {locale === "id" ? "Lewati ke konten" : "Skip to content"}
       </a>

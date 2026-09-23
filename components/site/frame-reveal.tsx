@@ -45,7 +45,7 @@ export function FrameReveal({
   return (
     <div
       ref={elementRef}
-      className={cn("relative aspect-[4/5] overflow-hidden", className)}
+      className={cn("relative aspect-4/5 overflow-hidden", className)}
     >
       <div
         aria-hidden="true"

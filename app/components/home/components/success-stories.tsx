@@ -29,7 +29,7 @@ export function SuccessStories({ locale }: { locale: Locale }) {
       />
       <div className="relative mx-auto max-w-360 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1fr] lg:gap-20">
-          <article className="relative aspect-[4/5] overflow-hidden">
+          <article className="relative aspect-4/5 overflow-hidden">
             <FrameReveal
               src={featuredProject.image}
               alt={featuredProject.alt}

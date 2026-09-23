@@ -26,7 +26,7 @@ export function Process({ locale }: { locale: Locale }) {
             text={content.processIntro.body}
             delay={0.15}
           />
-          <div className="relative mt-2 aspect-[4/5] w-full max-w-lg lg:max-w-[580px]">
+          <div className="relative mt-2 aspect-4/5 w-full max-w-lg lg:max-w-145">
             <Image
               src="/assets/mockups/kodefy-phone-mockup.webp"
               alt={
@@ -36,7 +36,7 @@ export function Process({ locale }: { locale: Locale }) {
               }
               fill
               sizes="(max-width: 1024px) 100vw, 34vw"
-              className="object-contain object-left-top"
+              className="object-contain object-top-left"
             />
           </div>
         </div>
