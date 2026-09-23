@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/site/fade-in";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { Spotlight } from "@/components/ui/spotlight";
-import { business, homeContent } from "@/content/site";
+import { business, servicesPageContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
 
 const driftWallItems = [
@@ -72,7 +72,7 @@ const driftWallItems = [
 ].map((item) => ({ ...item, href: undefined }));
 
 export function Hero({ locale }: { locale: Locale }) {
-  const home = homeContent[locale];
+  const content = servicesPageContent[locale];
   const whatsappHref = `${business.whatsapp}?text=${encodeURIComponent(
     locale === "id"
       ? "Halo Kodefy, saya ingin mendiskusikan kebutuhan digital bisnis saya."
@@ -100,16 +100,16 @@ export function Hero({ locale }: { locale: Locale }) {
             <RevealHeadline
               characterStagger={0.01}
               revealBy="character"
-              text={[home.hero.title, home.hero.highlightedTitle].join(" ")}
+              text={[content.hero.title, content.hero.highlightedTitle]
+                .filter(Boolean)
+                .join(" ")}
             />
           </h1>
 
           <div className="mt-8 flex items-end justify-between gap-8 border-t border-white/20 pt-6">
             <div>
-              <p
-                className="max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8"
-              >
-                {home.hero.body}
+              <p className="max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
+                {content.hero.body}
               </p>
             </div>
           </div>
@@ -121,10 +121,12 @@ export function Hero({ locale }: { locale: Locale }) {
               rel="noreferrer"
               variant="solid"
             >
-              {home.cta.primary}
+              {content.hero.primaryCta}
               <ArrowUpRight aria-hidden="true" />
             </FillButton>
-            <FillButton href="#work">{home.cta.secondary}</FillButton>
+            <FillButton href="#services-overview">
+              {content.hero.secondaryCta}
+            </FillButton>
           </FadeIn>
         </div>
       </div>

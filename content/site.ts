@@ -464,3 +464,175 @@ export const legalSeo = {
     },
   },
 } as const;
+
+export const servicesPageContent: Record<
+  Locale,
+  {
+    hero: {
+      body: string;
+      highlightedTitle: string;
+      primaryCta: string;
+      secondaryCta: string;
+      title: string;
+    };
+    overview: {
+      body: string;
+      primaryCta: string;
+      secondaryCta: string;
+      services: { body: string; title: string }[];
+      title: string;
+    };
+    details: {
+      body: string;
+      imageAlt: string;
+      imageSrc: string;
+      labels: string[];
+      slug: string;
+      title: string;
+    }[];
+    seo: { description: string; title: string };
+  }
+> = {
+  en: {
+    seo: {
+      title: "Website, SEO & Analytics Services | Kodefy",
+      description:
+        "Explore Kodefy's professional website, SEO foundation, and analytics setup services for businesses that want a clearer, more measurable digital presence.",
+    },
+    hero: {
+      title: "Websites, SEO, and analytics",
+      highlightedTitle: "that work for your business.",
+      body:
+        "We help businesses build a more professional, discoverable, and measurable digital foundation so their website does more than look good: it supports growth.",
+      primaryCta: "Discuss your needs",
+      secondaryCta: "Explore services",
+    },
+    overview: {
+      title: "The essentials for a stronger digital presence.",
+      body:
+        "Start with the service your business needs now, then add support as your priorities grow.",
+      primaryCta: "Discuss your project",
+      secondaryCta: "View service details",
+      services: [
+        {
+          title: "Professional Websites",
+          body:
+            "Company profile, landing page, e-commerce, and portfolio websites that explain your offer clearly and turn interest into enquiries.",
+        },
+        {
+          title: "SEO Foundations",
+          body:
+            "SEO setup, technical SEO audits, and monthly SEO growth to make important pages easier to find and improve over time.",
+        },
+        {
+          title: "Analytics Setup",
+          body:
+            "Practical tracking for key actions such as contact clicks, forms, and campaign landing pages, so decisions are based on useful data.",
+        },
+      ],
+    },
+    details: [
+      {
+        slug: "website-development",
+        title: "A website that makes your business easier to understand.",
+        body:
+          "We design and build focused websites that make your offer clear, build confidence, and give prospective customers a practical next step.",
+        labels: ["Company Profile", "Landing Page", "E-commerce", "Portfolio"],
+        imageSrc:
+          "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=85",
+        imageAlt: "A website shown on a laptop screen",
+      },
+      {
+        slug: "seo",
+        title: "SEO support built around the pages that matter.",
+        body:
+          "From a sound initial setup to ongoing growth, we help search engines understand your important pages and help the right people discover them.",
+        labels: ["SEO Setup", "Technical SEO Audit", "Monthly SEO Growth"],
+        imageSrc:
+          "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1200&q=85",
+        imageAlt: "Laptop displaying search performance data",
+      },
+      {
+        slug: "analytics",
+        title: "Measurement that gives your team clearer direction.",
+        body:
+          "We set up practical analytics around the actions that matter, so you can see how visitors engage and make decisions with more confidence.",
+        labels: ["Analytics Setup"],
+        imageSrc:
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",
+        imageAlt: "Analytics dashboard shown on a laptop",
+      },
+    ],
+  },
+  id: {
+    seo: {
+      title: "Layanan Website, SEO & Analitik | Kodefy",
+      description:
+        "Jelajahi layanan website profesional, fondasi SEO, dan setup analitik Kodefy untuk bisnis yang ingin memiliki kehadiran digital yang lebih jelas dan terukur.",
+    },
+    hero: {
+      title: "Website, SEO, dan analitik",
+      highlightedTitle: "yang bekerja untuk bisnis Anda.",
+      body:
+        "Kami membantu bisnis membangun fondasi digital yang lebih profesional, mudah ditemukan, dan terukur agar website tidak hanya terlihat baik, tetapi juga mendukung pertumbuhan.",
+      primaryCta: "Diskusikan kebutuhan Anda",
+      secondaryCta: "Lihat layanan",
+    },
+    overview: {
+      title: "Fondasi penting untuk kehadiran digital yang lebih kuat.",
+      body:
+        "Mulai dari layanan yang paling dibutuhkan bisnis Anda saat ini, lalu tambahkan dukungan seiring prioritas berkembang.",
+      primaryCta: "Diskusikan proyek Anda",
+      secondaryCta: "Lihat detail layanan",
+      services: [
+        {
+          title: "Website Profesional",
+          body:
+            "Website company profile, landing page, e-commerce, dan portfolio untuk menjelaskan penawaran dengan jelas dan mengubah ketertarikan menjadi inquiry.",
+        },
+        {
+          title: "Fondasi SEO",
+          body:
+            "SEO setup, technical SEO audit, dan monthly SEO growth agar halaman penting lebih mudah ditemukan dan terus berkembang dari waktu ke waktu.",
+        },
+        {
+          title: "Setup Analitik",
+          body:
+            "Tracking praktis untuk aksi penting seperti klik kontak, formulir, dan campaign landing page agar keputusan didukung data yang berguna.",
+        },
+      ],
+    },
+    details: [
+      {
+        slug: "website-development",
+        title: "Website yang membuat bisnis Anda lebih mudah dipahami.",
+        body:
+          "Kami merancang dan membangun website yang terarah untuk menjelaskan penawaran, membangun kepercayaan, dan memberi calon pelanggan langkah berikutnya yang jelas.",
+        labels: ["Company Profile", "Landing Page", "E-commerce", "Portfolio"],
+        imageSrc:
+          "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=85",
+        imageAlt: "Website ditampilkan pada layar laptop",
+      },
+      {
+        slug: "seo",
+        title: "Dukungan SEO untuk halaman yang paling penting bagi bisnis Anda.",
+        body:
+          "Dari setup awal yang tepat hingga pertumbuhan berkelanjutan, kami membantu mesin pencari memahami halaman penting Anda dan membantu audiens yang tepat menemukannya.",
+        labels: ["SEO Setup", "Technical SEO Audit", "Monthly SEO Growth"],
+        imageSrc:
+          "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1200&q=85",
+        imageAlt: "Laptop menampilkan data performa pencarian",
+      },
+      {
+        slug: "analytics",
+        title: "Pengukuran yang memberi tim Anda arah lebih jelas.",
+        body:
+          "Kami menyiapkan analitik praktis untuk aksi yang penting, agar Anda dapat melihat bagaimana pengunjung berinteraksi dan mengambil keputusan dengan lebih yakin.",
+        labels: ["Setup Analitik"],
+        imageSrc:
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",
+        imageAlt: "Dashboard analitik ditampilkan pada laptop",
+      },
+    ],
+  },
+};

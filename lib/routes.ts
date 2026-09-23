@@ -17,6 +17,10 @@ export const routeRegistry = {
     internalPath: "/privacy",
     paths: { en: "/privacy", id: "/kebijakan-privasi" },
   },
+  services: {
+    internalPath: "/services",
+    paths: { en: "/services", id: "/layanan" },
+  },
 } as const;
 
 export type RouteId = keyof typeof routeRegistry;

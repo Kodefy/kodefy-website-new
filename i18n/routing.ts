@@ -11,5 +11,6 @@ export const routing = defineRouting({
     "/": routeRegistry.home.paths,
     "/terms": routeRegistry.terms.paths,
     "/privacy": routeRegistry.privacy.paths,
+    "/services": routeRegistry.services.paths,
   },
 });

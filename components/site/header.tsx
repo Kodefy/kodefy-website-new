@@ -41,7 +41,7 @@ export function Header({
     },
     {
       label: content.navigation.services,
-      href: `${homePath}#services`,
+      href: getRoutePath("services", locale),
       imageSrc:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
     },
