@@ -46,6 +46,22 @@ export function getRoutePath(routeId: RouteId, locale: Locale) {
   return `/${locale}${localizedPath === "/" ? "" : localizedPath}`;
 }
 
+export function getRouteIdFromPathname(pathname: string, locale: Locale): RouteId {
+  const segments = pathname.split("/").filter(Boolean);
+  const pathWithoutLocale = `/${
+    segments[0] === locale ? segments.slice(1).join("/") : segments.join("/")
+  }`.replace(/\/$/, "") || "/";
+
+  for (const [routeId, route] of Object.entries(routeRegistry) as [
+    RouteId,
+    (typeof routeRegistry)[RouteId],
+  ][]) {
+    if (route.paths[locale] === pathWithoutLocale) return routeId;
+  }
+
+  return "home";
+}
+
 export function getAbsoluteRouteUrl(routeId: RouteId, locale: Locale) {
   return `${productionOrigin}${getRoutePath(routeId, locale)}`;
 }

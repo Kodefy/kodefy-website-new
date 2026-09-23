@@ -12,7 +12,6 @@ import { SuccessStories } from "@/app/components/home/components/success-stories
 import { Testimonials } from "@/app/components/home/components/testimonials";
 import { WhyKodefy } from "@/app/components/home/components/why-kodefy";
 import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
 import { Button } from "@/components/ui/button";
 import { business, homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
@@ -33,7 +32,6 @@ export function HomePage({ locale }: { locale: Locale }) {
       >
         {locale === "id" ? "Lewati ke konten" : "Skip to content"}
       </a>
-      <Header locale={locale} routeId="home" />
       <main id="main-content">
         <Hero locale={locale} />
 

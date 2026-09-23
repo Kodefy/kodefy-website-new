@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 
 import {
   Sheet,
-  SheetClose,
   SheetContent,
   SheetDescription,
   SheetTitle,
@@ -16,15 +16,16 @@ import {
 import { DriftPreview } from "@/components/site/drift-preview";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { business, homeContent } from "@/content/site";
-import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
+import { getRouteIdFromPathname, getRoutePath, type Locale } from "@/lib/routes";
 
 export function Header({
   locale,
-  routeId,
 }: {
   locale: Locale;
-  routeId: RouteId;
 }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const routeId = getRouteIdFromPathname(pathname, locale);
   const [open, setOpen] = useState(false);
   const [isAtTop, setIsAtTop] = useState(true);
   const [hasMenuEntered, setHasMenuEntered] = useState(false);
@@ -76,6 +77,24 @@ export function Header({
       : "Hi Kodefy, I'd like to discuss my business's digital needs.",
   )}`;
 
+  const closeAndNavigate = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (
+      !open ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    setHoveredNavIndex(null);
+    setOpen(false);
+    router.push(href);
+  };
+
   useEffect(() => {
     const updateScrollState = () => setIsAtTop(window.scrollY === 0);
 
@@ -111,7 +130,7 @@ export function Header({
         <div className="pointer-events-auto flex items-center gap-6">
           <Link
             href={homePath}
-            onClick={() => setOpen(false)}
+            onClick={(event) => closeAndNavigate(event, homePath)}
             aria-label={locale === "id" ? "Beranda Kodefy" : "Kodefy home"}
             aria-hidden={!showLogo}
             tabIndex={showLogo ? 0 : -1}
@@ -150,7 +169,7 @@ export function Header({
       <SheetContent
         side="top"
         showCloseButton={false}
-        className="inset-0! h-dvh! w-full! max-w-none! gap-0 overflow-hidden border-0! bg-black p-0 text-white shadow-none transition-opacity! duration-1000! data-[side=top]:data-ending-style:translate-y-0! data-[side=top]:data-starting-style:translate-y-0!"
+        className="inset-0! h-dvh! w-full! max-w-none! gap-0 overflow-hidden border-0! bg-black p-0 text-white shadow-none transition-opacity! duration-300! data-[side=top]:data-ending-style:translate-y-0! data-[side=top]:data-starting-style:translate-y-0!"
       >
         <SheetTitle className="sr-only">
           {locale === "id" ? "Menu utama" : "Main menu"}
@@ -192,10 +211,7 @@ export function Header({
                 <DriftPreview
                   href={item.href}
                   imageSrc={item.imageSrc}
-                  onClick={() => {
-                    setHoveredNavIndex(null);
-                    setOpen(false);
-                  }}
+                  onClick={(event) => closeAndNavigate(event, item.href)}
                   onMouseEnter={() => setHoveredNavIndex(index)}
                   onMouseLeave={() => setHoveredNavIndex(null)}
                   onFocus={() => setHoveredNavIndex(index)}
@@ -252,14 +268,12 @@ export function Header({
               delay={0.9}
             >
               {(["id", "en"] as const).map((language) => (
-                <SheetClose
+                <a
                   key={language}
-                  nativeButton={false}
-                  render={
-                    <a
-                      href={getRoutePath(routeId, language)}
-                      hrefLang={language}
-                    />
+                  href={getRoutePath(routeId, language)}
+                  hrefLang={language}
+                  onClick={(event) =>
+                    closeAndNavigate(event, getRoutePath(routeId, language))
                   }
                   className={
                     locale === language
@@ -268,7 +282,7 @@ export function Header({
                   }
                 >
                   {language.toUpperCase()}
-                </SheetClose>
+                </a>
               ))}
             </FadeInText>
 

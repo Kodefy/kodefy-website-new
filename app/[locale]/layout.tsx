@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 
 import { routing } from "@/i18n/routing";
 import { productionOrigin } from "@/lib/routes";
+import { Header } from "@/components/site/header";
 
 import "../globals.css";
 
@@ -55,7 +56,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${geist.variable} ${geistMono.variable}`}>
       <body className="min-h-screen bg-[#f8f7f3] text-[#101014] antialiased">
-        <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider messages={messages}>
+          <Header locale={locale} />
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

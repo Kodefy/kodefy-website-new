@@ -5,7 +5,6 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
 import { Footer } from "@/components/site/footer";
-import { Header } from "@/components/site/header";
 import type { Locale, RouteId } from "@/lib/routes";
 
 export async function LegalPage({
@@ -23,7 +22,6 @@ export async function LegalPage({
 
   return (
     <>
-      <Header locale={locale} routeId={routeId} />
       <main className="bg-[#f8f7f3]">
         <div className="mx-auto max-w-4xl px-5 pt-32 pb-16 sm:px-8 lg:pt-36 lg:pb-24">
           <article className="legal-content rounded-[1.5rem] border border-black/10 bg-white px-6 py-9 shadow-sm sm:px-10 sm:py-12 lg:px-14">
