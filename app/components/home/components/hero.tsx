@@ -85,7 +85,11 @@ export function Hero({ locale }: { locale: Locale }) {
         aria-hidden="true"
         className="absolute inset-0 overflow-hidden bg-black lg:hidden"
       >
-        <Spotlight className="-top-40 left-0 sm:-top-20 sm:left-24" fill="white" />
+        <Spotlight
+          className="-top-0 -right-24 sm:-top-4 sm:-right-20"
+          direction="right"
+          fill="white"
+        />
       </div>
       <div
         data-fill-button-surface="dark"
