@@ -11,6 +11,7 @@ import { FadeInText } from "@/components/site/fade-in-text";
 import { LanguageSwitcher } from "@/components/site/language-switcher";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { business, homeContent } from "@/content/site";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
 
 const socials = [
@@ -30,6 +31,7 @@ export function Footer({
 }) {
   const content = homeContent[locale];
   const footerRef = useRef<HTMLElement>(null);
+  const isMobile = useIsMobile();
   const homePath = getRoutePath("home", locale);
   const isIndonesian = locale === "id";
   const { scrollYProgress } = useScroll({
@@ -69,7 +71,7 @@ export function Footer({
         <Grainient
           className="h-full w-full"
           timeSpeed={0.6}
-          color1="#000000"
+          color1={isMobile ? "#878787" : "#000000"}
           color2="#000000"
           color3="#878787"
           grainAmount={0.01}
