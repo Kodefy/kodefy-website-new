@@ -9,6 +9,7 @@ type FrameRevealProps = {
   backgroundClassName?: string;
   className?: string;
   delayMs?: number;
+  revealFrom?: "bottom" | "left" | "right" | "top";
   revealFrame?: boolean;
   src: string;
 };
@@ -18,6 +19,7 @@ export function FrameReveal({
   backgroundClassName = "bg-black",
   className,
   delayMs = 0,
+  revealFrom = "bottom",
   revealFrame = true,
   src,
 }: FrameRevealProps) {
@@ -42,6 +44,39 @@ export function FrameReveal({
     return () => observer.disconnect();
   }, []);
 
+  const framePosition =
+    revealFrom === "bottom"
+      ? "right-0 bottom-0 left-0 w-full"
+      : revealFrom === "top"
+        ? "top-0 right-0 left-0 w-full"
+        : revealFrom === "left"
+          ? "top-0 bottom-0 left-0 h-full"
+          : "top-0 right-0 bottom-0 h-full";
+  const frameSize =
+    revealFrom === "bottom" || revealFrom === "top"
+      ? revealFrame
+        ? hasEntered
+          ? "h-full"
+          : "h-0"
+        : "h-full"
+      : revealFrame
+        ? hasEntered
+          ? "w-full"
+          : "w-0"
+        : "w-full";
+  const frameTransition =
+    revealFrom === "bottom" || revealFrom === "top"
+      ? "transition-[height]"
+      : "transition-[width]";
+  const initialClipPath =
+    revealFrom === "bottom"
+      ? "[clip-path:inset(100%_0_0_0)]"
+      : revealFrom === "top"
+        ? "[clip-path:inset(0_0_100%_0)]"
+        : revealFrom === "left"
+          ? "[clip-path:inset(0_100%_0_0)]"
+          : "[clip-path:inset(0_0_0_100%)]";
+
   return (
     <div
       ref={elementRef}
@@ -50,9 +85,11 @@ export function FrameReveal({
       <div
         aria-hidden="true"
         className={cn(
-          "absolute right-0 bottom-0 left-0 z-0 w-full transition-[height] duration-1000 ease-in-out motion-reduce:duration-0",
+          "absolute z-0 duration-1000 ease-in-out motion-reduce:duration-0",
+          framePosition,
+          frameTransition,
           backgroundClassName,
-          revealFrame ? (hasEntered ? "h-full" : "h-0") : "h-full",
+          frameSize,
         )}
         style={{ transitionDelay: revealFrame && hasEntered ? `${delayMs}ms` : "0ms" }}
       />
@@ -60,7 +97,7 @@ export function FrameReveal({
         className={`absolute inset-0 z-10 overflow-hidden transition-[clip-path] duration-1000 ease-in-out motion-reduce:delay-0 motion-reduce:duration-0 ${
           hasEntered
             ? "[clip-path:inset(0_0_0_0)]"
-            : "[clip-path:inset(100%_0_0_0)]"
+            : initialClipPath
         }`}
         style={{ transitionDelay: hasEntered ? `${delayMs + 750}ms` : "0ms" }}
       >

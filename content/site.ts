@@ -122,8 +122,8 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     metrics: [
       { value: "2020", label: "Established" },
-      { value: "7", label: "Client brands represented" },
-      { value: "3", label: "Core solution areas" },
+      { value: "30+", label: "Finished projects" },
+      { value: "20+", label: "Happy clients" },
     ],
     servicesIntro: {
       eyebrow: "What we help with",
@@ -300,8 +300,8 @@ export const homeContent: Record<Locale, HomeContent> = {
     },
     metrics: [
       { value: "2020", label: "Mulai beroperasi" },
-      { value: "7", label: "Brand klien ditampilkan" },
-      { value: "3", label: "Area solusi utama" },
+      { value: "30+", label: "Project selesai" },
+      { value: "20+", label: "Klien" },
     ],
     servicesIntro: {
       eyebrow: "Yang kami bantu",
@@ -634,5 +634,264 @@ export const servicesPageContent: Record<
         imageAlt: "Dashboard analitik ditampilkan pada laptop",
       },
     ],
+  },
+};
+
+export const portfolioPageContent: Record<
+  Locale,
+  {
+    hero: {
+      body: string;
+      primaryCta: string;
+      secondaryCta: string;
+      title: string;
+    };
+    list: {
+      deliveryLabel: string;
+      typeLabel: string;
+    };
+    seo: { description: string; title: string };
+  }
+> = {
+  en: {
+    seo: {
+      title: "Portfolio | Kodefy",
+      description:
+        "Explore selected Kodefy website projects across different industries and business sizes.",
+    },
+    hero: {
+      title: "Projects we have worked on.",
+      body:
+        "Our portfolio covers different industries and business sizes, from public companies to private businesses across a range of sectors.",
+      primaryCta: "Discuss your project",
+      secondaryCta: "View portfolio",
+    },
+    list: {
+      typeLabel: "Website type",
+      deliveryLabel: "Delivery",
+    },
+  },
+  id: {
+    seo: {
+      title: "Portofolio | Kodefy",
+      description:
+        "Lihat pilihan proyek website Kodefy dari berbagai industri dan skala bisnis.",
+    },
+    hero: {
+      title: "Proyek yang kami kerjakan.",
+      body:
+        "Portofolio kami mencakup berbagai industri dan skala bisnis, mulai dari perusahaan Tbk hingga perusahaan swasta di sejumlah sektor.",
+      primaryCta: "Diskusikan proyek Anda",
+      secondaryCta: "Lihat portofolio",
+    },
+    list: {
+      typeLabel: "Jenis website",
+      deliveryLabel: "Layanan",
+    },
+  },
+};
+
+export const aboutPageContent: Record<
+  Locale,
+  {
+    hero: {
+      body: string;
+      primaryCta: string;
+      secondaryCta: string;
+      title: string;
+    };
+    story: {
+      body: string;
+      cta: string;
+      imageAlt: string;
+      imageSrc: string;
+      title: string;
+    };
+    whyChooseUs: {
+      body: string;
+      cta: string;
+      imageAlt: string;
+      imageSrc: string;
+      title: string;
+    };
+    values: {
+      title: string;
+      items: {
+        title: string;
+        body: string;
+      }[];
+    };
+    remoteCollaboration: {
+      title: string;
+      emailLabel: string;
+      phoneLabel: string;
+      whatsappCta: string;
+    };
+    team: {
+      title: string;
+      members: {
+        name: string;
+        role: string;
+        body: string;
+        imageSrc: string;
+        imageAlt: string;
+      }[];
+    };
+    seo: { description: string; title: string };
+  }
+> = {
+  en: {
+    seo: {
+      title: "About Kodefy | Website, SEO & Analytics",
+      description:
+        "Learn how Kodefy helps businesses build clear, professional websites that support their growth.",
+    },
+    hero: {
+      title: "The place to build a clear, professional website.",
+      body:
+        "Since 2020, Kodefy has helped businesses build websites that fit their needs, are easy for potential customers to understand, and are ready to support business growth.",
+      primaryCta: "Discuss your project",
+      secondaryCta: "How we work",
+    },
+    story: {
+      title: "About Kodefy.",
+      body:
+        "After working as a freelancer and full-time, Brian saw many businesses spend their digital budgets on drawn-out, inefficient work. Scopes were often unclear, work was repeated, and costs kept increasing without results that matched the investment.\n\nKodefy was built to offer a better way: websites, SEO, and analytics shaped around what a business actually needs, with clear scope and sensible costs. The goal is simple, to help brands and businesses grow without unnecessary spending.",
+      cta: "Discuss your project",
+      imageSrc:
+        "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85",
+      imageAlt: "People discussing work around a table",
+    },
+    whyChooseUs: {
+      title: "Why brands and businesses choose us.",
+      body:
+        "Kodefy has worked with businesses across different industries and sizes. We focus on the website, SEO, and analytics work that is genuinely needed, without adding processes or features that do not make a difference. Clear scope and open communication help your digital budget go toward the work that matters.",
+      cta: "Explore our services",
+      imageSrc: "/assets/projects/lievee.webp",
+      imageAlt: "Lievee website project",
+    },
+    values: {
+      title: "The values we work by.",
+      items: [
+        {
+          title: "Trust",
+          body: "Trust starts with clarity. We align goals, scope, and priorities from the beginning so the project stays organised, communication stays clear, and outcomes match your business targets.",
+        },
+        {
+          title: "Transparency",
+          body: "We work with open roadmaps, measurable milestones, and regular updates so you always know the progress, decisions, and next steps without guesswork.",
+        },
+        {
+          title: "Collaboration",
+          body: "Our way of working is practical and responsive. Feedback is acted on in every phase so decisions are more efficient, revisions stay focused, and your website is ready sooner.",
+        },
+      ],
+    },
+    remoteCollaboration: {
+      title: "Work together, from anywhere.",
+      emailLabel: "Email",
+      phoneLabel: "Phone",
+      whatsappCta: "Chat on WhatsApp",
+    },
+    team: {
+      title: "Our team.",
+      members: [
+        {
+          name: "Brian",
+          role: "Founder & Digital Lead",
+          body:
+            "Web developer specialist and founder of Kodefy, helping brands and businesses grow in the digital world.",
+          imageSrc:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=85",
+          imageAlt: "Temporary portrait placeholder for Brian",
+        },
+        {
+          name: "Christine",
+          role: "Content & Brand Manager",
+          body:
+            "Content & Brand Manager at Kodefy, managing the content and social media you see across our social channels.",
+          imageSrc:
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85",
+          imageAlt: "Temporary portrait placeholder for Christine",
+        },
+      ],
+    },
+  },
+  id: {
+    seo: {
+      title: "Tentang Kodefy | Website, SEO & Analitik",
+      description:
+        "Kenali bagaimana Kodefy membantu bisnis membangun website yang jelas, profesional, dan mendukung pertumbuhan.",
+    },
+    hero: {
+      title: "Tempatnya buat website yang jelas dan profesional.",
+      body:
+        "Sejak 2020, Kodefy membantu bisnis membangun website yang sesuai kebutuhan, mudah dipahami calon pelanggan, dan siap mendukung pertumbuhan bisnis.",
+      primaryCta: "Diskusikan proyek Anda",
+      secondaryCta: "Lihat cara kerja kami",
+    },
+    story: {
+      title: "Tentang Kodefy.",
+      body:
+        "Setelah bekerja sebagai freelancer dan full-time, Brian melihat banyak bisnis menghabiskan anggaran digital untuk proses yang berbelit dan tidak efisien. Scope sering tidak jelas, pekerjaan berulang, dan biaya terus bertambah tanpa hasil yang sepadan.\n\nKodefy dibangun untuk menawarkan cara kerja yang lebih baik: website, SEO, dan analitik yang dibuat sesuai kebutuhan bisnis, dengan scope yang jelas dan biaya yang masuk akal. Tujuannya sederhana, membantu brand dan bisnis bertumbuh tanpa pengeluaran yang tidak perlu.",
+      cta: "Diskusikan proyek Anda",
+      imageSrc:
+        "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85",
+      imageAlt: "Orang-orang berdiskusi di meja kerja",
+    },
+    whyChooseUs: {
+      title: "Kenapa brand dan bisnis memilih kami.",
+      body:
+        "Kodefy telah bekerja dengan bisnis dari berbagai industri dan skala. Kami fokus pada website, SEO, dan analitik yang benar-benar dibutuhkan, tanpa menambah proses atau fitur yang tidak memberi dampak. Scope yang jelas dan komunikasi yang terbuka membantu anggaran digital Anda digunakan untuk hal yang lebih tepat.",
+      cta: "Lihat layanan kami",
+      imageSrc: "/assets/projects/lievee.webp",
+      imageAlt: "Proyek website Lievee",
+    },
+    values: {
+      title: "Nilai yang kami pegang.",
+      items: [
+        {
+          title: "Kepercayaan",
+          body: "Kepercayaan dimulai dari kejelasan. Kami menyepakati tujuan, scope, dan prioritas sejak awal agar proyek berjalan rapi, komunikasi tetap jelas, dan hasilnya sesuai target bisnis Anda.",
+        },
+        {
+          title: "Transparansi",
+          body: "Kami bekerja dengan roadmap terbuka, milestone terukur, dan update rutin sehingga Anda selalu tahu progres, keputusan, dan langkah berikutnya tanpa tebak-tebakan.",
+        },
+        {
+          title: "Kolaborasi",
+          body: "Cara kerja kami dibuat praktis dan responsif. Feedback ditindaklanjuti di setiap fase agar keputusan lebih efisien, revisi tetap terarah, dan website lebih cepat siap digunakan.",
+        },
+      ],
+    },
+    remoteCollaboration: {
+      title: "Bekerja bersama, dari mana saja.",
+      emailLabel: "Email",
+      phoneLabel: "Nomor telepon",
+      whatsappCta: "Chat via WhatsApp",
+    },
+    team: {
+      title: "Tim kami.",
+      members: [
+        {
+          name: "Brian",
+          role: "Founder & Digital Lead",
+          body:
+            "Web developer specialist dan founder dari Kodefy, membantu brand dan bisnis berkembang di dalam dunia digital.",
+          imageSrc:
+            "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=85",
+          imageAlt: "Placeholder foto sementara untuk Brian",
+        },
+        {
+          name: "Christine",
+          role: "Content & Brand Manager",
+          body:
+            "Content & brand manager di kodefy, mengelola konten, media sosial yang anda lihat di media sosial kami.",
+          imageSrc:
+            "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=1000&q=85",
+          imageAlt: "Placeholder foto sementara untuk Christine",
+        },
+      ],
+    },
   },
 };

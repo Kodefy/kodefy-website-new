@@ -47,7 +47,7 @@ export function Header({
     },
     {
       label: content.navigation.work,
-      href: `${homePath}#work`,
+      href: getRoutePath("portfolio", locale),
       imageSrc:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     },

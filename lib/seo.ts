@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 
-import { homeContent, legalSeo, servicesPageContent } from "@/content/site";
+import {
+  aboutPageContent,
+  homeContent,
+  legalSeo,
+  portfolioPageContent,
+  servicesPageContent,
+} from "@/content/site";
 import {
   getAbsoluteRouteUrl,
   getLanguageAlternates,
@@ -13,8 +19,12 @@ export function buildPageMetadata(routeId: RouteId, locale: Locale): Metadata {
   const seo =
     routeId === "home"
       ? homeContent[locale].seo
+      : routeId === "about"
+        ? aboutPageContent[locale].seo
       : routeId === "services"
         ? servicesPageContent[locale].seo
+        : routeId === "portfolio"
+          ? portfolioPageContent[locale].seo
         : legalSeo[routeId][locale];
   const canonical = getAbsoluteRouteUrl(routeId, locale);
 
