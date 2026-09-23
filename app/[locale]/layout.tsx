@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { productionOrigin } from "@/lib/routes";
 import { Header } from "@/components/site/header";
+import { SmoothScroll } from "@/components/site/smooth-scroll";
 
 import "../globals.css";
 
@@ -57,6 +58,7 @@ export default async function LocaleLayout({
     <html lang={locale} className={`${geist.variable} ${geistMono.variable}`}>
       <body className="min-h-screen bg-[#f8f7f3] text-[#101014] antialiased">
         <NextIntlClientProvider messages={messages}>
+          <SmoothScroll />
           <Header locale={locale} />
           {children}
         </NextIntlClientProvider>

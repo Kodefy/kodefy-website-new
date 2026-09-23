@@ -53,18 +53,6 @@ export function Header({
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     },
     {
-      label: content.navigation.process,
-      href: `${homePath}#process`,
-      imageSrc:
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      label: content.navigation.pricing,
-      href: `${homePath}#pricing`,
-      imageSrc:
-        "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=800&q=80",
-    },
-    {
       label: locale === "id" ? "Kontak" : "Contact",
       href: getRoutePath("contact", locale),
       imageSrc:

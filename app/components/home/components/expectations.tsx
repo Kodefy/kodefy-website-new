@@ -8,7 +8,7 @@ import { RevealHeadline } from "@/components/site/reveal-headline";
 import { SlideFadeIn } from "@/components/site/slide-fade-in";
 import { FillButton } from "@/components/ui/fill-button";
 import { homeContent } from "@/content/site";
-import type { Locale } from "@/lib/routes";
+import { getRoutePath, type Locale } from "@/lib/routes";
 
 const imageSrc =
   "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85";
@@ -21,6 +21,8 @@ const servicePreviewImages = [
 
 export function Expectations({ locale }: { locale: Locale }) {
   const content = homeContent[locale].expectations;
+  const serviceDetailSlugs = ["website-development", "seo", "analytics"];
+  const servicesPath = getRoutePath("services", locale);
 
   return (
     <section
@@ -45,7 +47,7 @@ export function Expectations({ locale }: { locale: Locale }) {
                 mobileDirection={index % 2 === 0 ? "left" : "right"}
               >
                 <DriftPreview
-                  href="#services"
+                  href={`${servicesPath}#${serviceDetailSlugs[index]}`}
                   imageSrc={servicePreviewImages[index]}
                   imageAlt=""
                   previewWidth={224}
@@ -91,7 +93,7 @@ export function Expectations({ locale }: { locale: Locale }) {
               {content.primary}
               <ArrowUpRight aria-hidden="true" className="size-4" />
             </FillButton>
-            <FillButton href="#work" variant="outline">
+            <FillButton href={getRoutePath("portfolio", locale)} variant="outline">
               {content.secondary}
             </FillButton>
           </FadeIn>

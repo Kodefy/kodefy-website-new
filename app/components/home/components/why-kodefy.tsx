@@ -6,7 +6,7 @@ import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { homeContent } from "@/content/site";
-import type { Locale } from "@/lib/routes";
+import { getRoutePath, type Locale } from "@/lib/routes";
 
 const mosaicImages = [
   {
@@ -81,7 +81,7 @@ export function WhyKodefy({ locale }: { locale: Locale }) {
               {locale === "id" ? "Diskusikan proyek Anda" : "Discuss your project"}
               <ArrowUpRight aria-hidden="true" className="size-4" />
             </FillButton>
-            <FillButton href="#services" variant="outline">
+            <FillButton href={getRoutePath("services", locale)} variant="outline">
               {locale === "id" ? "Lihat layanan" : "Explore services"}
             </FillButton>
           </FadeIn>

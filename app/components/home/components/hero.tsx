@@ -6,7 +6,7 @@ import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { Spotlight } from "@/components/ui/spotlight";
 import { business, homeContent } from "@/content/site";
-import type { Locale } from "@/lib/routes";
+import { getRoutePath, type Locale } from "@/lib/routes";
 
 const driftWallItems = [
   {
@@ -124,7 +124,9 @@ export function Hero({ locale }: { locale: Locale }) {
               {home.cta.primary}
               <ArrowUpRight aria-hidden="true" />
             </FillButton>
-            <FillButton href="#work">{home.cta.secondary}</FillButton>
+            <FillButton href={getRoutePath("portfolio", locale)}>
+              {home.cta.secondary}
+            </FillButton>
           </FadeIn>
         </div>
       </div>

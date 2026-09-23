@@ -38,9 +38,6 @@ export function Services({ locale }: { locale: Locale }) {
                 {content.cta.primary}
                 <ArrowUpRight aria-hidden="true" className="size-4" />
               </FillButton>
-              <FillButton href="#pricing" variant="outline">
-                {locale === "id" ? "Lihat harga" : "See pricing"}
-              </FillButton>
             </FadeIn>
           </div>
 

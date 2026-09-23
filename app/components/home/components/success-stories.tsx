@@ -7,7 +7,7 @@ import { FrameReveal } from "@/components/site/frame-reveal";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { homeContent } from "@/content/site";
-import type { Locale } from "@/lib/routes";
+import { getRoutePath, type Locale } from "@/lib/routes";
 
 export function SuccessStories({ locale }: { locale: Locale }) {
   const content = homeContent[locale];
@@ -59,7 +59,7 @@ export function SuccessStories({ locale }: { locale: Locale }) {
                   : "Discuss your project"}
                 <ArrowUpRight aria-hidden="true" className="size-4" />
               </FillButton>
-              <FillButton href="#work-gallery" variant="outline">
+              <FillButton href={getRoutePath("portfolio", locale)} variant="outline">
                 {locale === "id" ? "Lihat karya" : "Browse portfolio"}
               </FillButton>
             </FadeIn>
