@@ -2,9 +2,9 @@ import { ArrowUpRight } from "lucide-react";
 
 import DriftWall from "@/components/DriftWall";
 import { FadeIn } from "@/components/site/fade-in";
-import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
+import { Spotlight } from "@/components/ui/spotlight";
 import { business, homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
 
@@ -80,10 +80,16 @@ export function Hero({ locale }: { locale: Locale }) {
   )}`;
 
   return (
-    <section className="grid h-svh bg-black lg:grid-cols-2">
+    <section className="relative isolate grid h-svh bg-black lg:grid-cols-2">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 overflow-hidden bg-black lg:hidden"
+      >
+        <Spotlight className="-top-40 left-0 sm:-top-20 sm:left-24" fill="white" />
+      </div>
       <div
         data-fill-button-surface="dark"
-        className="flex max-h-screen items-start bg-black px-6 pt-24 pb-6 text-white sm:items-center sm:px-10 sm:py-16 lg:px-12 xl:px-16 xl:py-24"
+        className="relative z-10 flex max-h-screen items-start bg-transparent px-6 pt-24 pb-6 text-white sm:items-center sm:px-10 sm:py-16 lg:bg-black lg:px-12 xl:px-16 xl:py-24"
       >
         <div className="w-full max-w-2xl">
           <h1 className="text-3xl leading-none font-light tracking-tight text-white sm:text-6xl xl:text-7xl">
@@ -96,11 +102,11 @@ export function Hero({ locale }: { locale: Locale }) {
 
           <div className="mt-8 flex items-end justify-between gap-8 border-t border-white/20 pt-6">
             <div>
-              <FadeInText
+              <p
                 className="max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8"
-                text={content.hero.body}
-                delay={0.5}
-              />
+              >
+                {content.hero.body}
+              </p>
             </div>
           </div>
 

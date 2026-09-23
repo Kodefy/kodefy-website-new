@@ -5,10 +5,10 @@ import { ArrowUpRight } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FormEvent, useRef } from "react";
 
-import Grainient from "@/components/site/grainient";
 import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { LanguageSwitcher } from "@/components/site/language-switcher";
+import { LazyGrainient } from "@/components/site/lazy-grainient";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { business, homeContent } from "@/content/site";
 import { useIsMobile } from "@/hooks/use-is-mobile";
@@ -68,7 +68,7 @@ export function Footer({
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-75"
       >
-        <Grainient
+        <LazyGrainient
           className="h-full w-full"
           timeSpeed={0.6}
           color1={isMobile ? "#878787" : "#000000"}

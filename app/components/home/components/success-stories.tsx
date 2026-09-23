@@ -111,6 +111,7 @@ export function SuccessStories({ locale }: { locale: Locale }) {
               accentColor="#ffffff"
               textColor="#ffffff"
               tilt={0}
+              lazy
             />
           </FadeIn>
         </div>
