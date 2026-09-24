@@ -7,6 +7,7 @@ import {
   legalSeo,
   portfolioPageContent,
   servicesPageContent,
+  seoServicePageContent,
   webDevelopmentPageContent,
 } from "@/content/site";
 import {
@@ -27,7 +28,9 @@ export function buildPageMetadata(routeId: RouteId, locale: Locale): Metadata {
         ? servicesPageContent[locale].seo
         : routeId === "webDevelopment"
           ? webDevelopmentPageContent[locale].seo
-        : routeId === "portfolio"
+          : routeId === "seo"
+            ? seoServicePageContent[locale].seo
+          : routeId === "portfolio"
           ? portfolioPageContent[locale].seo
           : routeId === "contact"
             ? contactPageContent[locale].seo

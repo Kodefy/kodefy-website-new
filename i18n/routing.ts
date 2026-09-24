@@ -13,6 +13,7 @@ export const routing = defineRouting({
     "/privacy": routeRegistry.privacy.paths,
     "/services": routeRegistry.services.paths,
     "/services/web-development": routeRegistry.webDevelopment.paths,
+    "/services/seo": routeRegistry.seo.paths,
     "/portfolio": routeRegistry.portfolio.paths,
     "/about": routeRegistry.about.paths,
     "/contact": routeRegistry.contact.paths,

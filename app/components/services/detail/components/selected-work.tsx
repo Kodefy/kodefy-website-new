@@ -5,24 +5,32 @@ import { FadeInText } from "@/components/site/fade-in-text";
 import { FrameReveal } from "@/components/site/frame-reveal";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
-import { business, homeContent, webDevelopmentPageContent } from "@/content/site";
-import type { Locale } from "@/lib/routes";
+export type ServiceProject = { name: string; image: string; alt: string };
+export type ServiceSelectedWorkContent = {
+  title: string;
+  body: string;
+  primaryCta: string;
+  phoneCta: string;
+};
 
-export function SelectedWork({ locale }: { locale: Locale }) {
-  const content = webDevelopmentPageContent[locale].selectedWork;
-  const projects = homeContent[locale].projects;
-  const whatsappHref = `${business.whatsapp}?text=${encodeURIComponent(
-    locale === "id"
-      ? "Halo Kodefy, saya ingin mendiskusikan proyek website saya."
-      : "Hi Kodefy, I'd like to discuss my website project.",
-  )}`;
+export function ServiceSelectedWork({
+  content,
+  projects,
+  whatsappHref,
+  sectionId = "service-selected-work",
+}: {
+  content: ServiceSelectedWorkContent;
+  projects: ServiceProject[];
+  whatsappHref: string;
+  sectionId?: string;
+}) {
 
   return (
-    <section aria-labelledby="web-development-work-heading" className="bg-white text-black">
+    <section aria-labelledby={`${sectionId}-heading`} className="bg-white text-black">
       <div className="mx-auto max-w-360 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,0.75fr)] lg:items-center lg:gap-20">
           <h2
-            id="web-development-work-heading"
+            id={`${sectionId}-heading`}
             className="max-w-2xl text-4xl leading-none font-light tracking-tight sm:text-5xl lg:text-6xl"
           >
             <RevealHeadline revealBy="character" text={content.title} />

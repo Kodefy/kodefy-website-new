@@ -6,23 +6,33 @@ import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { SlideFadeIn } from "@/components/site/slide-fade-in";
 import { FillButton } from "@/components/ui/fill-button";
-import { business, webDevelopmentPageContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
 
-export function WebsiteProcess({ locale }: { locale: Locale }) {
-  const content = webDevelopmentPageContent[locale].process;
-  const whatsappHref = `${business.whatsapp}?text=${encodeURIComponent(
-    locale === "id"
-      ? "Halo Kodefy, saya ingin mendiskusikan proyek website saya."
-      : "Hi Kodefy, I'd like to discuss my website project.",
-  )}`;
+export type ServiceProcessContent = {
+  title: string;
+  primaryCta: string;
+  phoneCta: string;
+  steps: { number: string; title: string; body: string }[];
+};
+
+export function ServiceProcess({
+  locale,
+  content,
+  whatsappHref,
+  sectionId = "service-process",
+}: {
+  locale: Locale;
+  content: ServiceProcessContent;
+  whatsappHref: string;
+  sectionId?: string;
+}) {
 
   return (
-    <section aria-labelledby="web-development-process-heading" className="bg-white text-black">
+    <section aria-labelledby={`${sectionId}-heading`} className="bg-white text-black">
       <div className="mx-auto grid max-w-360 gap-14 px-6 py-20 sm:px-8 lg:grid-cols-[minmax(0,1fr)_minmax(22rem,0.62fr)] lg:gap-20 lg:px-12 lg:py-0">
         <div className="py-0 lg:py-28">
           <h2
-            id="web-development-process-heading"
+            id={`${sectionId}-heading`}
             className="max-w-3xl text-4xl leading-none font-light tracking-tight sm:text-5xl lg:text-6xl"
           >
             <RevealHeadline revealBy="character" text={content.title} />

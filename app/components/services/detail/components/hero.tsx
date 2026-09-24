@@ -5,7 +5,6 @@ import { FadeIn } from "@/components/site/fade-in";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { Spotlight } from "@/components/ui/spotlight";
-import { business, webDevelopmentPageContent } from "@/content/site";
 import { getRoutePath, type Locale } from "@/lib/routes";
 
 const driftWallItems = [
@@ -20,13 +19,24 @@ const driftWallItems = [
   "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=700&q=80",
 ].map((image) => ({ image, title: "Website", href: undefined }));
 
-export function Hero({ locale }: { locale: Locale }) {
-  const content = webDevelopmentPageContent[locale].hero;
-  const whatsappHref = `${business.whatsapp}?text=${encodeURIComponent(
-    locale === "id"
-      ? "Halo Kodefy, saya ingin mendiskusikan proyek website saya."
-      : "Hi Kodefy, I'd like to discuss my website project.",
-  )}`;
+export type ServiceHeroContent = {
+  title: string;
+  body: string;
+  primaryCta: string;
+  secondaryCta: string;
+};
+
+export function ServiceHero({
+  locale,
+  content,
+  whatsappHref,
+  wallItems = driftWallItems,
+}: {
+  locale: Locale;
+  content: ServiceHeroContent;
+  whatsappHref: string;
+  wallItems?: typeof driftWallItems;
+}) {
 
   return (
     <section className="relative isolate grid h-svh bg-black lg:grid-cols-2">
@@ -67,7 +77,7 @@ export function Hero({ locale }: { locale: Locale }) {
 
       <div className="hidden overflow-hidden bg-black lg:block">
         <DriftWall
-          items={driftWallItems}
+          items={wallItems}
           columns={3}
           tileWidth={320}
           tileHeight={200}

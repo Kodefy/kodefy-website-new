@@ -6,8 +6,7 @@ import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
-import { business, homeContent, webDevelopmentPageContent } from "@/content/site";
-import type { Locale } from "@/lib/routes";
+import type { ServiceProject } from "./selected-work";
 
 type SpiralItem = { id: string; src: string; alt: string; label: string };
 type InfiniteSpiralProps = {
@@ -33,9 +32,19 @@ type InfiniteSpiralProps = {
 };
 const InfiniteSpiral = InfiniteSpiralBase as ComponentType<InfiniteSpiralProps>;
 
-export function SpiralSection({ locale }: { locale: Locale }) {
-  const content = webDevelopmentPageContent[locale].spiral;
-  const projects = homeContent[locale].projects;
+export type ServiceSpiralContent = { title: string; body: string; cta: string };
+
+export function ServiceSpiral({
+  content,
+  projects,
+  whatsappHref,
+  sectionId = "service-spiral",
+}: {
+  content: ServiceSpiralContent;
+  projects: ServiceProject[];
+  whatsappHref: string;
+  sectionId?: string;
+}) {
   const items = Array.from({ length: 8 }, (_, index) => {
     const project = projects[index % projects.length];
 
@@ -46,22 +55,16 @@ export function SpiralSection({ locale }: { locale: Locale }) {
       label: project.name,
     };
   });
-  const whatsappHref = `${business.whatsapp}?text=${encodeURIComponent(
-    locale === "id"
-      ? "Halo Kodefy, saya ingin mendiskusikan proyek website saya."
-      : "Hi Kodefy, I'd like to discuss my website project.",
-  )}`;
-
   return (
     <section
-      aria-labelledby="web-development-spiral-heading"
+      aria-labelledby={`${sectionId}-heading`}
       data-fill-button-surface="dark"
       className="bg-black text-white"
     >
       <div className="mx-auto grid max-w-360 gap-12 px-6 py-20 sm:px-8 lg:min-h-svh lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-12 lg:py-0">
         <div className="max-w-xl">
           <h2
-            id="web-development-spiral-heading"
+            id={`${sectionId}-heading`}
             className="text-4xl leading-none font-light tracking-tight sm:text-5xl lg:text-6xl"
           >
             <RevealHeadline revealBy="character" text={content.title} />

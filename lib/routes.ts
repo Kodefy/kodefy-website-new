@@ -28,6 +28,10 @@ export const routeRegistry = {
       id: "/layanan/pembuatan-website",
     },
   },
+  seo: {
+    internalPath: "/services/seo",
+    paths: { en: "/services/seo", id: "/layanan/jasa-seo" },
+  },
   portfolio: {
     internalPath: "/portfolio",
     paths: { en: "/portfolio", id: "/portofolio" },

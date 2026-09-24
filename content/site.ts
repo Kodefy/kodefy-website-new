@@ -1006,6 +1006,48 @@ export const webDevelopmentPageContent: Record<
   },
 };
 
+export const seoServicePageContent: Record<
+  Locale,
+  {
+    hero: {
+      title: string;
+      body: string;
+      primaryCta: string;
+      secondaryCta: string;
+    };
+    seo: { description: string; title: string };
+  }
+> = {
+  en: {
+    seo: {
+      title: "SEO Services for Businesses | Kodefy",
+      description:
+        "Kodefy helps businesses build stronger SEO foundations, identify technical blockers, and optimise important pages for sustainable organic growth.",
+    },
+    hero: {
+      title: "Make your business and brand easier to find.",
+      body:
+        "We help tidy up SEO foundations, identify technical blockers, and optimise important pages to support organic growth and make your business easier for search engines and AI systems to understand.",
+      primaryCta: "Discuss your SEO needs",
+      secondaryCta: "Explore services",
+    },
+  },
+  id: {
+    seo: {
+      title: "Jasa SEO untuk Bisnis | Kodefy",
+      description:
+        "Kodefy membantu bisnis merapikan fondasi SEO, menemukan hambatan teknis, dan mengoptimalkan halaman penting untuk mendukung pertumbuhan organik.",
+    },
+    hero: {
+      title: "Buat bisnis dan brand Anda lebih mudah ditemukan",
+      body:
+        "Kami membantu merapikan fondasi SEO, menemukan hambatan teknis, dan mengoptimalkan halaman penting untuk mendukung pertumbuhan organik dan membuat bisnis Anda lebih mudah dipahami oleh mesin pencari dan AI.",
+      primaryCta: "Diskusikan kebutuhan SEO Anda",
+      secondaryCta: "Lihat layanan",
+    },
+  },
+};
+
 export const portfolioPageContent: Record<
   Locale,
   {

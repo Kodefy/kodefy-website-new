@@ -2,17 +2,22 @@
 
 import { LogoLoop } from "@/components/site/logo-loop";
 import { RevealHeadline } from "@/components/site/reveal-headline";
-import { clients, webDevelopmentPageContent } from "@/content/site";
-import type { Locale } from "@/lib/routes";
+import { clients } from "@/content/site";
 
-export function TrustStrip({ locale }: { locale: Locale }) {
-  const content = webDevelopmentPageContent[locale].trust;
+export type ServiceTrustContent = { label: string; logosLabel: string };
 
+export function ServiceTrustStrip({
+  content,
+  sectionId = "service-trust",
+}: {
+  content: ServiceTrustContent;
+  sectionId?: string;
+}) {
   return (
-    <section aria-labelledby="web-development-trust-heading" className="bg-white">
+    <section aria-labelledby={`${sectionId}-heading`} className="bg-white">
       <div className="mx-auto flex max-w-360 flex-col gap-8 px-6 py-12 sm:px-8 lg:flex-row lg:items-center lg:gap-16 lg:px-12 lg:py-16">
         <h2
-          id="web-development-trust-heading"
+          id={`${sectionId}-heading`}
           className="max-w-52 text-xl leading-tight font-medium tracking-tight text-black"
         >
           <RevealHeadline revealBy="character" text={content.label} />
