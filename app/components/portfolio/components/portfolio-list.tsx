@@ -9,7 +9,7 @@ export function PortfolioList({ locale }: { locale: Locale }) {
   const projects = homeContent[locale].projects;
 
   return (
-    <section id="portfolio-list" className="scroll-mt-24 bg-white text-black">
+    <section id="portfolio-list" className="bg-white text-black">
       <div className="mx-auto max-w-360 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="space-y-12 lg:space-y-16">
           {projects.map((project, index) => (
