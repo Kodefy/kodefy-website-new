@@ -161,7 +161,14 @@ export function DriftPreview({
               isPreviewVisible ? "scale-100" : "scale-[1.333333]"
             }`}
           >
-            <Image src={imageSrc} alt={imageAlt} fill sizes={`${previewWidth}px`} className="object-cover" />
+            <Image
+              src={imageSrc}
+              alt={imageAlt}
+              fill
+              unoptimized
+              sizes={`${previewWidth}px`}
+              className="object-cover"
+            />
           </span>
         </span>
       </span>
