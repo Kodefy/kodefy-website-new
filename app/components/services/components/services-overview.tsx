@@ -5,7 +5,7 @@ import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { business, servicesPageContent } from "@/content/site";
-import type { Locale } from "@/lib/routes";
+import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
 
 const serviceMarks = [
   { src: "/next.svg", alt: "Next.js" },
@@ -19,6 +19,8 @@ const serviceMarks = [
   },
 ];
 
+const serviceRouteIds = ["webDevelopment", "seo", "analytics"] as const satisfies RouteId[];
+
 export function ServicesOverview({ locale }: { locale: Locale }) {
   const content = servicesPageContent[locale].overview;
   const whatsappHref = `${business.whatsapp}?text=${encodeURIComponent(
@@ -30,7 +32,7 @@ export function ServicesOverview({ locale }: { locale: Locale }) {
   return (
     <section
       id="services-overview"
-      className="scroll-mt-24 bg-white text-black"
+      className="bg-white text-black"
     >
       <div className="mx-auto max-w-360 px-6 py-20 sm:px-8 lg:px-12 lg:py-28">
         <div className="grid gap-8 lg:grid-cols-[1.05fr_0.75fr] lg:items-start lg:gap-24">
@@ -68,11 +70,18 @@ export function ServicesOverview({ locale }: { locale: Locale }) {
         <div className="mt-16 grid gap-12 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
           {content.services.map((service, index) => {
             const mark = serviceMarks[index];
+            const routeId = serviceRouteIds[index];
 
             return (
-              <article
+              <a
                 key={service.title}
-                className={`border-t border-black/15 pt-5 ${
+                href={getRoutePath(routeId, locale)}
+                aria-label={
+                  locale === "id"
+                    ? `Lihat detail ${service.title}`
+                    : `View details for ${service.title}`
+                }
+                className={`group block border-t border-black/15 pt-5 transition-colors duration-200 hover:cursor-pointer ${
                   index === 0 ? "lg:mt-24" : index === 1 ? "lg:mt-12" : ""
                 }`}
               >
@@ -86,7 +95,7 @@ export function ServicesOverview({ locale }: { locale: Locale }) {
                   />
                   <ArrowUpRight
                     aria-hidden="true"
-                    className="size-5"
+                    className="size-5 transition-transform duration-300 ease-out group-hover:-translate-y-1 group-hover:translate-x-1"
                     strokeWidth={1.5}
                   />
                 </div>
@@ -98,7 +107,7 @@ export function ServicesOverview({ locale }: { locale: Locale }) {
                   text={service.body}
                   delay={0.15}
                 />
-              </article>
+              </a>
             );
           })}
         </div>

@@ -8,7 +8,13 @@ import { RevealHeadline } from "@/components/site/reveal-headline";
 import { SlideFadeIn } from "@/components/site/slide-fade-in";
 import { FillButton } from "@/components/ui/fill-button";
 import { business, servicesPageContent } from "@/content/site";
-import type { Locale } from "@/lib/routes";
+import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
+
+const serviceRouteIds: Record<string, RouteId> = {
+  "website-development": "webDevelopment",
+  seo: "seo",
+  analytics: "analytics",
+};
 
 export function ServiceDetails({ locale }: { locale: Locale }) {
   const details = servicesPageContent[locale].details;
@@ -21,6 +27,7 @@ export function ServiceDetails({ locale }: { locale: Locale }) {
   return (
     <section id="service-details" className="bg-white text-black">
       {details.map((service, serviceIndex) => {
+        const serviceRouteId = serviceRouteIds[service.slug];
         const isDark = serviceIndex === 0;
         const rowsOnRight = serviceIndex % 2 === 0;
         const gridColumns = isDark
@@ -110,6 +117,12 @@ export function ServiceDetails({ locale }: { locale: Locale }) {
                 {locale === "id" ? "Diskusikan layanan ini" : "Discuss this service"}
                 <ArrowUpRight aria-hidden="true" className="size-4" />
               </FillButton>
+              {serviceRouteId && (
+                <FillButton href={getRoutePath(serviceRouteId, locale)} variant="outline">
+                  {locale === "id" ? "Lihat detail layanan" : "View service details"}
+                  <ArrowUpRight aria-hidden="true" className="size-4" />
+                </FillButton>
+              )}
             </FadeIn>
           </div>
         );
