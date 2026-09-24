@@ -5,7 +5,6 @@ import { ServiceProcess } from "@/app/components/services/detail/components/proc
 import { ServiceSelectedWork } from "@/app/components/services/detail/components/selected-work";
 import { ServiceSpiral } from "@/app/components/services/detail/components/spiral-section";
 import { ServiceTrustStrip } from "@/app/components/services/detail/components/trust-strip";
-import { Footer } from "@/components/site/footer";
 import { business, seoServicePageContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
 
@@ -52,7 +51,6 @@ export function SeoPage({ locale }: { locale: Locale }) {
         />
         <ServiceFaq content={content.faq} locale={locale} sectionId="seo-faq" />
       </main>
-      <Footer locale={locale} routeId="seo" />
     </>
   );
 }

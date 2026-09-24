@@ -1,7 +1,6 @@
 import { Hero } from "@/app/components/services/components/hero";
 import { ServiceDetails } from "@/app/components/services/components/service-details";
 import { ServicesOverview } from "@/app/components/services/components/services-overview";
-import { Footer } from "@/components/site/footer";
 import type { Locale } from "@/lib/routes";
 
 export function ServicesPage({ locale }: { locale: Locale }) {
@@ -12,7 +11,6 @@ export function ServicesPage({ locale }: { locale: Locale }) {
         <ServicesOverview locale={locale} />
         <ServiceDetails locale={locale} />
       </main>
-      <Footer locale={locale} routeId="services" />
     </>
   );
 }

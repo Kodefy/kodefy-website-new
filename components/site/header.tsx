@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
@@ -15,7 +15,9 @@ import {
 } from "@/components/ui/sheet";
 import { DriftPreview } from "@/components/site/drift-preview";
 import { FadeInText } from "@/components/site/fade-in-text";
+import { LazyGrainient } from "@/components/site/lazy-grainient";
 import { business, homeContent } from "@/content/site";
+import { useIsMobile } from "@/hooks/use-is-mobile";
 import { getRouteIdFromPathname, getRoutePath, type Locale } from "@/lib/routes";
 
 export function Header({
@@ -26,7 +28,11 @@ export function Header({
   const router = useRouter();
   const pathname = usePathname();
   const routeId = getRouteIdFromPathname(pathname, locale);
+  const isMobile = useIsMobile();
   const [open, setOpen] = useState(false);
+  const [isRouteClosing, setIsRouteClosing] = useState(false);
+  const [isRouteTransitioning, setIsRouteTransitioning] = useState(false);
+  const routeCloseTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [isAtTop, setIsAtTop] = useState(true);
   const [hasMenuEntered, setHasMenuEntered] = useState(false);
   const [isMenuAtTop, setIsMenuAtTop] = useState(true);
@@ -35,24 +41,35 @@ export function Header({
   const homePath = getRoutePath("home", locale);
   const navigation = [
     {
+      routeId: "home",
       label: locale === "id" ? "Beranda" : "Home",
       href: homePath,
       imageSrc:
         "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
     },
     {
+      routeId: "services",
       label: content.navigation.services,
       href: getRoutePath("services", locale),
       imageSrc:
         "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
     },
     {
+      routeId: "portfolio",
       label: content.navigation.work,
       href: getRoutePath("portfolio", locale),
       imageSrc:
         "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
     },
     {
+      routeId: "about",
+      label: locale === "id" ? "Tentang" : "About",
+      href: getRoutePath("about", locale),
+      imageSrc:
+        "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      routeId: "contact",
       label: locale === "id" ? "Kontak" : "Contact",
       href: getRoutePath("contact", locale),
       imageSrc:
@@ -68,6 +85,7 @@ export function Header({
   const closeAndNavigate = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
     if (
       !open ||
+      isRouteTransitioning ||
       event.button !== 0 ||
       event.metaKey ||
       event.ctrlKey ||
@@ -79,8 +97,14 @@ export function Header({
 
     event.preventDefault();
     setHoveredNavIndex(null);
-    setOpen(false);
+    setIsRouteTransitioning(true);
     router.push(href);
+
+    routeCloseTimerRef.current = setTimeout(() => {
+      setIsRouteClosing(true);
+      setOpen(false);
+      routeCloseTimerRef.current = null;
+    }, 400);
   };
 
   useEffect(() => {
@@ -90,6 +114,15 @@ export function Header({
     window.addEventListener("scroll", updateScrollState, { passive: true });
     return () => window.removeEventListener("scroll", updateScrollState);
   }, []);
+
+  useEffect(
+    () => () => {
+      if (routeCloseTimerRef.current) {
+        clearTimeout(routeCloseTimerRef.current);
+      }
+    },
+    [],
+  );
 
   useEffect(() => {
     if (!open) {
@@ -111,7 +144,13 @@ export function Header({
       open={open}
       onOpenChange={(nextOpen) => {
         setOpen(nextOpen);
-        if (nextOpen) setIsMenuAtTop(true);
+        if (nextOpen) {
+          setIsMenuAtTop(true);
+          setIsRouteClosing(false);
+          setIsRouteTransitioning(false);
+        } else if (!isRouteTransitioning) {
+          setIsRouteClosing(false);
+        }
       }}
     >
       <header className="pointer-events-none fixed top-0 right-0 z-60 mix-blend-difference p-6 sm:p-8 lg:p-12">
@@ -157,8 +196,32 @@ export function Header({
       <SheetContent
         side="top"
         showCloseButton={false}
-        className="inset-0! h-dvh! w-full! max-w-none! gap-0 overflow-hidden border-0! bg-black p-0 text-white shadow-none transition-opacity! duration-300! data-[side=top]:data-ending-style:translate-y-0! data-[side=top]:data-starting-style:translate-y-0!"
+        className={`inset-0! h-dvh! w-full! max-w-none! gap-0 overflow-hidden border-0! bg-black p-0 text-white shadow-none transition-opacity! ${
+          isRouteClosing ? "duration-1000!" : "duration-300!"
+        } data-[side=top]:data-ending-style:translate-y-0! data-[side=top]:data-starting-style:translate-y-0!`}
       >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-75"
+        >
+          <LazyGrainient
+            className="size-full"
+            timeSpeed={0.6}
+            color1={"#000000"}
+            color2="#000000"
+            color3="#878787"
+            grainAmount={0.01}
+            grainScale={1.8}
+            contrast={1.25}
+            saturation={0}
+            zoom={1}
+            noiseScale={2.5}
+          />
+        </div>
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-black/35"
+        />
         <SheetTitle className="sr-only">
           {locale === "id" ? "Menu utama" : "Main menu"}
         </SheetTitle>
@@ -169,7 +232,7 @@ export function Header({
         </SheetDescription>
 
         <div
-          className="mx-auto flex h-full w-full max-w-360 flex-col overflow-y-auto px-6 pt-32 pb-8 sm:px-8 sm:pt-36 lg:overflow-hidden lg:px-12 lg:pt-40"
+          className="relative z-10 mx-auto flex h-full w-full max-w-360 flex-col overflow-y-auto px-6 pt-32 pb-8 sm:px-8 sm:pt-36 lg:overflow-hidden lg:px-12 lg:pt-40"
           onScroll={(event) =>
             setIsMenuAtTop(event.currentTarget.scrollTop === 0)
           }
@@ -189,12 +252,23 @@ export function Header({
                 key={item.href}
                 className={`relative transition-[opacity,top] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
                   open
-                    ? hasMenuEntered
+                    ? isRouteTransitioning
+                      ? "-top-4 opacity-0"
+                      : hasMenuEntered
                       ? "top-0 opacity-100"
                       : "top-4 opacity-0"
-                    : "top-0 opacity-100"
+                    : isRouteClosing
+                      ? "-top-4 opacity-0"
+                      : "top-0 opacity-100"
                 }`}
-                style={{ transitionDelay: open ? `${index * 100}ms` : "0ms" }}
+                style={{
+                  transitionDelay:
+                    isRouteTransitioning
+                      ? `${index * 75}ms`
+                      : open
+                        ? `${index * 100}ms`
+                        : "0ms",
+                }}
               >
                 <DriftPreview
                   href={item.href}
@@ -205,9 +279,13 @@ export function Header({
                   onFocus={() => setHoveredNavIndex(index)}
                   onBlur={() => setHoveredNavIndex(null)}
                   className={`relative z-10 flex items-start gap-2 text-5xl leading-none font-extralight tracking-tight transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:text-6xl lg:text-8xl xl:text-9xl ${
-                    hoveredNavIndex !== null && hoveredNavIndex !== index
-                      ? "text-white/60"
-                      : "text-white"
+                    hoveredNavIndex !== null
+                      ? hoveredNavIndex === index
+                        ? "text-white"
+                        : "text-white/60"
+                      : item.routeId === routeId
+                        ? "text-white"
+                        : "text-white/60"
                   }`}
                 >
                   <span className="relative z-10">{item.label}</span>
@@ -220,78 +298,129 @@ export function Header({
           </nav>
 
           <div className="grid gap-8 border-t border-white/20 pt-6 text-sm text-white/55 sm:grid-cols-2 lg:grid-cols-4">
-            <FadeInText
-              className="flex flex-col"
-              text={`${business.name} ${business.location}`}
-              delay={0.5}
+            <MenuFooterItem
+              index={0}
+              isRouteClosing={isRouteClosing}
+              isRouteTransitioning={isRouteTransitioning}
             >
-              <span className="font-semibold text-white">Kodefy</span>
-              <span className="mt-2">{business.location}</span>
-              <span className="mt-1">
-                {locale === "id" ? "Sejak 2020" : "Since 2020"}
-              </span>
-            </FadeInText>
-
-            <FadeInText
-              className="flex flex-col items-start gap-2"
-              text={`${business.email} ${business.phoneDisplay}`}
-              delay={0.7}
-            >
-              <a className="transition-colors duration-200 hover:cursor-pointer hover:text-white" href={`mailto:${business.email}`}>
-                {business.email}
-              </a>
-              <a
-                className="transition-colors duration-200 hover:cursor-pointer hover:text-white"
-                href={business.whatsapp}
-                target="_blank"
-                rel="noreferrer"
+              <FadeInText
+                className="flex flex-col"
+                text={`${business.name} ${business.location}`}
+                delay={0.5}
               >
-                {business.phoneDisplay}
-              </a>
-            </FadeInText>
+                <span className="font-semibold text-white">Kodefy</span>
+                <span className="mt-2">{business.location}</span>
+                <span className="mt-1">
+                  {locale === "id" ? "Sejak 2020" : "Since 2020"}
+                </span>
+              </FadeInText>
+            </MenuFooterItem>
 
-            <FadeInText
-              className="flex items-start gap-3"
-              text="ID EN"
-              delay={0.9}
+            <MenuFooterItem
+              index={1}
+              isRouteClosing={isRouteClosing}
+              isRouteTransitioning={isRouteTransitioning}
             >
-              {(["id", "en"] as const).map((language) => (
-                <a
-                  key={language}
-                  href={getRoutePath(routeId, language)}
-                  hrefLang={language}
-                  onClick={(event) =>
-                    closeAndNavigate(event, getRoutePath(routeId, language))
-                  }
-                  className={
-                    locale === language
-                      ? "text-white underline underline-offset-4 hover:cursor-pointer"
-                      : "transition-colors duration-200 hover:cursor-pointer hover:text-white"
-                  }
-                >
-                  {language.toUpperCase()}
+              <FadeInText
+                className="flex flex-col items-start gap-2"
+                text={`${business.email} ${business.phoneDisplay}`}
+                delay={0.7}
+              >
+                <a className="transition-colors duration-200 hover:cursor-pointer hover:text-white" href={`mailto:${business.email}`}>
+                  {business.email}
                 </a>
-              ))}
-            </FadeInText>
+                <a
+                  className="transition-colors duration-200 hover:cursor-pointer hover:text-white"
+                  href={business.whatsapp}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {business.phoneDisplay}
+                </a>
+              </FadeInText>
+            </MenuFooterItem>
 
-            <FadeInText
-              className="flex items-center gap-2 font-semibold text-white lg:justify-self-end"
-              text={content.cta.primary}
-              delay={1.1}
+            <MenuFooterItem
+              index={2}
+              isRouteClosing={isRouteClosing}
+              isRouteTransitioning={isRouteTransitioning}
             >
-              <a
-                href={whatsappHref}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 transition-colors duration-200 hover:cursor-pointer hover:text-white/70"
+              <FadeInText
+                className="flex items-start gap-3"
+                text="ID EN"
+                delay={0.9}
               >
-                {content.cta.primary}
-                <ArrowUpRight aria-hidden="true" className="size-4" />
-              </a>
-            </FadeInText>
+                {(["id", "en"] as const).map((language) => (
+                  <a
+                    key={language}
+                    href={getRoutePath(routeId, language)}
+                    hrefLang={language}
+                    onClick={(event) =>
+                      closeAndNavigate(event, getRoutePath(routeId, language))
+                    }
+                    className={
+                      locale === language
+                        ? "text-white underline underline-offset-4 hover:cursor-pointer"
+                        : "transition-colors duration-200 hover:cursor-pointer hover:text-white"
+                    }
+                  >
+                    {language.toUpperCase()}
+                  </a>
+                ))}
+              </FadeInText>
+            </MenuFooterItem>
+
+            <MenuFooterItem
+              index={3}
+              isRouteClosing={isRouteClosing}
+              isRouteTransitioning={isRouteTransitioning}
+            >
+              <FadeInText
+                className="flex items-center gap-2 font-semibold text-white lg:justify-self-end"
+                text={content.cta.primary}
+                delay={1.1}
+              >
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 transition-colors duration-200 hover:cursor-pointer hover:text-white/70"
+                >
+                  {content.cta.primary}
+                  <ArrowUpRight aria-hidden="true" className="size-4" />
+                </a>
+              </FadeInText>
+            </MenuFooterItem>
           </div>
         </div>
       </SheetContent>
     </Sheet>
+  );
+}
+
+function MenuFooterItem({
+  children,
+  index,
+  isRouteClosing,
+  isRouteTransitioning,
+}: {
+  children: ReactNode;
+  index: number;
+  isRouteClosing: boolean;
+  isRouteTransitioning: boolean;
+}) {
+  return (
+    <div
+      className={`relative transition-[opacity,top] duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none ${
+        isRouteTransitioning || isRouteClosing
+          ? "-top-4 opacity-0"
+          : "top-0 opacity-100"
+      }`}
+      style={{
+        transitionDelay: isRouteTransitioning ? `${index * 75}ms` : "0ms",
+      }}
+    >
+      {children}
+    </div>
   );
 }

@@ -6,7 +6,6 @@ import { ServiceSelectedWork } from "@/app/components/services/detail/components
 import { ServiceSpiral } from "@/app/components/services/detail/components/spiral-section";
 import { ServiceTestimonials } from "@/app/components/services/detail/components/testimonials";
 import { ServiceTrustStrip } from "@/app/components/services/detail/components/trust-strip";
-import { Footer } from "@/components/site/footer";
 import {
   business,
   homeContent,
@@ -77,7 +76,6 @@ export function WebDevelopmentPage({ locale }: { locale: Locale }) {
           sectionId="web-development-faq"
         />
       </main>
-      <Footer locale={locale} routeId="webDevelopment" />
     </>
   );
 }

@@ -8,7 +8,6 @@ import remarkGfm from "remark-gfm";
 import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
-import { Footer } from "@/components/site/footer";
 import type { Locale, RouteId } from "@/lib/routes";
 
 function getNodeText(node: ReactNode): string {
@@ -89,7 +88,6 @@ export async function LegalPage({
           </article>
         </div>
       </main>
-      <Footer locale={locale} routeId={routeId} />
     </>
   );
 }

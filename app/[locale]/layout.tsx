@@ -7,6 +7,7 @@ import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import { productionOrigin } from "@/lib/routes";
 import { Header } from "@/components/site/header";
+import { SiteFooter } from "@/components/site/site-footer";
 import { SmoothScroll } from "@/components/site/smooth-scroll";
 
 import "../globals.css";
@@ -61,6 +62,7 @@ export default async function LocaleLayout({
           <SmoothScroll />
           <Header locale={locale} />
           {children}
+          <SiteFooter locale={locale} />
         </NextIntlClientProvider>
       </body>
     </html>

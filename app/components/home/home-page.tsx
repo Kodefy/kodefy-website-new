@@ -11,7 +11,6 @@ import { Services } from "@/app/components/home/components/services";
 import { SuccessStories } from "@/app/components/home/components/success-stories";
 import { Testimonials } from "@/app/components/home/components/testimonials";
 import { WhyKodefy } from "@/app/components/home/components/why-kodefy";
-import { Footer } from "@/components/site/footer";
 import { Button } from "@/components/ui/button";
 import { business, homeContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
@@ -50,7 +49,6 @@ export function HomePage({ locale }: { locale: Locale }) {
         <Testimonials locale={locale} />
 
       </main>
-      <Footer locale={locale} routeId="home" />
     </>
   );
 }
