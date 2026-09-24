@@ -193,40 +193,10 @@ html.lenis body {
     background: #1847e8;
   }
 
-  .legal-content h1 {
-    margin-bottom: 0.75rem;
-    font-size: clamp(2.25rem, 6vw, 4.75rem);
-    font-weight: 650;
-    letter-spacing: -0.055em;
-    line-height: 0.98;
-  }
-
-  .legal-content h2 {
-    margin-top: 2.75rem;
-    margin-bottom: 0.9rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgb(0 0 0 / 10%);
-    font-size: 1.6rem;
-    font-weight: 650;
-    letter-spacing: -0.03em;
-  }
-
-  .legal-content h3 {
-    margin-top: 1.8rem;
-    margin-bottom: 0.65rem;
-    font-size: 1.15rem;
-    font-weight: 650;
-  }
-
-  .legal-content p,
   .legal-content li {
     color: rgb(0 0 0 / 66%);
     font-size: 0.98rem;
     line-height: 1.75;
-  }
-
-  .legal-content p + p {
-    margin-top: 1rem;
   }
 
   .legal-content ul {
@@ -239,7 +209,7 @@ html.lenis body {
   }
 
   .legal-content a {
-    color: #1847e8;
+    color: currentColor;
     text-decoration: underline;
     text-underline-offset: 0.2em;
   }
