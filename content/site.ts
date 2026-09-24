@@ -1015,6 +1015,33 @@ export const seoServicePageContent: Record<
       primaryCta: string;
       secondaryCta: string;
     };
+    trust: { label: string; logosLabel: string };
+    overview: {
+      title: string;
+      body: string;
+      labels: string[];
+      imageSrc: string;
+      imageAlt: string;
+      cta: string;
+    };
+    selectedWork: {
+      title: string;
+      body: string;
+      primaryCta: string;
+      phoneCta: string;
+      projects: { name: string; image: string; alt: string }[];
+    };
+    spiral: { title: string; body: string; cta: string };
+    process: {
+      title: string;
+      primaryCta: string;
+      phoneCta: string;
+      steps: { number: string; title: string; body: string }[];
+    };
+    faq: {
+      title: string;
+      items: { question: string; answer: string }[];
+    };
     seo: { description: string; title: string };
   }
 > = {
@@ -1031,6 +1058,116 @@ export const seoServicePageContent: Record<
       primaryCta: "Discuss your SEO needs",
       secondaryCta: "Explore services",
     },
+    trust: {
+      label: "Trusted by businesses across industries.",
+      logosLabel: "Selected client brands",
+    },
+    overview: {
+      title: "SEO support for the pages that matter most.",
+      body:
+        "We help strengthen your SEO foundation, uncover technical blockers, and optimise important pages so search engines, AI systems, and prospective customers can understand your business more clearly.",
+      labels: ["SEO Setup", "Technical SEO Audit", "Monthly SEO Growth"],
+      imageSrc: "/assets/services/seo/seo_setup.webp",
+      imageAlt: "SEO setup work shown on a laptop",
+      cta: "Discuss this service",
+    },
+    selectedWork: {
+      title: "See the progress we help build.",
+      body:
+        "These examples show how focused SEO work can improve the visibility and growth of important pages over time.",
+      primaryCta: "Discuss your SEO needs",
+      phoneCta: "Chat via WhatsApp",
+      projects: [
+        {
+          name: "SEO Setup",
+          image: "/assets/services/seo/seo_setup.webp",
+          alt: "SEO setup performance example",
+        },
+        {
+          name: "Technical SEO Audit",
+          image: "/assets/services/seo/technical_seo_audit.webp",
+          alt: "Technical SEO audit example",
+        },
+        {
+          name: "Monthly SEO Growth",
+          image: "/assets/services/seo/monthly_seo_growth.webp",
+          alt: "Monthly SEO growth example",
+        },
+      ],
+    },
+    spiral: {
+      title: "SEO built on the right foundation.",
+      body:
+        "Every website has different goals and challenges. That is why our SEO work focuses on the pages, blockers, and opportunities that matter most to your business.",
+      cta: "Discuss your SEO needs",
+    },
+    process: {
+      title: "A clear process for stronger search visibility.",
+      primaryCta: "Discuss your SEO needs",
+      phoneCta: "Chat via WhatsApp",
+      steps: [
+        {
+          number: "01",
+          title: "Consultation & goals",
+          body:
+            "We understand your business, audience, core services, and the pages that matter most to your growth.",
+        },
+        {
+          number: "02",
+          title: "SEO audit",
+          body:
+            "We review technical foundations, site structure, content, and blockers that make key pages harder to find.",
+        },
+        {
+          number: "03",
+          title: "Priorities & strategy",
+          body:
+            "We turn the findings into a clear plan based on the impact and needs of your business.",
+        },
+        {
+          number: "04",
+          title: "Optimisation",
+          body:
+            "We improve important pages, structure, metadata, internal links, and the technical elements that need attention.",
+        },
+        {
+          number: "05",
+          title: "Monitoring & growth",
+          body:
+            "We monitor progress and continue optimising around data, new opportunities, and the next priorities.",
+        },
+      ],
+    },
+    faq: {
+      title: "Frequently asked questions.",
+      items: [
+        {
+          question: "What is included in your SEO service?",
+          answer:
+            "The scope depends on the service you need. It can include SEO setup for priority pages, a technical SEO audit, or ongoing monthly optimisation. We define the pages, deliverables, and priorities clearly before work begins.",
+        },
+        {
+          question: "How long does SEO take to show results?",
+          answer:
+            "SEO takes time because search visibility depends on your starting point, competition, content, and technical condition. We focus first on meaningful improvements to important pages, then monitor progress and adjust priorities from there.",
+        },
+        {
+          question: "Does my website need to be rebuilt before SEO work starts?",
+          answer:
+            "Not always. We first assess the current foundation and identify what can be improved within the existing website. If larger structural changes are needed, we explain why and prioritise the most useful next steps.",
+        },
+        {
+          question: "Do I need to prepare content?",
+          answer:
+            "We need to understand your services, business context, and the pages you want to improve. If content needs attention, we can identify what is missing and recommend the right next step.",
+        },
+        {
+          question: "Can SEO help my business appear in AI search?",
+          answer:
+            "Clear information, a sound technical foundation, and well-structured important pages make it easier for search engines and AI systems to understand your business. We focus on those practical fundamentals rather than making ranking guarantees.",
+        },
+      ],
+    },
   },
   id: {
     seo: {
@@ -1041,9 +1178,119 @@ export const seoServicePageContent: Record<
     hero: {
       title: "Buat bisnis dan brand Anda lebih mudah ditemukan",
       body:
-        "Kami membantu merapikan fondasi SEO, menemukan hambatan teknis, dan mengoptimalkan halaman penting untuk mendukung pertumbuhan organik dan membuat bisnis Anda lebih mudah dipahami oleh mesin pencari dan AI.",
+        "Kodefy membantu merapikan fondasi SEO, menemukan hambatan teknis, dan mengoptimalkan halaman penting untuk mendukung pertumbuhan organik dan membuat bisnis Anda lebih mudah dipahami oleh mesin pencari dan AI.",
       primaryCta: "Diskusikan kebutuhan SEO Anda",
       secondaryCta: "Lihat layanan",
+    },
+    trust: {
+      label: "Dipercaya oleh bisnis dari berbagai industri.",
+      logosLabel: "Pilihan brand klien",
+    },
+    overview: {
+      title: "Dukungan SEO untuk halaman yang paling penting bagi bisnis Anda.",
+      body:
+        "Kami membantu memperkuat fondasi SEO, menemukan hambatan teknis, dan mengoptimalkan halaman penting agar mesin pencari, AI, dan calon pelanggan dapat memahami bisnis Anda dengan lebih jelas.",
+      labels: ["SEO Setup", "Technical SEO Audit", "Monthly SEO Growth"],
+      imageSrc: "/assets/services/seo/seo_setup.webp",
+      imageAlt: "Pekerjaan SEO setup pada layar laptop",
+      cta: "Diskusikan layanan ini",
+    },
+    selectedWork: {
+      title: "Lihat perkembangan yang kami bantu bangun.",
+      body:
+        "Contoh ini menunjukkan bagaimana pekerjaan SEO yang terarah dapat membantu meningkatkan visibilitas dan pertumbuhan halaman penting dari waktu ke waktu.",
+      primaryCta: "Diskusikan kebutuhan SEO Anda",
+      phoneCta: "Chat via WhatsApp",
+      projects: [
+        {
+          name: "SEO Setup",
+          image: "/assets/services/seo/seo_setup.webp",
+          alt: "Contoh performa SEO setup",
+        },
+        {
+          name: "Technical SEO Audit",
+          image: "/assets/services/seo/technical_seo_audit.webp",
+          alt: "Contoh technical SEO audit",
+        },
+        {
+          name: "Monthly SEO Growth",
+          image: "/assets/services/seo/monthly_seo_growth.webp",
+          alt: "Contoh pertumbuhan SEO bulanan",
+        },
+      ],
+    },
+    spiral: {
+      title: "SEO yang dibangun dari fondasi yang tepat.",
+      body:
+        "Setiap website memiliki tujuan dan tantangan yang berbeda. Karena itu, penanganan SEO kami fokus pada halaman, hambatan, dan peluang yang paling berpengaruh bagi bisnis Anda.",
+      cta: "Diskusikan kebutuhan SEO Anda",
+    },
+    process: {
+      title: "Proses yang jelas untuk visibilitas pencarian yang lebih kuat.",
+      primaryCta: "Diskusikan kebutuhan SEO Anda",
+      phoneCta: "Chat via WhatsApp",
+      steps: [
+        {
+          number: "01",
+          title: "Konsultasi & tujuan",
+          body:
+            "Memahami bisnis, audiens, layanan utama, dan halaman yang paling penting untuk pertumbuhan Anda.",
+        },
+        {
+          number: "02",
+          title: "Audit SEO",
+          body:
+            "Mengecek fondasi teknis, struktur website, konten, dan hambatan yang membuat halaman sulit ditemukan.",
+        },
+        {
+          number: "03",
+          title: "Prioritas & strategi",
+          body:
+            "Menyusun temuan menjadi langkah kerja yang jelas berdasarkan dampak dan kebutuhan bisnis Anda.",
+        },
+        {
+          number: "04",
+          title: "Optimasi",
+          body:
+            "Memperbaiki halaman penting, struktur, metadata, internal link, dan elemen teknis yang diperlukan.",
+        },
+        {
+          number: "05",
+          title: "Monitoring & pengembangan",
+          body:
+            "Memantau perkembangan dan melanjutkan optimasi berdasarkan data, peluang, dan prioritas berikutnya.",
+        },
+      ],
+    },
+    faq: {
+      title: "Pertanyaan yang sering ditanyakan.",
+      items: [
+        {
+          question: "Apa saja yang termasuk dalam layanan SEO?",
+          answer:
+            "Scope bergantung pada layanan yang Anda butuhkan. Pekerjaan dapat mencakup SEO setup untuk halaman penting, technical SEO audit, atau optimasi bulanan. Halaman, deliverables, dan prioritas akan disepakati dengan jelas sebelum pengerjaan dimulai.",
+        },
+        {
+          question: "Berapa lama hasil SEO mulai terlihat?",
+          answer:
+            "SEO membutuhkan waktu karena visibilitas pencarian dipengaruhi kondisi awal website, persaingan, konten, dan fondasi teknis. Kami fokus terlebih dahulu pada perbaikan yang berarti untuk halaman penting, lalu memantau perkembangan dan menyesuaikan prioritas berikutnya.",
+        },
+        {
+          question: "Apakah website saya perlu dibuat ulang sebelum SEO dimulai?",
+          answer:
+            "Tidak selalu. Kami akan melihat fondasi website saat ini dan mencari bagian yang dapat diperbaiki tanpa membangun ulang. Jika diperlukan perubahan struktur yang lebih besar, kami menjelaskan alasannya dan memprioritaskan langkah yang paling berguna.",
+        },
+        {
+          question: "Apakah saya perlu menyiapkan konten?",
+          answer:
+            "Kami perlu memahami layanan, konteks bisnis, dan halaman yang ingin ditingkatkan. Jika konten perlu diperbaiki, kami dapat membantu mengidentifikasi bagian yang perlu dilengkapi dan menyarankan langkah berikutnya.",
+        },
+        {
+          question: "Apakah SEO dapat membantu bisnis saya ditemukan melalui pencarian AI?",
+          answer:
+            "Informasi yang jelas, fondasi teknis yang rapi, dan halaman penting yang terstruktur membantu mesin pencari dan AI memahami bisnis Anda. Kami fokus pada fondasi tersebut.",
+        },
+      ],
     },
   },
 };
