@@ -1031,7 +1031,12 @@ export const seoServicePageContent: Record<
       phoneCta: string;
       projects: { name: string; image: string; alt: string }[];
     };
-    spiral: { title: string; body: string; cta: string };
+    spiral: {
+      title: string;
+      body: string;
+      cta: string;
+      projects: { name: string; image: string; alt: string }[];
+    };
     process: {
       title: string;
       primaryCta: string;
@@ -1100,6 +1105,23 @@ export const seoServicePageContent: Record<
       body:
         "Every website has different goals and challenges. That is why our SEO work focuses on the pages, blockers, and opportunities that matter most to your business.",
       cta: "Discuss your SEO needs",
+      projects: [
+        {
+          name: "SEO Setup",
+          image: "/assets/services/seo/seo_setup.webp",
+          alt: "SEO setup performance example",
+        },
+        {
+          name: "Technical SEO Audit",
+          image: "/assets/services/seo/technical_seo_audit.webp",
+          alt: "Technical SEO audit example",
+        },
+        {
+          name: "Monthly SEO Growth",
+          image: "/assets/services/seo/monthly_seo_growth.webp",
+          alt: "Monthly SEO growth example",
+        },
+      ],
     },
     process: {
       title: "A clear process for stronger search visibility.",
@@ -1224,6 +1246,23 @@ export const seoServicePageContent: Record<
       body:
         "Setiap website memiliki tujuan dan tantangan yang berbeda. Karena itu, penanganan SEO kami fokus pada halaman, hambatan, dan peluang yang paling berpengaruh bagi bisnis Anda.",
       cta: "Diskusikan kebutuhan SEO Anda",
+      projects: [
+        {
+          name: "SEO Setup",
+          image: "/assets/services/seo/seo_setup.webp",
+          alt: "Contoh performa SEO setup",
+        },
+        {
+          name: "Technical SEO Audit",
+          image: "/assets/services/seo/technical_seo_audit.webp",
+          alt: "Contoh technical SEO audit",
+        },
+        {
+          name: "Monthly SEO Growth",
+          image: "/assets/services/seo/monthly_seo_growth.webp",
+          alt: "Contoh pertumbuhan SEO bulanan",
+        },
+      ],
     },
     process: {
       title: "Proses yang jelas untuk visibilitas pencarian yang lebih kuat.",

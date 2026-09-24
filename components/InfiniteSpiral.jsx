@@ -52,6 +52,11 @@ const InfiniteSpiral = ({
       ),
     [items]
   );
+  // Centre cards can grow from both centerScale and the simulated depth. Paint
+  // them at their largest required surface first, then scale them down visually.
+  const renderScale = Math.max(1, centerScale * 1.5);
+  const renderWidth = cardWidth * renderScale;
+  const renderHeight = cardHeight * renderScale;
 
   useEffect(() => {
     const root = rootRef.current;
@@ -135,7 +140,7 @@ const InfiniteSpiral = ({
         const visualScale = scale * depthScale;
         const depth = (z / Math.max(responsiveRadius, 1) + 1) / 2;
         const blur = edgeBlur * smoothstep(0.35, 1, edge);
-        card.style.transform = `translate(-50%, -50%) translate3d(${x}px, ${offset * verticalSpacing * fit}px, 0) rotateZ(${cardTilt}deg) scale(${visualScale})`;
+        card.style.transform = `translate(-50%, -50%) translate3d(${x}px, ${offset * verticalSpacing * fit}px, 0) rotateZ(${cardTilt}deg) scale(${visualScale / renderScale})`;
         card.style.opacity = opacity.toFixed(3);
         card.style.filter = blur > 0.01 ? `blur(${blur.toFixed(2)}px)` : 'none';
         card.style.zIndex = String(Math.round(depth * 100000) + index);
@@ -239,7 +244,7 @@ const InfiniteSpiral = ({
                 cardRefs.current[index] = node;
               }}
               className="infinite-spiral__item"
-              style={{ width: cardWidth, height: cardHeight, borderRadius: cardRadius }}
+              style={{ width: renderWidth, height: renderHeight, borderRadius: cardRadius }}
               href={item.href}
               target={item.target}
               rel={item.target === '_blank' ? 'noreferrer' : undefined}
@@ -253,8 +258,8 @@ const InfiniteSpiral = ({
                 loading={index < 6 ? 'eager' : 'lazy'}
                 draggable={false}
                 style={{
-                  width: cardWidth,
-                  height: cardHeight,
+                  width: renderWidth,
+                  height: renderHeight,
                   maxWidth: 'none',
                   maxHeight: 'none',
                   objectFit: imageFit,

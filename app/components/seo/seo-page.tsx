@@ -39,7 +39,7 @@ export function SeoPage({ locale }: { locale: Locale }) {
         />
         <ServiceSpiral
           content={content.spiral}
-          projects={content.selectedWork.projects}
+          projects={content.spiral.projects}
           whatsappHref={whatsappHref}
           sectionId="seo-spiral"
         />
