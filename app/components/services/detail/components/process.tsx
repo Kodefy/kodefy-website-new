@@ -76,6 +76,7 @@ export function ServiceProcess({
             </FillButton>
             <FillButton href={whatsappHref} target="_blank" rel="noreferrer" variant="outline">
               {content.phoneCta}
+              <ArrowUpRight aria-hidden="true" className="size-4" />
             </FillButton>
           </FadeIn>
 

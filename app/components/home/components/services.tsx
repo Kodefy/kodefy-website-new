@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { homeContent } from "@/content/site";
-import type { Locale } from "@/lib/routes";
+import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
 
 const serviceMarks = [
   { src: "/next.svg", alt: "Next.js" },
@@ -18,6 +18,8 @@ const serviceMarks = [
     alt: "Google Analytics",
   },
 ];
+
+const serviceRouteIds = ["webDevelopment", "seo", "analytics"] as const satisfies readonly RouteId[];
 
 export function Services({ locale }: { locale: Locale }) {
   const content = homeContent[locale];
@@ -34,8 +36,8 @@ export function Services({ locale }: { locale: Locale }) {
               />
             </h2>
             <FadeIn className="mt-8 flex flex-wrap gap-3" delay={0.3} stagger={0.1}>
-              <FillButton href="#contact" variant="solid">
-                {content.cta.primary}
+              <FillButton href={getRoutePath("services", locale)} variant="solid">
+                {locale === "id" ? "Lihat layanan kami" : "Explore our services"}
                 <ArrowUpRight aria-hidden="true" className="size-4" />
               </FillButton>
             </FadeIn>
@@ -53,9 +55,11 @@ export function Services({ locale }: { locale: Locale }) {
             const mark = serviceMarks[index];
 
             return (
-              <article
+              <a
                 key={service.title}
-                className={`border-t border-black/15 pt-5 ${
+                href={getRoutePath(serviceRouteIds[index], locale)}
+                aria-label={service.title}
+                className={`group block border-t border-black/15 pt-5 hover:cursor-pointer ${
                   index === 0 ? "lg:mt-24" : index === 1 ? "lg:mt-12" : ""
                 }`}
               >
@@ -69,7 +73,7 @@ export function Services({ locale }: { locale: Locale }) {
                   />
                   <ArrowUpRight
                     aria-hidden="true"
-                    className="size-5"
+                    className="size-5 transition-transform duration-200 group-hover:-translate-y-1 group-hover:translate-x-1"
                     strokeWidth={1.5}
                   />
                 </div>
@@ -81,7 +85,7 @@ export function Services({ locale }: { locale: Locale }) {
                   text={service.body}
                   delay={0.15}
                 />
-              </article>
+              </a>
             );
           })}
         </div>

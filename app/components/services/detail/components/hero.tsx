@@ -70,6 +70,7 @@ export function ServiceHero({
             </FillButton>
             <FillButton href={getRoutePath("services", locale)}>
               {content.secondaryCta}
+              <ArrowUpRight aria-hidden="true" />
             </FillButton>
           </FadeIn>
         </div>

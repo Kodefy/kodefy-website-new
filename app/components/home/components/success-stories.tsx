@@ -53,7 +53,7 @@ export function SuccessStories({ locale }: { locale: Locale }) {
               delay={0.15}
             />
             <FadeIn className="mt-8 flex flex-wrap gap-3" delay={0.3} stagger={0.1}>
-              <FillButton href="#contact" variant="solid">
+              <FillButton href={getRoutePath("contact", locale)} variant="solid">
                 {locale === "id"
                   ? "Diskusikan proyek Anda"
                   : "Discuss your project"}
@@ -61,6 +61,7 @@ export function SuccessStories({ locale }: { locale: Locale }) {
               </FillButton>
               <FillButton href={getRoutePath("portfolio", locale)} variant="outline">
                 {locale === "id" ? "Lihat karya" : "Browse portfolio"}
+                <ArrowUpRight aria-hidden="true" className="size-4" />
               </FillButton>
             </FadeIn>
             <div className="mt-10 flex items-center justify-between border-t border-black/15 pt-6">

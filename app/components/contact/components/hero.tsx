@@ -61,7 +61,10 @@ export function Hero({ locale }: { locale: Locale }) {
               {content.primaryCta}
               <ArrowUpRight aria-hidden="true" />
             </FillButton>
-            <FillButton href={`mailto:${business.email}`}>{content.secondaryCta}</FillButton>
+            <FillButton href={`mailto:${business.email}`}>
+              {content.secondaryCta}
+              <ArrowUpRight aria-hidden="true" />
+            </FillButton>
           </FadeIn>
         </div>
       </div>

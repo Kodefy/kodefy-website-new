@@ -1,13 +1,13 @@
 "use client";
 
-import { ArrowLeft, ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { FillButton } from "@/components/ui/fill-button";
 import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
-import type { Locale } from "@/lib/routes";
+import { getRoutePath, type Locale } from "@/lib/routes";
 
 const placeholders = [
   {
@@ -76,9 +76,9 @@ export function Testimonials({ locale }: { locale: Locale }) {
             delay={0.15}
           />
           <FadeIn className="mt-8" delay={0.3}>
-            <FillButton href="#contact" variant="solid">
+            <FillButton href={getRoutePath("contact", locale)} variant="solid">
               {isIndonesian ? "Diskusikan proyek Anda" : "Discuss your project"}
-              <ArrowRight aria-hidden="true" className="size-4" />
+              <ArrowUpRight aria-hidden="true" className="size-4" />
             </FillButton>
           </FadeIn>
         </div>

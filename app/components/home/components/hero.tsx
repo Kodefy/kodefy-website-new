@@ -126,6 +126,7 @@ export function Hero({ locale }: { locale: Locale }) {
             </FillButton>
             <FillButton href={getRoutePath("portfolio", locale)}>
               {home.cta.secondary}
+              <ArrowUpRight aria-hidden="true" />
             </FillButton>
           </FadeIn>
         </div>

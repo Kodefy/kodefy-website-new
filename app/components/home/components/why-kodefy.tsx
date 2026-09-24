@@ -75,14 +75,15 @@ export function WhyKodefy({ locale }: { locale: Locale }) {
           />
           <FadeIn className="mt-8 flex flex-wrap gap-3" delay={0.4} stagger={0.1}>
             <FillButton
-              href="#contact"
+              href={getRoutePath("contact", locale)}
               variant="solid"
             >
               {locale === "id" ? "Diskusikan proyek Anda" : "Discuss your project"}
               <ArrowUpRight aria-hidden="true" className="size-4" />
             </FillButton>
-            <FillButton href={getRoutePath("services", locale)} variant="outline">
+            <FillButton href={getRoutePath("webDevelopment", locale)} variant="outline">
               {locale === "id" ? "Lihat layanan" : "Explore services"}
+              <ArrowUpRight aria-hidden="true" className="size-4" />
             </FillButton>
           </FadeIn>
         </div>
