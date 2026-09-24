@@ -32,6 +32,10 @@ export const routeRegistry = {
     internalPath: "/services/seo",
     paths: { en: "/services/seo", id: "/layanan/jasa-seo" },
   },
+  analytics: {
+    internalPath: "/services/analytics",
+    paths: { en: "/services/analytics", id: "/layanan/jasa-analitik" },
+  },
   portfolio: {
     internalPath: "/portfolio",
     paths: { en: "/portfolio", id: "/portofolio" },

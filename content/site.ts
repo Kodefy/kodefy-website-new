@@ -1334,6 +1334,187 @@ export const seoServicePageContent: Record<
   },
 };
 
+type AnalyticsServicePageContent = {
+  hero: { title: string; body: string; primaryCta: string; secondaryCta: string };
+  trust: { label: string; logosLabel: string };
+  overview: {
+    title: string;
+    body: string;
+    labels: string[];
+    imageSrc: string;
+    imageAlt: string;
+    cta: string;
+  };
+  selectedWork: {
+    title: string;
+    body: string;
+    primaryCta: string;
+    phoneCta: string;
+    projects: { name: string; image: string; alt: string }[];
+  };
+  spiral: {
+    title: string;
+    body: string;
+    cta: string;
+    projects: { name: string; image: string; alt: string }[];
+  };
+  process: {
+    title: string;
+    primaryCta: string;
+    phoneCta: string;
+    steps: { number: string; title: string; body: string }[];
+  };
+  faq: { title: string; items: { question: string; answer: string }[] };
+  seo: { description: string; title: string };
+};
+
+export const analyticsServicePageContent: Record<Locale, AnalyticsServicePageContent> = {
+  en: {
+    seo: {
+      title: "Analytics Setup Services | Kodefy",
+      description:
+        "Kodefy sets up practical website analytics so businesses can measure meaningful actions and make clearer digital decisions.",
+    },
+    hero: {
+      title: "Understand what happens on your website.",
+      body:
+        "Kodefy sets up tracking for important actions on your website, so you can see where visitors come from, which pages they view, and what encourages prospective customers to get in touch.",
+      primaryCta: "Discuss your analytics needs",
+      secondaryCta: "Explore services",
+    },
+    trust: {
+      label: "Trusted by businesses across industries.",
+      logosLabel: "Selected client brands",
+    },
+    overview: {
+      title: "Data that helps you make decisions.",
+      body:
+        "We set up a clean analytics foundation so important website activity can be measured, understood, and used to guide the next step.",
+      labels: ["Analytics Setup"],
+      imageSrc: "/assets/services/analytics/analytics_setup.webp",
+      imageAlt: "Website analytics dashboard shown on a laptop",
+      cta: "Discuss this service",
+    },
+    selectedWork: {
+      title: "See the data that gives businesses direction.",
+      body:
+        "These examples show how website data can be organised to support clearer evaluation and more focused business priorities.",
+      primaryCta: "Discuss your analytics needs",
+      phoneCta: "Chat via WhatsApp",
+      projects: [
+        { name: "Analytics Setup", image: "/assets/services/analytics/analytics_setup.webp", alt: "Analytics setup example" },
+        { name: "Website Analytics", image: "/assets/services/analytics/analytics.webp", alt: "Website analytics example" },
+        { name: "Measurement", image: "/assets/services/analytics/analytics_setup.webp", alt: "Website measurement example" },
+      ],
+    },
+    spiral: {
+      title: "Data for your next step.",
+      body:
+        "Every business has different goals and important actions on its website. That is why our analytics setup is tailored to the information you need to understand what is happening on your website.",
+      cta: "Discuss your analytics needs",
+      projects: [
+        { name: "Analytics Setup", image: "/assets/services/analytics/analytics_setup.webp", alt: "Analytics setup example" },
+        { name: "Website Analytics", image: "/assets/services/analytics/analytics.webp", alt: "Website analytics example" },
+        { name: "Measurement", image: "/assets/services/analytics/analytics_setup.webp", alt: "Website measurement example" },
+      ],
+    },
+    process: {
+      title: "A clear process for better measurement.",
+      primaryCta: "Discuss your analytics needs",
+      phoneCta: "Chat via WhatsApp",
+      steps: [
+        { number: "01", title: "Business goals & key actions", body: "We understand your website goals and the actions that matter most to measure." },
+        { number: "02", title: "Current tracking audit", body: "We check the tracking, tags, and data already available to find gaps or issues." },
+        { number: "03", title: "Measurement plan", body: "We define the events, conversions, and information that should be captured so the data stays relevant." },
+        { number: "04", title: "Tracking implementation", body: "We configure analytics and tracking for the important actions we have agreed on." },
+        { number: "05", title: "Validation & handover", body: "We make sure the data is recorded correctly, then explain the setup and practical next steps." },
+      ],
+    },
+    faq: {
+      title: "Frequently asked questions.",
+      items: [
+        { question: "What can be measured through analytics setup?", answer: "We can measure agreed important actions such as form submissions, WhatsApp clicks, contact clicks, key page views, and other conversions that matter to your business." },
+        { question: "Do I need to already have Google Analytics?", answer: "No. We can assess what is already available and set up the right analytics foundation when needed." },
+        { question: "Can analytics track forms and WhatsApp clicks?", answer: "Yes. Where technically appropriate, we can configure tracking for form submissions, WhatsApp clicks, and other important contact actions." },
+        { question: "How long does analytics setup take?", answer: "The timeline depends on the website, current tracking, and the number of actions to measure. We confirm the scope and timeline before implementation begins." },
+        { question: "Will I receive a dashboard or report?", answer: "We make sure you can access the configured data and explain the setup clearly. Any ongoing dashboard or reporting needs can be scoped based on what your team needs." },
+      ],
+    },
+  },
+  id: {
+    seo: {
+      title: "Jasa Setup Analitik Website | Kodefy",
+      description:
+        "Kodefy membantu menyiapkan analitik website yang praktis agar bisnis dapat mengukur tindakan penting dan mengambil keputusan digital dengan lebih jelas.",
+    },
+    hero: {
+      title: "Pahami apa yang terjadi di website Anda.",
+      body:
+        "Kodefy membantu menyiapkan tracking untuk tindakan penting di website Anda, agar Anda tahu dari mana pengunjung datang, halaman apa yang mereka lihat, dan tindakan mana yang mendorong calon pelanggan menghubungi bisnis Anda.",
+      primaryCta: "Diskusikan kebutuhan analitik Anda",
+      secondaryCta: "Lihat layanan",
+    },
+    trust: {
+      label: "Dipercaya oleh bisnis dari berbagai industri.",
+      logosLabel: "Pilihan brand klien",
+    },
+    overview: {
+      title: "Data yang membantu Anda mengambil keputusan.",
+      body:
+        "Kami menyiapkan fondasi analitik yang rapi agar aktivitas penting di website dapat diukur, dipahami, dan digunakan sebagai dasar untuk langkah berikutnya.",
+      labels: ["Setup Analitik"],
+      imageSrc: "/assets/services/analytics/analytics_setup.webp",
+      imageAlt: "Dashboard analitik website pada layar laptop",
+      cta: "Diskusikan layanan ini",
+    },
+    selectedWork: {
+      title: "Lihat data yang memberi bisnis Anda arah.",
+      body:
+        "Contoh ini menunjukkan bagaimana data website dapat dirapikan untuk mendukung evaluasi yang lebih jelas dan prioritas bisnis yang lebih terarah.",
+      primaryCta: "Diskusikan kebutuhan analitik Anda",
+      phoneCta: "Chat via WhatsApp",
+      projects: [
+        { name: "Setup Analitik", image: "/assets/services/analytics/analytics_setup.webp", alt: "Contoh setup analitik" },
+        { name: "Analitik Website", image: "/assets/services/analytics/analytics.webp", alt: "Contoh analitik website" },
+        { name: "Pengukuran", image: "/assets/services/analytics/analytics_setup.webp", alt: "Contoh pengukuran website" },
+      ],
+    },
+    spiral: {
+      title: "Data untuk langkah Anda berikutnya.",
+      body:
+        "Setiap bisnis memiliki tujuan dan aksi penting yang berbeda di website-nya. Karena itu, setup analitik kami disesuaikan dengan informasi yang benar-benar dibutuhkan untuk memahami apa yang terjadi di website Anda.",
+      cta: "Diskusikan kebutuhan analitik Anda",
+      projects: [
+        { name: "Setup Analitik", image: "/assets/services/analytics/analytics_setup.webp", alt: "Contoh setup analitik" },
+        { name: "Analitik Website", image: "/assets/services/analytics/analytics.webp", alt: "Contoh analitik website" },
+        { name: "Pengukuran", image: "/assets/services/analytics/analytics_setup.webp", alt: "Contoh pengukuran website" },
+      ],
+    },
+    process: {
+      title: "Proses yang jelas untuk pengukuran yang lebih baik.",
+      primaryCta: "Diskusikan kebutuhan analitik Anda",
+      phoneCta: "Chat via WhatsApp",
+      steps: [
+        { number: "01", title: "Tujuan bisnis & aksi utama", body: "Kami memahami tujuan website dan tindakan yang paling penting untuk diukur." },
+        { number: "02", title: "Audit tracking saat ini", body: "Kami mengecek tracking, tag, dan data yang sudah tersedia untuk menemukan celah atau masalah." },
+        { number: "03", title: "Rencana pengukuran", body: "Kami menentukan event, conversion, dan informasi yang perlu dicatat agar data tetap relevan." },
+        { number: "04", title: "Implementasi tracking", body: "Kami menyiapkan konfigurasi analitik dan tracking untuk aksi penting yang telah disepakati." },
+        { number: "05", title: "Validasi & handover", body: "Kami memastikan data terbaca dengan benar, lalu menjelaskan hasil setup dan langkah berikutnya." },
+      ],
+    },
+    faq: {
+      title: "Pertanyaan yang sering ditanyakan.",
+      items: [
+        { question: "Apa saja yang dapat diukur melalui setup analitik?", answer: "Kami dapat mengukur aksi penting yang disepakati, seperti pengiriman formulir, klik WhatsApp, klik kontak, kunjungan halaman penting, dan conversion lain yang relevan bagi bisnis Anda." },
+        { question: "Apakah saya harus sudah memiliki Google Analytics?", answer: "Tidak. Kami dapat melihat apa yang sudah tersedia dan menyiapkan fondasi analitik yang tepat bila diperlukan." },
+        { question: "Apakah analitik dapat melacak formulir dan klik WhatsApp?", answer: "Bisa. Jika secara teknis memungkinkan, kami dapat menyiapkan tracking untuk pengiriman formulir, klik WhatsApp, dan aksi kontak penting lainnya." },
+        { question: "Berapa lama proses setup analitik?", answer: "Timeline bergantung pada website, tracking yang sudah ada, dan jumlah aksi yang ingin diukur. Scope dan timeline akan disepakati sebelum implementasi dimulai." },
+        { question: "Apakah saya akan mendapatkan dashboard atau laporan?", answer: "Kami memastikan Anda dapat mengakses data yang telah dikonfigurasi dan menjelaskan hasil setup dengan jelas. Kebutuhan dashboard atau laporan lanjutan dapat dibahas sesuai kebutuhan tim Anda." },
+      ],
+    },
+  },
+};
+
 export const portfolioPageContent: Record<
   Locale,
   {
