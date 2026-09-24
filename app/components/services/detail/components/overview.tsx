@@ -27,7 +27,11 @@ export function ServiceOverview({
 }) {
 
   return (
-    <section aria-labelledby={`${sectionId}-heading`} className="bg-white text-black">
+    <section
+      id={sectionId}
+      aria-labelledby={`${sectionId}-heading`}
+      className="bg-white text-black"
+    >
       <div className="mx-auto grid max-w-360 gap-10 px-6 py-16 sm:px-8 lg:grid-cols-[0.75fr_0.8fr_0.6fr] lg:items-center lg:gap-16 lg:px-12 lg:py-24">
         <div className="w-full max-w-xl">
           <h2

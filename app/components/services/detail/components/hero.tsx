@@ -5,7 +5,7 @@ import { FadeIn } from "@/components/site/fade-in";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { Spotlight } from "@/components/ui/spotlight";
-import { getRoutePath, type Locale } from "@/lib/routes";
+import type { Locale } from "@/lib/routes";
 
 const driftWallItems = [
   "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=700&q=80",
@@ -30,11 +30,13 @@ export function ServiceHero({
   locale,
   content,
   whatsappHref,
+  secondaryHref,
   wallItems = driftWallItems,
 }: {
   locale: Locale;
   content: ServiceHeroContent;
   whatsappHref: string;
+  secondaryHref: string;
   wallItems?: typeof driftWallItems;
 }) {
 
@@ -68,9 +70,8 @@ export function ServiceHero({
               {content.primaryCta}
               <ArrowUpRight aria-hidden="true" />
             </FillButton>
-            <FillButton href={getRoutePath("services", locale)}>
+            <FillButton href={secondaryHref}>
               {content.secondaryCta}
-              <ArrowUpRight aria-hidden="true" />
             </FillButton>
           </FadeIn>
         </div>

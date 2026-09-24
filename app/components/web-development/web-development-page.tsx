@@ -31,6 +31,7 @@ export function WebDevelopmentPage({ locale }: { locale: Locale }) {
           locale={locale}
           content={content.hero}
           whatsappHref={whatsappHref}
+          secondaryHref="#web-development-overview"
         />
         <ServiceTrustStrip
           content={content.trust}

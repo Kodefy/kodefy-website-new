@@ -20,7 +20,12 @@ export function AnalyticsPage({ locale }: { locale: Locale }) {
   return (
     <>
       <main id="main-content">
-        <ServiceHero locale={locale} content={content.hero} whatsappHref={whatsappHref} />
+        <ServiceHero
+          locale={locale}
+          content={content.hero}
+          whatsappHref={whatsappHref}
+          secondaryHref="#analytics-overview"
+        />
         <ServiceTrustStrip content={content.trust} sectionId="analytics-trust" />
         <ServiceOverview
           content={content.overview}

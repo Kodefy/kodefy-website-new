@@ -24,6 +24,7 @@ export function SeoPage({ locale }: { locale: Locale }) {
           locale={locale}
           content={content.hero}
           whatsappHref={whatsappHref}
+          secondaryHref="#seo-overview"
         />
         <ServiceTrustStrip content={content.trust} sectionId="seo-trust" />
         <ServiceOverview
