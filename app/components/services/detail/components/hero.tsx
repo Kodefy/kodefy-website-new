@@ -5,19 +5,8 @@ import { FadeIn } from "@/components/site/fade-in";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { Spotlight } from "@/components/ui/spotlight";
+import { sharedHeroDriftWallItems } from "@/content/shared-assets";
 import type { Locale } from "@/lib/routes";
-
-const driftWallItems = [
-  "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=700&q=80",
-  "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=700&q=80",
-].map((image) => ({ image, title: "Website", href: undefined }));
 
 export type ServiceHeroContent = {
   title: string;
@@ -31,18 +20,20 @@ export function ServiceHero({
   content,
   whatsappHref,
   secondaryHref,
-  wallItems = driftWallItems,
+  wallItems = sharedHeroDriftWallItems,
 }: {
   locale: Locale;
   content: ServiceHeroContent;
   whatsappHref: string;
   secondaryHref: string;
-  wallItems?: typeof driftWallItems;
+  wallItems?: typeof sharedHeroDriftWallItems;
 }) {
-
   return (
     <section className="relative isolate grid h-svh bg-black lg:grid-cols-2">
-      <div aria-hidden="true" className="absolute inset-0 overflow-hidden bg-black lg:hidden">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 overflow-hidden bg-black lg:hidden"
+      >
         <Spotlight
           className="-top-0 -right-24 sm:-top-4 sm:-right-20"
           direction="right"
@@ -56,7 +47,11 @@ export function ServiceHero({
       >
         <div className="w-full max-w-2xl">
           <h1 className="text-3xl leading-none font-light tracking-tight text-white sm:text-6xl xl:text-7xl">
-            <RevealHeadline characterStagger={0.01} revealBy="character" text={content.title} />
+            <RevealHeadline
+              characterStagger={0.01}
+              revealBy="character"
+              text={content.title}
+            />
           </h1>
 
           <div className="mt-8 border-t border-white/20 pt-6">
@@ -65,14 +60,21 @@ export function ServiceHero({
             </p>
           </div>
 
-          <FadeIn className="mt-8 flex flex-col gap-3 sm:flex-row" delay={0.3} stagger={0.1}>
-            <FillButton href={whatsappHref} target="_blank" rel="noreferrer" variant="solid">
+          <FadeIn
+            className="mt-8 flex flex-col gap-3 sm:flex-row"
+            delay={0.3}
+            stagger={0.1}
+          >
+            <FillButton
+              href={whatsappHref}
+              target="_blank"
+              rel="noreferrer"
+              variant="solid"
+            >
               {content.primaryCta}
               <ArrowUpRight aria-hidden="true" />
             </FillButton>
-            <FillButton href={secondaryHref}>
-              {content.secondaryCta}
-            </FillButton>
+            <FillButton href={secondaryHref}>{content.secondaryCta}</FillButton>
           </FadeIn>
         </div>
       </div>
@@ -82,7 +84,7 @@ export function ServiceHero({
           items={wallItems}
           columns={3}
           tileWidth={320}
-          tileHeight={200}
+          tileHeight={180}
           gap={14}
           tilt={25}
           turn={-20}

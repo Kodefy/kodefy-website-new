@@ -9,10 +9,43 @@ import { FillButton } from "@/components/ui/fill-button";
 import { homeContent } from "@/content/site";
 import { getRoutePath, type Locale } from "@/lib/routes";
 
+const projects = [
+  {
+    image: "/assets/home/success-stories/main-qijian-technology-limited.webp",
+    alt: "Qijian Technology Limited website project",
+    name: "Qijian Technology",
+  },
+  {
+    image: "/assets/home/success-stories/astha-international-limited.webp",
+    alt: "Astha International Limited website project",
+    name: "Astha International",
+  },
+  {
+    image: "/assets/home/success-stories/lievee.webp",
+    alt: "Lievee website project",
+    name: "Lievee",
+  },
+  {
+    image: "/assets/home/success-stories/ningwei-trading-limited.webp",
+    alt: "Ningwei Trading Limited website project",
+    name: "Ningwei Trading",
+  },
+  {
+    image: "/assets/home/success-stories/sukses-pamerindo.webp",
+    alt: "Sukses Pamerindo website project",
+    name: "Sukses Pamerindo",
+  },
+  {
+    image: "/assets/home/success-stories/xingxiang-industrial-limited.webp",
+    alt: "Xingxiang Industrial Limited website project",
+    name: "Xingxiang Industrial",
+  },
+] as const;
+
 export function SuccessStories({ locale }: { locale: Locale }) {
   const content = homeContent[locale];
-  const featuredProject = content.projects[0];
-  const galleryItems = content.projects.slice(1).map((project) => ({
+  const [featuredProject, ...galleryProjects] = projects;
+  const galleryItems = galleryProjects.map((project) => ({
     image: project.image,
     alt: project.alt,
     label: project.name,
@@ -98,13 +131,13 @@ export function SuccessStories({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div id="work-gallery" className="mt-8 lg:mt-12">
+        <div id="work-gallery" className="mt-8 hidden lg:mt-12 lg:block">
           <FadeIn delay={0.1}>
             <AccordionGallery
               items={galleryItems}
               defaultIndex={0}
               height={420}
-              gap={16}
+              gap={8}
               radius={0}
               expandRatio={0.9}
               grayscale={false}

@@ -10,13 +10,10 @@ import { FillButton } from "@/components/ui/fill-button";
 import { homeContent } from "@/content/site";
 import { getRoutePath, type Locale } from "@/lib/routes";
 
-const imageSrc =
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=85";
-
 const servicePreviewImages = [
-  "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1562577309-4932fdd64cd1?auto=format&fit=crop&w=800&q=80",
-  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+  "/assets/home/expectations/website.webp",
+  "/assets/home/expectations/seo.webp",
+  "/assets/home/expectations/analytics.webp",
 ];
 
 export function Expectations({ locale }: { locale: Locale }) {
@@ -66,15 +63,15 @@ export function Expectations({ locale }: { locale: Locale }) {
           ))}
         </ul>
 
-        <FrameReveal
-          src={imageSrc}
-          alt={
-            locale === "id"
-              ? "Laptop menampilkan data analitik"
-              : "Laptop showing analytics data"
-          }
-          className="mx-auto w-full max-w-md"
-        />
+        <div className="relative mx-auto aspect-4/5 w-full max-w-md overflow-hidden">
+          <FrameReveal
+            className="absolute inset-0 size-full aspect-auto"
+            images={servicePreviewImages.map((src, index) => ({
+              src,
+              alt: content.labels[index],
+            }))}
+          />
+        </div>
 
         <div>
           <h2

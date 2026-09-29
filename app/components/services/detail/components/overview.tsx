@@ -11,8 +11,7 @@ export type ServiceOverviewContent = {
   title: string;
   body: string;
   labels: string[];
-  imageSrc: string;
-  imageAlt: string;
+  images: { alt: string; src: string }[];
   cta: string;
 };
 
@@ -54,8 +53,7 @@ export function ServiceOverview({
         </div>
 
         <FrameReveal
-          src={content.imageSrc}
-          alt={content.imageAlt}
+          images={content.images}
           backgroundClassName="bg-black"
           className="mx-auto w-full max-w-md"
         />
@@ -73,7 +71,7 @@ export function ServiceOverview({
                 mobileDirection={index % 2 === 0 ? "left" : "right"}
               >
                 <DriftPreview
-                  imageSrc={content.imageSrc}
+                  imageSrc={content.images[index]?.src ?? content.images[0]?.src ?? ""}
                   imageAlt=""
                   previewWidth={224}
                   previewHeight={280}

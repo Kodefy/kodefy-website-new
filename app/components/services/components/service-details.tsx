@@ -59,7 +59,7 @@ export function ServiceDetails({ locale }: { locale: Locale }) {
                   mobileDirection={labelIndex % 2 === 0 ? "left" : "right"}
                 >
                   <DriftPreview
-                    imageSrc={service.imageSrc}
+                    imageSrc={service.images[labelIndex]?.src ?? service.images[0].src}
                     imageAlt=""
                     previewWidth={224}
                     previewHeight={280}
@@ -152,8 +152,7 @@ export function ServiceDetails({ locale }: { locale: Locale }) {
                 <>
                   {copy}
                   <FrameReveal
-                    src={service.imageSrc}
-                    alt={service.imageAlt}
+                    images={service.images}
                     backgroundClassName={isDark ? "bg-white" : undefined}
                     className="mx-auto w-full max-w-md"
                   />
@@ -163,8 +162,7 @@ export function ServiceDetails({ locale }: { locale: Locale }) {
                 <>
                   {rows}
                   <FrameReveal
-                    src={service.imageSrc}
-                    alt={service.imageAlt}
+                    images={service.images}
                     backgroundClassName={isDark ? "bg-white" : undefined}
                     className="order-2 mx-auto w-full max-w-md lg:order-none"
                   />

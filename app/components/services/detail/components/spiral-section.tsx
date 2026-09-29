@@ -32,7 +32,21 @@ type InfiniteSpiralProps = {
 };
 const InfiniteSpiral = InfiniteSpiralBase as ComponentType<InfiniteSpiralProps>;
 
-export type ServiceSpiralContent = { title: string; body: string; cta: string };
+export type ServiceSpiralVisual = {
+  cardHeight?: number;
+  cardWidth?: number;
+  centerScale?: number;
+  radius?: number;
+  speed?: number;
+  verticalSpacing?: number;
+};
+
+export type ServiceSpiralContent = {
+  title: string;
+  body: string;
+  cta: string;
+  visual?: ServiceSpiralVisual;
+};
 
 export function ServiceSpiral({
   content,
@@ -45,9 +59,7 @@ export function ServiceSpiral({
   whatsappHref: string;
   sectionId?: string;
 }) {
-  const items = Array.from({ length: 8 }, (_, index) => {
-    const project = projects[index % projects.length];
-
+  const items = projects.map((project, index) => {
     return {
       id: `${project.name}-${index + 1}`,
       src: project.image,
@@ -89,17 +101,17 @@ export function ServiceSpiral({
             direction="up"
             imageFit="cover"
             grayscale={0}
-            speed={0.4}
-            radius={175}
-            cardWidth={160}
-            cardHeight={100}
-            verticalSpacing={80}
+            speed={content.visual?.speed ?? 0.3}
+            radius={content.visual?.radius ?? 150}
+            cardWidth={content.visual?.cardWidth ?? 160}
+            cardHeight={content.visual?.cardHeight ?? 100}
+            verticalSpacing={content.visual?.verticalSpacing ?? 80}
             perspective={500}
-            cardsPerTurn={8}
+            cardsPerTurn={items.length}
             rotation={0}
             cardTilt={0}
             cardRadius={0}
-            centerScale={1.2}
+            centerScale={content.visual?.centerScale ?? 1.2}
             edgeFade={0.8}
             edgeBlur={6}
             pauseOnHover={false}

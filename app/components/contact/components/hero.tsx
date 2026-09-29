@@ -5,26 +5,9 @@ import { FadeIn } from "@/components/site/fade-in";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { FillButton } from "@/components/ui/fill-button";
 import { Spotlight } from "@/components/ui/spotlight";
+import { sharedHeroDriftWallItems } from "@/content/shared-assets";
 import { business, contactPageContent } from "@/content/site";
 import type { Locale } from "@/lib/routes";
-
-const imageIds = [
-  "1556761175-b413da4baf72",
-  "1552664730-d307ca884978",
-  "1522202176988-66273c2fd55f",
-  "1460925895917-afdab827c52f",
-  "1497366216548-37526070297c",
-  "1558655146-9f40138edfeb",
-  "1551434678-e076c223a692",
-  "1497215728101-856f4ea42174",
-  "1497366754035-f200968a6e72",
-];
-
-const driftWallItems = imageIds.map((imageId) => ({
-  image: `https://images.unsplash.com/photo-${imageId}?auto=format&fit=crop&w=700&q=80`,
-  title: "Contact",
-  href: undefined,
-}));
 
 export function Hero({ locale }: { locale: Locale }) {
   const content = contactPageContent[locale].hero;
@@ -36,7 +19,10 @@ export function Hero({ locale }: { locale: Locale }) {
 
   return (
     <section className="relative isolate grid h-svh bg-black lg:grid-cols-2">
-      <div aria-hidden="true" className="absolute inset-0 overflow-hidden bg-black lg:hidden">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 overflow-hidden bg-black lg:hidden"
+      >
         <Spotlight
           className="-top-0 -right-24 sm:-top-4 sm:-right-20"
           direction="right"
@@ -49,15 +35,28 @@ export function Hero({ locale }: { locale: Locale }) {
       >
         <div className="w-full max-w-2xl">
           <h1 className="text-3xl leading-none font-light tracking-tight text-white sm:text-6xl xl:text-7xl">
-            <RevealHeadline characterStagger={0.01} revealBy="character" text={content.title} />
+            <RevealHeadline
+              characterStagger={0.01}
+              revealBy="character"
+              text={content.title}
+            />
           </h1>
           <div className="mt-8 border-t border-white/20 pt-6">
             <p className="max-w-xl text-base leading-7 text-white/70 sm:text-lg sm:leading-8">
               {content.body}
             </p>
           </div>
-          <FadeIn className="mt-8 flex flex-col gap-3 sm:flex-row" delay={0.3} stagger={0.1}>
-            <FillButton href={whatsappHref} target="_blank" rel="noreferrer" variant="solid">
+          <FadeIn
+            className="mt-8 flex flex-col gap-3 sm:flex-row"
+            delay={0.3}
+            stagger={0.1}
+          >
+            <FillButton
+              href={whatsappHref}
+              target="_blank"
+              rel="noreferrer"
+              variant="solid"
+            >
               {content.primaryCta}
               <ArrowUpRight aria-hidden="true" />
             </FillButton>
@@ -70,10 +69,10 @@ export function Hero({ locale }: { locale: Locale }) {
       </div>
       <div className="hidden overflow-hidden bg-black lg:block">
         <DriftWall
-          items={driftWallItems}
+          items={sharedHeroDriftWallItems}
           columns={3}
           tileWidth={320}
-          tileHeight={200}
+          tileHeight={180}
           gap={14}
           tilt={25}
           turn={-20}

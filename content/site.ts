@@ -566,8 +566,7 @@ export const servicesPageContent: Record<
     };
     details: {
       body: string;
-      imageAlt: string;
-      imageSrc: string;
+      images: { alt: string; src: string }[];
       labels: string[];
       slug: string;
       title: string;
@@ -620,9 +619,12 @@ export const servicesPageContent: Record<
         body:
           "We design and build focused websites that make your offer clear, build confidence, and give prospective customers a practical next step.",
         labels: ["Company Profile", "Landing Page", "E-commerce", "Portfolio"],
-        imageSrc:
-          "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=85",
-        imageAlt: "A website shown on a laptop screen",
+        images: [
+          { src: "/assets/services/service-details/company_profile.webp", alt: "Company profile website" },
+          { src: "/assets/services/service-details/landing_page.webp", alt: "Landing page website" },
+          { src: "/assets/services/service-details/e-commerce.webp", alt: "E-commerce website" },
+          { src: "/assets/services/service-details/portfolio.webp", alt: "Portfolio website" },
+        ],
       },
       {
         slug: "seo",
@@ -630,9 +632,11 @@ export const servicesPageContent: Record<
         body:
           "From a sound initial setup to ongoing growth, we help search engines understand your important pages and help the right people discover them.",
         labels: ["SEO Setup", "Technical SEO Audit", "Monthly SEO Growth"],
-        imageSrc:
-          "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1200&q=85",
-        imageAlt: "Laptop displaying search performance data",
+        images: [
+          { src: "/assets/services/service-details/seo_setup.webp", alt: "SEO setup dashboard" },
+          { src: "/assets/services/service-details/technical_seo_audit.webp", alt: "Technical SEO audit" },
+          { src: "/assets/services/service-details/monthly_seo_growth.webp", alt: "Monthly SEO growth" },
+        ],
       },
       {
         slug: "analytics",
@@ -640,9 +644,9 @@ export const servicesPageContent: Record<
         body:
           "We set up practical analytics around the actions that matter, so you can see how visitors engage and make decisions with more confidence.",
         labels: ["Analytics Setup"],
-        imageSrc:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",
-        imageAlt: "Analytics dashboard shown on a laptop",
+        images: [
+          { src: "/assets/services/service-details/analytics_setup.webp", alt: "Analytics dashboard" },
+        ],
       },
     ],
   },
@@ -691,9 +695,12 @@ export const servicesPageContent: Record<
         body:
           "Kami merancang dan membangun website yang terarah untuk menjelaskan penawaran, membangun kepercayaan, dan memberi calon pelanggan langkah berikutnya yang jelas.",
         labels: ["Company Profile", "Landing Page", "E-commerce", "Portfolio"],
-        imageSrc:
-          "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?auto=format&fit=crop&w=1200&q=85",
-        imageAlt: "Website ditampilkan pada layar laptop",
+        images: [
+          { src: "/assets/services/service-details/company_profile.webp", alt: "Website company profile" },
+          { src: "/assets/services/service-details/landing_page.webp", alt: "Landing page website" },
+          { src: "/assets/services/service-details/e-commerce.webp", alt: "Website e-commerce" },
+          { src: "/assets/services/service-details/portfolio.webp", alt: "Website portfolio" },
+        ],
       },
       {
         slug: "seo",
@@ -701,9 +708,11 @@ export const servicesPageContent: Record<
         body:
           "Dari setup awal yang tepat hingga pertumbuhan berkelanjutan, kami membantu mesin pencari memahami halaman penting Anda dan membantu audiens yang tepat menemukannya.",
         labels: ["SEO Setup", "Technical SEO Audit", "Monthly SEO Growth"],
-        imageSrc:
-          "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?auto=format&fit=crop&w=1200&q=85",
-        imageAlt: "Laptop menampilkan data performa pencarian",
+        images: [
+          { src: "/assets/services/service-details/seo_setup.webp", alt: "Dashboard setup SEO" },
+          { src: "/assets/services/service-details/technical_seo_audit.webp", alt: "Technical SEO audit" },
+          { src: "/assets/services/service-details/monthly_seo_growth.webp", alt: "Pertumbuhan SEO bulanan" },
+        ],
       },
       {
         slug: "analytics",
@@ -711,9 +720,9 @@ export const servicesPageContent: Record<
         body:
           "Kami menyiapkan analitik praktis untuk aksi yang penting, agar Anda dapat melihat bagaimana pengunjung berinteraksi dan mengambil keputusan dengan lebih yakin.",
         labels: ["Setup Analitik"],
-        imageSrc:
-          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=85",
-        imageAlt: "Dashboard analitik ditampilkan pada laptop",
+        images: [
+          { src: "/assets/services/service-details/analytics_setup.webp", alt: "Dashboard setup analitik" },
+        ],
       },
     ],
   },
@@ -729,11 +738,19 @@ export const webDevelopmentPageContent: Record<
       secondaryCta: string;
     };
     trust: { label: string; logosLabel: string };
+    overview: {
+      title: string;
+      body: string;
+      labels: string[];
+      images: { alt: string; src: string }[];
+      cta: string;
+    };
     selectedWork: {
       title: string;
       body: string;
       primaryCta: string;
       phoneCta: string;
+      projects: { name: string; image: string; alt: string }[];
     };
     testimonials?: {
       title: string;
@@ -746,7 +763,20 @@ export const webDevelopmentPageContent: Record<
         imageAlt: string;
       }[];
     };
-    spiral: { title: string; body: string; cta: string };
+    spiral: {
+      title: string;
+      body: string;
+      cta: string;
+      projects: { name: string; image: string; alt: string }[];
+      visual?: {
+        cardHeight?: number;
+        cardWidth?: number;
+        centerScale?: number;
+        radius?: number;
+        speed?: number;
+        verticalSpacing?: number;
+      };
+    };
     process: {
       title: string;
       primaryCta: string;
@@ -777,12 +807,54 @@ export const webDevelopmentPageContent: Record<
       label: "Trusted by businesses across industries.",
       logosLabel: "Selected client brands",
     },
+    overview: {
+      title: "A website that makes your business easier to understand.",
+      body:
+        "We build the website format that best fits your business, audience, and the action you want prospective customers to take.",
+      labels: ["Company Profile", "Landing Page", "E-commerce", "Portfolio"],
+      images: [
+        {
+          src: "/assets/services/detail/web-development/overview/company_profile.webp",
+          alt: "Company profile website example",
+        },
+        {
+          src: "/assets/services/detail/web-development/overview/landing_page.webp",
+          alt: "Landing page website example",
+        },
+        {
+          src: "/assets/services/detail/web-development/overview/e-commerce.webp",
+          alt: "E-commerce website example",
+        },
+        {
+          src: "/assets/services/detail/web-development/overview/portfolio.webp",
+          alt: "Portfolio website example",
+        },
+      ],
+      cta: "Discuss this service",
+    },
     selectedWork: {
       title: "See how we bring websites to life.",
       body:
         "Explore a selection of websites we have built for businesses with different needs, industries, and audiences.",
       primaryCta: "Discuss your project",
       phoneCta: "Chat via WhatsApp",
+      projects: [
+        {
+          name: "Website project 01",
+          image: "/assets/services/detail/web-development/selected-work/1.webp",
+          alt: "Selected website project by Kodefy",
+        },
+        {
+          name: "Website project 02",
+          image: "/assets/services/detail/web-development/selected-work/2.webp",
+          alt: "Selected website project by Kodefy",
+        },
+        {
+          name: "Website project 03",
+          image: "/assets/services/detail/web-development/selected-work/3.webp",
+          alt: "Selected website project by Kodefy",
+        },
+      ],
     },
     testimonials: {
       title: "What our clients say.",
@@ -818,6 +890,15 @@ export const webDevelopmentPageContent: Record<
       body:
         "We shape each website around the message, audience, and next step that matter most to your business.",
       cta: "Discuss your project",
+      projects: [
+        { name: "Website detail 01", image: "/assets/services/detail/web-development/spiral-section/1.webp", alt: "Website detail by Kodefy" },
+        { name: "Website detail 02", image: "/assets/services/detail/web-development/spiral-section/2.webp", alt: "Website detail by Kodefy" },
+        { name: "Website detail 03", image: "/assets/services/detail/web-development/spiral-section/3.webp", alt: "Website detail by Kodefy" },
+        { name: "Website detail 04", image: "/assets/services/detail/web-development/spiral-section/4.webp", alt: "Website detail by Kodefy" },
+        { name: "Website detail 05", image: "/assets/services/detail/web-development/spiral-section/5.webp", alt: "Website detail by Kodefy" },
+        { name: "Website detail 06", image: "/assets/services/detail/web-development/spiral-section/6.webp", alt: "Website detail by Kodefy" },
+        { name: "Website detail 07", image: "/assets/services/detail/web-development/spiral-section/7.webp", alt: "Website detail by Kodefy" },
+      ],
     },
     process: {
       title: "A clear process from the first conversation to launch.",
@@ -899,12 +980,54 @@ export const webDevelopmentPageContent: Record<
       label: "Dipercaya oleh bisnis dari berbagai industri.",
       logosLabel: "Pilihan brand klien",
     },
+    overview: {
+      title: "Website yang membuat bisnis Anda lebih mudah dipahami.",
+      body:
+        "Kami membangun format website yang paling sesuai dengan bisnis, audiens, dan aksi yang ingin Anda dorong dari calon pelanggan.",
+      labels: ["Company Profile", "Landing Page", "E-commerce", "Portfolio"],
+      images: [
+        {
+          src: "/assets/services/detail/web-development/overview/company_profile.webp",
+          alt: "Contoh website company profile",
+        },
+        {
+          src: "/assets/services/detail/web-development/overview/landing_page.webp",
+          alt: "Contoh landing page",
+        },
+        {
+          src: "/assets/services/detail/web-development/overview/e-commerce.webp",
+          alt: "Contoh website e-commerce",
+        },
+        {
+          src: "/assets/services/detail/web-development/overview/portfolio.webp",
+          alt: "Contoh website portfolio",
+        },
+      ],
+      cta: "Diskusikan layanan ini",
+    },
     selectedWork: {
       title: "Lihat bagaimana kami mewujudkan website untuk bisnis.",
       body:
         "Lihat pilihan website yang kami bangun untuk bisnis dengan kebutuhan, industri, dan karakter yang berbeda.",
       primaryCta: "Diskusikan proyek Anda",
       phoneCta: "Chat via WhatsApp",
+      projects: [
+        {
+          name: "Proyek website 01",
+          image: "/assets/services/detail/web-development/selected-work/1.webp",
+          alt: "Pilihan proyek website oleh Kodefy",
+        },
+        {
+          name: "Proyek website 02",
+          image: "/assets/services/detail/web-development/selected-work/2.webp",
+          alt: "Pilihan proyek website oleh Kodefy",
+        },
+        {
+          name: "Proyek website 03",
+          image: "/assets/services/detail/web-development/selected-work/3.webp",
+          alt: "Pilihan proyek website oleh Kodefy",
+        },
+      ],
     },
     testimonials: {
       title: "Apa kata klien kami.",
@@ -940,6 +1063,15 @@ export const webDevelopmentPageContent: Record<
       body:
         "Setiap website kami buat berdasarkan pesan yang ingin disampaikan, audiens yang dituju, dan tujuan bisnis Anda.",
       cta: "Diskusikan proyek Anda",
+      projects: [
+        { name: "Detail website 01", image: "/assets/services/detail/web-development/spiral-section/1.webp", alt: "Detail website oleh Kodefy" },
+        { name: "Detail website 02", image: "/assets/services/detail/web-development/spiral-section/2.webp", alt: "Detail website oleh Kodefy" },
+        { name: "Detail website 03", image: "/assets/services/detail/web-development/spiral-section/3.webp", alt: "Detail website oleh Kodefy" },
+        { name: "Detail website 04", image: "/assets/services/detail/web-development/spiral-section/4.webp", alt: "Detail website oleh Kodefy" },
+        { name: "Detail website 05", image: "/assets/services/detail/web-development/spiral-section/5.webp", alt: "Detail website oleh Kodefy" },
+        { name: "Detail website 06", image: "/assets/services/detail/web-development/spiral-section/6.webp", alt: "Detail website oleh Kodefy" },
+        { name: "Detail website 07", image: "/assets/services/detail/web-development/spiral-section/7.webp", alt: "Detail website oleh Kodefy" },
+      ],
     },
     process: {
       title: "Proses yang jelas dari konsultasi hingga website siap digunakan.",
@@ -1020,8 +1152,7 @@ export const seoServicePageContent: Record<
       title: string;
       body: string;
       labels: string[];
-      imageSrc: string;
-      imageAlt: string;
+      images: { alt: string; src: string }[];
       cta: string;
     };
     selectedWork: {
@@ -1036,6 +1167,14 @@ export const seoServicePageContent: Record<
       body: string;
       cta: string;
       projects: { name: string; image: string; alt: string }[];
+      visual?: {
+        cardHeight?: number;
+        cardWidth?: number;
+        centerScale?: number;
+        radius?: number;
+        speed?: number;
+        verticalSpacing?: number;
+      };
     };
     process: {
       title: string;
@@ -1072,8 +1211,20 @@ export const seoServicePageContent: Record<
       body:
         "We help strengthen your SEO foundation, uncover technical blockers, and optimise important pages so search engines, AI systems, and prospective customers can understand your business more clearly.",
       labels: ["SEO Setup", "Technical SEO Audit", "Monthly SEO Growth"],
-      imageSrc: "/assets/services/seo/seo_setup.webp",
-      imageAlt: "SEO setup work shown on a laptop",
+      images: [
+        {
+          src: "/assets/services/detail/seo/overview/seo_setup.webp",
+          alt: "SEO setup work shown on a laptop",
+        },
+        {
+          src: "/assets/services/detail/seo/overview/technical_seo_audit.webp",
+          alt: "Technical SEO audit work shown on a laptop",
+        },
+        {
+          src: "/assets/services/detail/seo/overview/monthly_seo_growth.webp",
+          alt: "Monthly SEO growth work shown on a laptop",
+        },
+      ],
       cta: "Discuss this service",
     },
     selectedWork: {
@@ -1084,19 +1235,19 @@ export const seoServicePageContent: Record<
       phoneCta: "Chat via WhatsApp",
       projects: [
         {
-          name: "SEO Setup",
-          image: "/assets/services/seo/seo_setup.webp",
-          alt: "SEO setup performance example",
+          name: "Organic Growth",
+          image: "/assets/services/detail/seo/selected-work/organic-growth.webp",
+          alt: "Google Search Console organic growth comparison",
         },
         {
-          name: "Technical SEO Audit",
-          image: "/assets/services/seo/technical_seo_audit.webp",
-          alt: "Technical SEO audit example",
+          name: "Page Visibility",
+          image: "/assets/services/detail/seo/selected-work/page-visibility.webp",
+          alt: "Google Search Console page visibility comparison",
         },
         {
-          name: "Monthly SEO Growth",
-          image: "/assets/services/seo/monthly_seo_growth.webp",
-          alt: "Monthly SEO growth example",
+          name: "Technical Quality",
+          image: "/assets/services/detail/seo/selected-work/technical-quality.webp",
+          alt: "Lighthouse technical quality report",
         },
       ],
     },
@@ -1105,21 +1256,34 @@ export const seoServicePageContent: Record<
       body:
         "Every website has different goals and challenges. That is why our SEO work focuses on the pages, blockers, and opportunities that matter most to your business.",
       cta: "Discuss your SEO needs",
+      visual: {
+        cardWidth: 280,
+        cardHeight: 175,
+        centerScale: 1.3,
+        radius: 190,
+        speed: 0.18,
+        verticalSpacing: 115,
+      },
       projects: [
         {
-          name: "SEO Setup",
-          image: "/assets/services/seo/seo_setup.webp",
-          alt: "SEO setup performance example",
+          name: "Query analysis",
+          image: "/assets/services/detail/seo/spiral-section/1.webp",
+          alt: "Google Search Console query analysis",
         },
         {
-          name: "Technical SEO Audit",
-          image: "/assets/services/seo/technical_seo_audit.webp",
-          alt: "Technical SEO audit example",
+          name: "On-page optimisation",
+          image: "/assets/services/detail/seo/spiral-section/2.webp",
+          alt: "On-page SEO inspection",
         },
         {
-          name: "Monthly SEO Growth",
-          image: "/assets/services/seo/monthly_seo_growth.webp",
-          alt: "Monthly SEO growth example",
+          name: "Crawl overview",
+          image: "/assets/services/detail/seo/spiral-section/3.webp",
+          alt: "Screaming Frog website crawl overview",
+        },
+        {
+          name: "Issue prioritisation",
+          image: "/assets/services/detail/seo/spiral-section/4.webp",
+          alt: "Screaming Frog technical SEO issue prioritisation",
         },
       ],
     },
@@ -1213,8 +1377,20 @@ export const seoServicePageContent: Record<
       body:
         "Kami membantu memperkuat fondasi SEO, menemukan hambatan teknis, dan mengoptimalkan halaman penting agar mesin pencari, AI, dan calon pelanggan dapat memahami bisnis Anda dengan lebih jelas.",
       labels: ["SEO Setup", "Technical SEO Audit", "Monthly SEO Growth"],
-      imageSrc: "/assets/services/seo/seo_setup.webp",
-      imageAlt: "Pekerjaan SEO setup pada layar laptop",
+      images: [
+        {
+          src: "/assets/services/detail/seo/overview/seo_setup.webp",
+          alt: "Pekerjaan SEO setup pada layar laptop",
+        },
+        {
+          src: "/assets/services/detail/seo/overview/technical_seo_audit.webp",
+          alt: "Pekerjaan technical SEO audit pada layar laptop",
+        },
+        {
+          src: "/assets/services/detail/seo/overview/monthly_seo_growth.webp",
+          alt: "Pekerjaan monthly SEO growth pada layar laptop",
+        },
+      ],
       cta: "Diskusikan layanan ini",
     },
     selectedWork: {
@@ -1225,19 +1401,19 @@ export const seoServicePageContent: Record<
       phoneCta: "Chat via WhatsApp",
       projects: [
         {
-          name: "SEO Setup",
-          image: "/assets/services/seo/seo_setup.webp",
-          alt: "Contoh performa SEO setup",
+          name: "Pertumbuhan organik",
+          image: "/assets/services/detail/seo/selected-work/organic-growth.webp",
+          alt: "Perbandingan pertumbuhan organik di Google Search Console",
         },
         {
-          name: "Technical SEO Audit",
-          image: "/assets/services/seo/technical_seo_audit.webp",
-          alt: "Contoh technical SEO audit",
+          name: "Visibilitas halaman",
+          image: "/assets/services/detail/seo/selected-work/page-visibility.webp",
+          alt: "Perbandingan visibilitas halaman di Google Search Console",
         },
         {
-          name: "Monthly SEO Growth",
-          image: "/assets/services/seo/monthly_seo_growth.webp",
-          alt: "Contoh pertumbuhan SEO bulanan",
+          name: "Kualitas teknis",
+          image: "/assets/services/detail/seo/selected-work/technical-quality.webp",
+          alt: "Laporan kualitas teknis dari Lighthouse",
         },
       ],
     },
@@ -1246,21 +1422,34 @@ export const seoServicePageContent: Record<
       body:
         "Setiap website memiliki tujuan dan tantangan yang berbeda. Karena itu, penanganan SEO kami fokus pada halaman, hambatan, dan peluang yang paling berpengaruh bagi bisnis Anda.",
       cta: "Diskusikan kebutuhan SEO Anda",
+      visual: {
+        cardWidth: 280,
+        cardHeight: 175,
+        centerScale: 1.3,
+        radius: 190,
+        speed: 0.18,
+        verticalSpacing: 115,
+      },
       projects: [
         {
-          name: "SEO Setup",
-          image: "/assets/services/seo/seo_setup.webp",
-          alt: "Contoh performa SEO setup",
+          name: "Analisis kueri",
+          image: "/assets/services/detail/seo/spiral-section/1.webp",
+          alt: "Analisis kueri di Google Search Console",
         },
         {
-          name: "Technical SEO Audit",
-          image: "/assets/services/seo/technical_seo_audit.webp",
-          alt: "Contoh technical SEO audit",
+          name: "Optimasi on-page",
+          image: "/assets/services/detail/seo/spiral-section/2.webp",
+          alt: "Pemeriksaan SEO on-page",
         },
         {
-          name: "Monthly SEO Growth",
-          image: "/assets/services/seo/monthly_seo_growth.webp",
-          alt: "Contoh pertumbuhan SEO bulanan",
+          name: "Ringkasan crawl",
+          image: "/assets/services/detail/seo/spiral-section/3.webp",
+          alt: "Ringkasan crawl website di Screaming Frog",
+        },
+        {
+          name: "Prioritas isu teknis",
+          image: "/assets/services/detail/seo/spiral-section/4.webp",
+          alt: "Prioritas isu technical SEO di Screaming Frog",
         },
       ],
     },
@@ -1341,8 +1530,7 @@ type AnalyticsServicePageContent = {
     title: string;
     body: string;
     labels: string[];
-    imageSrc: string;
-    imageAlt: string;
+    images: { alt: string; src: string }[];
     cta: string;
   };
   selectedWork: {
@@ -1357,6 +1545,14 @@ type AnalyticsServicePageContent = {
     body: string;
     cta: string;
     projects: { name: string; image: string; alt: string }[];
+    visual?: {
+      cardHeight?: number;
+      cardWidth?: number;
+      centerScale?: number;
+      radius?: number;
+      speed?: number;
+      verticalSpacing?: number;
+    };
   };
   process: {
     title: string;
@@ -1391,8 +1587,12 @@ export const analyticsServicePageContent: Record<Locale, AnalyticsServicePageCon
       body:
         "We set up a clean analytics foundation so important website activity can be measured, understood, and used to guide the next step.",
       labels: ["Analytics Setup"],
-      imageSrc: "/assets/services/analytics/analytics_setup.webp",
-      imageAlt: "Website analytics dashboard shown on a laptop",
+      images: [
+        {
+          src: "/assets/services/detail/analytics/overview/analytics_setup.webp",
+          alt: "Website analytics dashboard shown on a laptop",
+        },
+      ],
       cta: "Discuss this service",
     },
     selectedWork: {
@@ -1463,8 +1663,12 @@ export const analyticsServicePageContent: Record<Locale, AnalyticsServicePageCon
       body:
         "Kami menyiapkan fondasi analitik yang rapi agar aktivitas penting di website dapat diukur, dipahami, dan digunakan sebagai dasar untuk langkah berikutnya.",
       labels: ["Setup Analitik"],
-      imageSrc: "/assets/services/analytics/analytics_setup.webp",
-      imageAlt: "Dashboard analitik website pada layar laptop",
+      images: [
+        {
+          src: "/assets/services/detail/analytics/overview/analytics_setup.webp",
+          alt: "Dashboard analitik website pada layar laptop",
+        },
+      ],
       cta: "Diskusikan layanan ini",
     },
     selectedWork: {

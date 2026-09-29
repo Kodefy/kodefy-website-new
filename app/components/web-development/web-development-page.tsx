@@ -8,8 +8,6 @@ import { ServiceTestimonials } from "@/app/components/services/detail/components
 import { ServiceTrustStrip } from "@/app/components/services/detail/components/trust-strip";
 import {
   business,
-  homeContent,
-  servicesPageContent,
   webDevelopmentPageContent,
 } from "@/content/site";
 import type { Locale } from "@/lib/routes";
@@ -21,8 +19,6 @@ export function WebDevelopmentPage({ locale }: { locale: Locale }) {
       ? "Halo Kodefy, saya ingin mendiskusikan proyek website saya."
       : "Hi Kodefy, I'd like to discuss my website project.",
   )}`;
-  const overview = servicesPageContent[locale].details[0];
-
   return (
     <>
       <main id="main-content">
@@ -37,30 +33,24 @@ export function WebDevelopmentPage({ locale }: { locale: Locale }) {
           sectionId="web-development-trust"
         />
         <ServiceOverview
-          content={{
-            ...overview,
-            cta:
-              locale === "id"
-                ? "Diskusikan layanan ini"
-                : "Discuss this service",
-          }}
+          content={content.overview}
           whatsappHref={whatsappHref}
           sectionId="web-development-overview"
         />
         <ServiceSelectedWork
           content={content.selectedWork}
-          projects={homeContent[locale].projects}
+          projects={content.selectedWork.projects}
           whatsappHref={whatsappHref}
           sectionId="web-development-work"
         />
-        <ServiceTestimonials
+        {/* <ServiceTestimonials
           content={content.testimonials}
           locale={locale}
           sectionId="web-development-testimonials"
-        />
+        /> */}
         <ServiceSpiral
           content={content.spiral}
-          projects={homeContent[locale].projects}
+          projects={content.spiral.projects}
           whatsappHref={whatsappHref}
           sectionId="web-development-spiral"
         />

@@ -10,20 +10,20 @@ import { getRoutePath, type Locale } from "@/lib/routes";
 
 const mosaicImages = [
   {
-    src: "/assets/projects/lievee.webp",
-    alt: "Lievee website project",
+    src: "/assets/home/why-kodefy/company_profile.webp",
+    alt: "Company profile website",
   },
   {
-    src: "/assets/projects/qijian-technology.webp",
-    alt: "Qijian Technology website project",
+    src: "/assets/home/why-kodefy/e-commerce.webp",
+    alt: "E-commerce website",
   },
   {
-    src: "/assets/projects/sukses-pamerindo.webp",
-    alt: "Sukses Pamerindo Utama website project",
+    src: "/assets/home/why-kodefy/landing_page.webp",
+    alt: "Landing page website",
   },
   {
-    src: "/assets/projects/qijian-technology.webp",
-    alt: "Qijian Technology website project detail",
+    src: "/assets/home/why-kodefy/portfolio.webp",
+    alt: "Portfolio website",
   },
 ] as const;
 
