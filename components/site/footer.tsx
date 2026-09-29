@@ -12,6 +12,7 @@ import { LazyGrainient } from "@/components/site/lazy-grainient";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { business, homeContent } from "@/content/site";
 import { useIsMobile } from "@/hooks/use-is-mobile";
+import { trackContactFormWhatsAppAttempt } from "@/lib/contact-analytics";
 import { getRoutePath, type Locale, type RouteId } from "@/lib/routes";
 
 const socials = [
@@ -122,6 +123,7 @@ export function Footer({
     ].join("\n");
     const whatsappUrl = new URL(business.whatsapp);
     whatsappUrl.searchParams.set("text", message);
+    trackContactFormWhatsAppAttempt();
     window.open(whatsappUrl.toString(), "_blank", "noopener,noreferrer");
   };
 

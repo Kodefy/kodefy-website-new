@@ -7,6 +7,7 @@ import { FadeIn } from "@/components/site/fade-in";
 import { FadeInText } from "@/components/site/fade-in-text";
 import { RevealHeadline } from "@/components/site/reveal-headline";
 import { business, contactPageContent } from "@/content/site";
+import { trackContactFormWhatsAppAttempt } from "@/lib/contact-analytics";
 import type { Locale } from "@/lib/routes";
 
 export function ContactForm({ locale }: { locale: Locale }) {
@@ -26,6 +27,7 @@ export function ContactForm({ locale }: { locale: Locale }) {
     ].join("\n");
     const whatsappUrl = new URL(business.whatsapp);
     whatsappUrl.searchParams.set("text", message);
+    trackContactFormWhatsAppAttempt();
     window.open(whatsappUrl.toString(), "_blank", "noopener,noreferrer");
   };
 
