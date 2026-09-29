@@ -2,7 +2,7 @@ import { ServiceFaq } from "@/app/components/services/detail/components/faq";
 import { ServiceHero } from "@/app/components/services/detail/components/hero";
 import { ServiceOverview } from "@/app/components/services/detail/components/overview";
 import { ServiceProcess } from "@/app/components/services/detail/components/process";
-import { ServiceSelectedWork } from "@/app/components/services/detail/components/selected-work";
+// import { ServiceSelectedWork } from "@/app/components/services/detail/components/selected-work";
 import { ServiceSpiral } from "@/app/components/services/detail/components/spiral-section";
 import { ServiceTrustStrip } from "@/app/components/services/detail/components/trust-strip";
 import { analyticsServicePageContent, business } from "@/content/site";
@@ -31,12 +31,12 @@ export function AnalyticsPage({ locale }: { locale: Locale }) {
           whatsappHref={whatsappHref}
           sectionId="analytics-overview"
         />
-        <ServiceSelectedWork
+        {/* <ServiceSelectedWork
           content={content.selectedWork}
           projects={content.selectedWork.projects}
           whatsappHref={whatsappHref}
           sectionId="analytics-proof"
-        />
+        /> */}
         <ServiceSpiral
           content={content.spiral}
           projects={content.spiral.projects}
