@@ -4,5 +4,6 @@ export function trackContactFormWhatsAppAttempt() {
   };
 
   analyticsWindow.dataLayer ??= [];
+  // Track the handoff attempt without sending any contact-form values.
   analyticsWindow.dataLayer.push({ event: "contact_form_whatsapp_attempt" });
 }
