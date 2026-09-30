@@ -1612,10 +1612,30 @@ export const analyticsServicePageContent: Record<Locale, AnalyticsServicePageCon
       body:
         "Every business has different goals and important actions on its website. That is why our analytics setup is tailored to the information you need to understand what is happening on your website.",
       cta: "Discuss your analytics needs",
+      visual: {
+        cardWidth: 280,
+        cardHeight: 158,
+        centerScale: 1.3,
+        radius: 190,
+        speed: 0.18,
+        verticalSpacing: 115,
+      },
       projects: [
-        { name: "Analytics Setup", image: "/assets/services/analytics/analytics_setup.webp", alt: "Analytics setup example" },
-        { name: "Website Analytics", image: "/assets/services/analytics/analytics.webp", alt: "Website analytics example" },
-        { name: "Measurement", image: "/assets/services/analytics/analytics_setup.webp", alt: "Website measurement example" },
+        {
+          name: "WhatsApp form tracking",
+          image: "/assets/services/detail/analytics/spiral-section/1.webp",
+          alt: "Google Analytics DebugView showing a WhatsApp contact form event from the live website",
+        },
+        {
+          name: "WhatsApp link tracking",
+          image: "/assets/services/detail/analytics/spiral-section/2.webp",
+          alt: "Google Analytics DebugView showing a WhatsApp link click event from the live website",
+        },
+        {
+          name: "Recorded website events",
+          image: "/assets/services/detail/analytics/spiral-section/3.webp",
+          alt: "Google Analytics recent events listing WhatsApp form attempts and contact clicks",
+        },
       ],
     },
     process: {
@@ -1688,10 +1708,30 @@ export const analyticsServicePageContent: Record<Locale, AnalyticsServicePageCon
       body:
         "Setiap bisnis memiliki tujuan dan aksi penting yang berbeda di website-nya. Karena itu, setup analitik kami disesuaikan dengan informasi yang benar-benar dibutuhkan untuk memahami apa yang terjadi di website Anda.",
       cta: "Diskusikan kebutuhan analitik Anda",
+      visual: {
+        cardWidth: 280,
+        cardHeight: 158,
+        centerScale: 1.3,
+        radius: 190,
+        speed: 0.18,
+        verticalSpacing: 115,
+      },
       projects: [
-        { name: "Setup Analitik", image: "/assets/services/analytics/analytics_setup.webp", alt: "Contoh setup analitik" },
-        { name: "Analitik Website", image: "/assets/services/analytics/analytics.webp", alt: "Contoh analitik website" },
-        { name: "Pengukuran", image: "/assets/services/analytics/analytics_setup.webp", alt: "Contoh pengukuran website" },
+        {
+          name: "Pelacakan formulir WhatsApp",
+          image: "/assets/services/detail/analytics/spiral-section/1.webp",
+          alt: "DebugView Google Analytics menampilkan event formulir kontak WhatsApp dari website aktif",
+        },
+        {
+          name: "Pelacakan tautan WhatsApp",
+          image: "/assets/services/detail/analytics/spiral-section/2.webp",
+          alt: "DebugView Google Analytics menampilkan event klik tautan WhatsApp dari website aktif",
+        },
+        {
+          name: "Event website tercatat",
+          image: "/assets/services/detail/analytics/spiral-section/3.webp",
+          alt: "Daftar event terbaru Google Analytics menampilkan upaya formulir WhatsApp dan klik kontak",
+        },
       ],
     },
     process: {
