@@ -44,6 +44,8 @@ const DriftWall = ({
   pauseOnHover = false,
   lift = 64,
   fade = 0.6,
+  fadeIn = true,
+  fadeInTime = 3,
   dim = 0.55,
   grayscale = false,
   overlayColor = '#060010',
@@ -218,9 +220,10 @@ const DriftWall = ({
       '--dw-gray': grayscale ? 1 : 0,
       '--dw-overlay': overlayColor,
       '--dw-edge': `${Math.max(0, (1 - fade) * 100)}%`,
+      '--dw-fade-in-time': `${Math.max(0, fadeInTime)}s`,
       ...style
     }),
-    [tileWidth, tileHeight, gap, radius, perspective, lift, dim, grayscale, overlayColor, fade, style]
+    [tileWidth, tileHeight, gap, radius, perspective, lift, dim, grayscale, overlayColor, fade, fadeInTime, style]
   );
 
   const renderTile = (item, id, colIndex) => {
@@ -251,7 +254,7 @@ const DriftWall = ({
     );
   };
 
-  const rootClass = ['drift-wall', reduced ? 'drift-wall--reduced' : '', className].filter(Boolean).join(' ');
+  const rootClass = ['drift-wall', fadeIn ? 'drift-wall--fade-in' : '', reduced ? 'drift-wall--reduced' : '', className].filter(Boolean).join(' ');
 
   return (
     <div

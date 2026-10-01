@@ -24,6 +24,15 @@
   mask-composite: intersect;
 }
 
+.drift-wall--fade-in {
+  animation: drift-wall-fade-in var(--dw-fade-in-time, 0.9s) ease-out both;
+}
+
+@keyframes drift-wall-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 .drift-wall__plane {
   position: absolute;
   top: 50%;
@@ -119,6 +128,10 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .drift-wall--fade-in {
+    animation: none;
+  }
+
   .drift-wall__plane,
   .drift-wall__track {
     will-change: auto;
