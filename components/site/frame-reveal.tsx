@@ -70,11 +70,11 @@ export function FrameReveal({
   const firstImage = imageItems[0];
   const [hasEntered, setHasEntered] = useState(false);
   const [hasInitialRevealCompleted, setHasInitialRevealCompleted] = useState(false);
+  const [hasMountedCarousel, setHasMountedCarousel] = useState(false);
   const [internalActiveIndex, setInternalActiveIndex] = useState(0);
   const [internalTransitionKey, setInternalTransitionKey] = useState(0);
   const elementRef = useRef<HTMLDivElement>(null);
   const activeIndexRef = useRef(0);
-  const hasMountedCarouselRef = useRef(false);
   const onActiveIndexChangeRef = useRef(onActiveIndexChange);
   const onRevealCompleteRef = useRef(onRevealComplete);
   const currentActiveIndex = Math.min(
@@ -125,12 +125,6 @@ export function FrameReveal({
   }, [delayMs, hasEntered]);
 
   useEffect(() => {
-    if (!hasInitialRevealCompleted) return;
-
-    hasMountedCarouselRef.current = true;
-  }, [hasInitialRevealCompleted]);
-
-  useEffect(() => {
     if (!hasInitialRevealCompleted || imageItems.length < 2) return;
 
     const timer = window.setInterval(() => {
@@ -148,7 +142,6 @@ export function FrameReveal({
 
   if (!firstImage || !currentImage) return null;
 
-  const shouldAnimateCarouselImage = hasMountedCarouselRef.current;
   const resolvedTransitionKey = transitionKey ?? internalTransitionKey;
   const carouselInitialState =
     carouselRevealFrom === "bottom"
@@ -230,13 +223,14 @@ export function FrameReveal({
             src={currentImage.src}
             alt={currentImage.alt}
             initial={
-              shouldAnimateCarouselImage
+              hasMountedCarousel
                 ? carouselInitialState
                 : false
             }
             animate={{ clipPath: "inset(0 0 0 0)", scale: 1, y: "0%" }}
             exit={{ opacity: 0.999 }}
             transition={{ duration: 1, ease: [0.16, 0.95, 0.22, 1] }}
+            onAnimationComplete={() => setHasMountedCarousel(true)}
             className="absolute inset-0 z-20 h-full w-full object-cover"
           />
         </AnimatePresence>

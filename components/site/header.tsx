@@ -102,6 +102,7 @@ export function Header({
 
     routeCloseTimerRef.current = setTimeout(() => {
       setIsRouteClosing(true);
+      setHasMenuEntered(false);
       setOpen(false);
       routeCloseTimerRef.current = null;
     }, 400);
@@ -125,10 +126,7 @@ export function Header({
   );
 
   useEffect(() => {
-    if (!open) {
-      setHasMenuEntered(false);
-      return;
-    }
+    if (!open) return;
 
     let animationFrame = requestAnimationFrame(() => {
       animationFrame = requestAnimationFrame(() => setHasMenuEntered(true));
@@ -149,6 +147,7 @@ export function Header({
           setIsRouteClosing(false);
           setIsRouteTransitioning(false);
         } else if (!isRouteTransitioning) {
+          setHasMenuEntered(false);
           setIsRouteClosing(false);
         }
       }}

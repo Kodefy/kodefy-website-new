@@ -19,9 +19,9 @@ export function RemoteCollaboration({ locale }: { locale: Locale }) {
   return (
     <section
       data-fill-button-surface="dark"
-      className="bg-black py-20 text-white sm:py-28 lg:py-36"
+      className="flex min-h-svh items-center bg-black py-20 text-white sm:py-28 lg:py-36"
     >
-      <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div className="grid w-full gap-12 lg:grid-cols-2 lg:items-center">
         <div className="px-6 sm:px-8 lg:px-0">
           <WorldMap
             lineColor="#fff"

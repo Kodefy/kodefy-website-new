@@ -9,7 +9,6 @@ import { Hero } from "@/app/components/home/components/hero";
 import { Process } from "@/app/components/home/components/process";
 import { Services } from "@/app/components/home/components/services";
 import { SuccessStories } from "@/app/components/home/components/success-stories";
-import { Testimonials } from "@/app/components/home/components/testimonials";
 import { WhyKodefy } from "@/app/components/home/components/why-kodefy";
 import { Button } from "@/components/ui/button";
 import { business, homeContent } from "@/content/site";
@@ -46,7 +45,7 @@ export function HomePage({ locale }: { locale: Locale }) {
 
         <Process locale={locale} />
 
-        <Testimonials locale={locale} />
+        {/* Testimonials are hidden until genuine client reviews are available. */}
 
       </main>
     </>
