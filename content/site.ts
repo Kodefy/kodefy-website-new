@@ -1236,17 +1236,17 @@ export const seoServicePageContent: Record<
       projects: [
         {
           name: "Organic Growth",
-          image: "/assets/services/detail/seo/selected-work/organic-growth.webp",
+          image: "/assets/services/detail/seo/selected-work/1.webp",
           alt: "Google Search Console organic growth comparison",
         },
         {
           name: "Page Visibility",
-          image: "/assets/services/detail/seo/selected-work/page-visibility.webp",
+          image: "/assets/services/detail/seo/selected-work/2.webp",
           alt: "Google Search Console page visibility comparison",
         },
         {
           name: "Technical Quality",
-          image: "/assets/services/detail/seo/selected-work/technical-quality.webp",
+          image: "/assets/services/detail/seo/selected-work/3.webp",
           alt: "Lighthouse technical quality report",
         },
       ],
@@ -1402,17 +1402,17 @@ export const seoServicePageContent: Record<
       projects: [
         {
           name: "Pertumbuhan organik",
-          image: "/assets/services/detail/seo/selected-work/organic-growth.webp",
+          image: "/assets/services/detail/seo/selected-work/1.webp",
           alt: "Perbandingan pertumbuhan organik di Google Search Console",
         },
         {
           name: "Visibilitas halaman",
-          image: "/assets/services/detail/seo/selected-work/page-visibility.webp",
+          image: "/assets/services/detail/seo/selected-work/2.webp",
           alt: "Perbandingan visibilitas halaman di Google Search Console",
         },
         {
           name: "Kualitas teknis",
-          image: "/assets/services/detail/seo/selected-work/technical-quality.webp",
+          image: "/assets/services/detail/seo/selected-work/3.webp",
           alt: "Laporan kualitas teknis dari Lighthouse",
         },
       ],
