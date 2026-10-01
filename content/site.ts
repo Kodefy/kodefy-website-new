@@ -1880,17 +1880,16 @@ export const aboutPageContent: Record<
       body:
         "After working as a freelancer and full-time, Brian saw many businesses spend their digital budgets on drawn-out, inefficient work. Scopes were often unclear, work was repeated, and costs kept increasing without results that matched the investment.\n\nKodefy was built to offer a better way: websites, SEO, and analytics shaped around what a business actually needs, with clear scope and sensible costs. The goal is simple, to help brands and businesses grow without unnecessary spending.",
       cta: "Discuss your project",
-      imageSrc:
-        "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85",
-      imageAlt: "People discussing work around a table",
+      imageSrc: "/assets/about/story.webp",
+      imageAlt: "Kodefy development workspace with website work on the monitors",
     },
     whyChooseUs: {
       title: "Why brands and businesses choose us.",
       body:
         "Kodefy has worked with businesses across different industries and sizes. We focus on the website, SEO, and analytics work that is genuinely needed, without adding processes or features that do not make a difference. Clear scope and open communication help your digital budget go toward the work that matters.",
       cta: "Explore our services",
-      imageSrc: "/assets/projects/lievee.webp",
-      imageAlt: "Lievee website project",
+      imageSrc: "/assets/about/why-choose-us.webp",
+      imageAlt: "Amerika Latin entrance with equestrian statues",
     },
     values: {
       title: "The values we work by.",
@@ -1910,7 +1909,7 @@ export const aboutPageContent: Record<
       ],
     },
     remoteCollaboration: {
-      title: "Work together, from anywhere.",
+      title: "Serving you, wherever you are.",
       emailLabel: "Email",
       phoneLabel: "Phone",
       whatsappCta: "Chat on WhatsApp",
@@ -1957,17 +1956,16 @@ export const aboutPageContent: Record<
       body:
         "Setelah bekerja sebagai freelancer dan full-time, Brian melihat banyak bisnis menghabiskan anggaran digital untuk proses yang berbelit dan tidak efisien. Scope sering tidak jelas, pekerjaan berulang, dan biaya terus bertambah tanpa hasil yang sepadan.\n\nKodefy dibangun untuk menawarkan cara kerja yang lebih baik: website, SEO, dan analitik yang dibuat sesuai kebutuhan bisnis, dengan scope yang jelas dan biaya yang masuk akal. Tujuannya sederhana, membantu brand dan bisnis bertumbuh tanpa pengeluaran yang tidak perlu.",
       cta: "Diskusikan proyek Anda",
-      imageSrc:
-        "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85",
-      imageAlt: "Orang-orang berdiskusi di meja kerja",
+      imageSrc: "/assets/about/story.webp",
+      imageAlt: "Ruang kerja pengembangan Kodefy dengan pekerjaan website di monitor",
     },
     whyChooseUs: {
       title: "Kenapa brand dan bisnis memilih kami.",
       body:
         "Kodefy telah bekerja dengan bisnis dari berbagai industri dan skala. Kami fokus pada website, SEO, dan analitik yang benar-benar dibutuhkan, tanpa menambah proses atau fitur yang tidak memberi dampak. Scope yang jelas dan komunikasi yang terbuka membantu anggaran digital Anda digunakan untuk hal yang lebih tepat.",
       cta: "Lihat layanan kami",
-      imageSrc: "/assets/projects/lievee.webp",
-      imageAlt: "Proyek website Lievee",
+      imageSrc: "/assets/about/why-choose-us.webp",
+      imageAlt: "Gerbang Amerika Latin dengan patung berkuda",
     },
     values: {
       title: "Nilai yang kami pegang.",
@@ -1987,7 +1985,7 @@ export const aboutPageContent: Record<
       ],
     },
     remoteCollaboration: {
-      title: "Bekerja bersama, dari mana saja.",
+      title: "Melayani anda, dari mana saja.",
       emailLabel: "Email",
       phoneLabel: "Nomor telepon",
       whatsappCta: "Chat via WhatsApp",

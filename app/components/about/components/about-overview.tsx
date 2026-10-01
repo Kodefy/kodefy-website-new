@@ -8,11 +8,11 @@ import type { Locale } from "@/lib/routes";
 
 const images = {
   primary: {
-    src: "/assets/projects/qijian-technology.webp",
+    src: "/assets/about/overview-primary.webp",
     alt: "Qijian Technology website project",
   },
   secondary: {
-    src: "/assets/projects/sukses-pamerindo.webp",
+    src: "/assets/about/overview-secondary.webp",
     alt: "Sukses Pamerindo Utama website project",
   },
 };

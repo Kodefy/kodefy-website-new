@@ -44,36 +44,31 @@ export function Header({
       routeId: "home",
       label: locale === "id" ? "Beranda" : "Home",
       href: homePath,
-      imageSrc:
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800&q=80",
+      imageSrc: "/assets/navigation/home.webp",
     },
     {
       routeId: "services",
       label: content.navigation.services,
       href: getRoutePath("services", locale),
-      imageSrc:
-        "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=800&q=80",
+      imageSrc: "/assets/navigation/services.webp",
     },
     {
       routeId: "portfolio",
       label: content.navigation.work,
       href: getRoutePath("portfolio", locale),
-      imageSrc:
-        "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+      imageSrc: "/assets/navigation/portfolio.webp",
     },
     {
       routeId: "about",
       label: locale === "id" ? "Tentang" : "About",
       href: getRoutePath("about", locale),
-      imageSrc:
-        "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80",
+      imageSrc: "/assets/navigation/about.webp",
     },
     {
       routeId: "contact",
       label: locale === "id" ? "Kontak" : "Contact",
       href: getRoutePath("contact", locale),
-      imageSrc:
-        "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
+      imageSrc: "/assets/navigation/contact.webp",
     },
   ];
   const whatsappHref = `${business.whatsapp}?text=${encodeURIComponent(
