@@ -70,7 +70,7 @@ export function FrameReveal({
   const firstImage = imageItems[0];
   const [hasEntered, setHasEntered] = useState(false);
   const [hasInitialRevealCompleted, setHasInitialRevealCompleted] = useState(false);
-  const [hasMountedCarousel, setHasMountedCarousel] = useState(false);
+  const [carouselImagesReady, setCarouselImagesReady] = useState(false);
   const [internalActiveIndex, setInternalActiveIndex] = useState(0);
   const [internalTransitionKey, setInternalTransitionKey] = useState(0);
   const elementRef = useRef<HTMLDivElement>(null);
@@ -82,6 +82,7 @@ export function FrameReveal({
     Math.max(imageItems.length - 1, 0),
   );
   const currentImage = imageItems[currentActiveIndex] ?? firstImage;
+  const carouselSources = imageItems.slice(1).map((item) => item.src).join("\n");
 
   useEffect(() => {
     onActiveIndexChangeRef.current = onActiveIndexChange;
@@ -125,7 +126,31 @@ export function FrameReveal({
   }, [delayMs, hasEntered]);
 
   useEffect(() => {
-    if (!hasInitialRevealCompleted || imageItems.length < 2) return;
+    if (!hasEntered || !carouselSources) return;
+
+    let cancelled = false;
+    const sources = carouselSources.split("\n");
+    Promise.all(
+      sources.map(
+        (source) =>
+          new Promise<void>((resolve) => {
+            const image = new Image();
+            image.onload = () => resolve();
+            image.onerror = () => resolve();
+            image.src = source;
+          }),
+      ),
+    ).then(() => {
+      if (!cancelled) setCarouselImagesReady(true);
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [carouselSources, hasEntered]);
+
+  useEffect(() => {
+    if (!hasInitialRevealCompleted || !carouselImagesReady || imageItems.length < 2) return;
 
     const timer = window.setInterval(() => {
       const nextIndex = (activeIndexRef.current + 1) % imageItems.length;
@@ -138,7 +163,7 @@ export function FrameReveal({
     }, intervalMs);
 
     return () => window.clearInterval(timer);
-  }, [activeIndex, currentActiveIndex, hasInitialRevealCompleted, imageItems.length, intervalMs]);
+  }, [activeIndex, carouselImagesReady, currentActiveIndex, hasInitialRevealCompleted, imageItems.length, intervalMs]);
 
   if (!firstImage || !currentImage) return null;
 
@@ -223,14 +248,13 @@ export function FrameReveal({
             src={currentImage.src}
             alt={currentImage.alt}
             initial={
-              hasMountedCarousel
-                ? carouselInitialState
-                : false
+              currentActiveIndex === 0 && resolvedTransitionKey === 0
+                ? false
+                : carouselInitialState
             }
             animate={{ clipPath: "inset(0 0 0 0)", scale: 1, y: "0%" }}
             exit={{ opacity: 0.999 }}
             transition={{ duration: 1, ease: [0.16, 0.95, 0.22, 1] }}
-            onAnimationComplete={() => setHasMountedCarousel(true)}
             className="absolute inset-0 z-20 h-full w-full object-cover"
           />
         </AnimatePresence>
